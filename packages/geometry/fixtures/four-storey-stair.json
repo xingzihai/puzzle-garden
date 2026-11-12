@@ -1,0 +1,14 @@
+{
+  "walls": {
+    "footprint": { "minX": -10, "minZ": -10, "maxX": 10, "maxZ": 10 },
+    "y": 1,
+    "storeys": { "count": 4, "height": 8 },
+    "material": "stone"
+  },
+  "stair": {
+    "kind": "spiral",
+    "at": [0, 0],
+    "radius": 2,
+    "material": "stone_brick_stairs"
+  }
+}

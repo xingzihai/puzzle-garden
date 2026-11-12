@@ -1,0 +1,19 @@
+村口溪边茶亭（scheme-draft v2）已建成并自检通过。
+
+一、按 BuildSheet 逐轴对齐（check_code 一致性 5/5 PASS，blocking 0）
+- slab:f1 [2,0,2]..[12,1,10) polished_andesite（floorPlate，顶面 y1 = 站立面，与室外齐平）
+- wall:f1 [2,1,2]..[12,5,10) oak_planks，thickness 1 → 室内 x[3,11)×z[3,9) = 8×6 = 48㎡
+- opening:op-entry-north [3,1,2]..[5,3,3) 宽2 高2 sillY1（北墙西段，直接连通北侧村道）
+- opening:op-south-window [5,2,9]..[9,4,10) 宽4 高2 sillY2（南墙唯一洞口，洞顶在室内地面以上 3m）
+- roof [1,5,1]..[13,8,11) gable / deepslate_tiles / eave5 / ridge7 / overhang1
+
+二、室内（单一大厅，无任何隔墙、无夹层、无楼梯）
+- 东墙 4m×2m 长桌 x7..10,z5..6；北凳 x7..10,z3；南凳 x7..10,z8（5+5 十座）；西墙柜台 x3,z5..6（纯台面，无水槽无机电）；两盏吊灯（chain + lantern）在 x6,z3 与 x6,z8。probe 已核验 48 格室内 24 格非空气、位置与合同一致；门内 1m 净空带 x3..4,z3 完整空出。
+
+三、细部：墙脚一圈 stone_bricks 石基座带；四角与开间竖纹木柱（stripped_spruce_log，y2..4，y1 留石砌柱础）；y4 一圈檐下木额枋；门洞两侧竖框 + 门头横木；南窗左右木窗框与石窗下墙。明度 4 档：石砖 / 暖木 / 浅木饰 / 深瓦。
+
+四、合规确认：无台阶、无坡道、无铺装（未调用 steps/paving）、无檐下平台；单层 364 方块 ≪ 20000；无招牌/售票窗/装饰构架；悬空 0；可达目标能到。
+
+五、两处需如实记录的实现说明（均不改变任何 bounds）：
+1) 屋面按 BuildSheet 精确 ridgeHeight=7 与 eave=5 建造，8m 进深对应几何坡约 26.6°（合同标 25°），落在 ±2° 解释容差内；屋面因此呈三级退台（每 2 格升 1 格），这是脊高硬约束下的必然形态，未用手写 stairs 替代主屋面。
+2) 石基座未使用 plinth 构件：plinth 会在 y0 向四周外扩并形成可停留平台，违反 req-stone-base（不外挑成平台）与 req-no-steps；改用 walls 的 bands 在墙脚一格做 stone_bricks，既满足石基座又不抬升室内地坪。

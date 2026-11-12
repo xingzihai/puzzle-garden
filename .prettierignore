@@ -1,0 +1,22 @@
+node_modules/
+package-lock.json
+.work/
+# 导入的只读数据：内容由 sha256 清单保护，不能被格式化改写
+assets/
+
+# run-9 冻结证据：报告里的 sha256 固定了原始字节，格式化会破坏可重放性
+tools/fixtures/conformance-run9/
+tools/fixtures/conformance-run9-v2/
+tools/fixtures/design-conformance-run9/
+# live-run 冻结证据：build-spec / archive 的 sha256 固定了原始字节
+tools/fixtures/live-run-20261022/
+
+# Graphify 生成物与技能文件：由工具维护，不参与项目格式化
+graphify-out/
+.opencode/
+
+# Wave 9 live-run 冻结证据：build-spec 的 sha256 固定了原始字节
+tools/fixtures/live-run-ec0ae9/
+
+# 预算账本由 owner 维护（Wave 9 不改 docs）；其表格排版不参与格式门禁
+docs/RUN-BUDGET.md

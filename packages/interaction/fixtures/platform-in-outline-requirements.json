@@ -1,0 +1,75 @@
+{
+  "id": "reqgraph-village-tea-pavilion",
+  "revision": 3,
+  "summary": "村口溪边 10m×7m 单层矩形茶亭：南侧 2m 深檐下平台包含在建筑轮廓内，室内净尺寸约 10m×5m。",
+  "requirements": [
+    {
+      "id": "req-hall-rect",
+      "text": "主厅为一个完整矩形空间（约 10m×5m），内部不设隔墙、不划分独立房间。",
+      "quote": "主厅是一个完整矩形空间",
+      "source": "user",
+      "kind": "space",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["plan", "interior"],
+      "evidence": "用户原话第 1 段第 2 句"
+    },
+    {
+      "id": "req-platform",
+      "text": "南侧设 2m 深檐下平台（10m×2m），位于 10×7 轮廓内、完全在檐下，作为室内向溪景过渡的半室外场地。",
+      "quote": "南侧做 2m 深檐下平台",
+      "source": "user",
+      "kind": "space",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["plan", "section", "experience"],
+      "evidence": "用户原话第 1 段第 3 句；包容关系见澄清回答第 1 条"
+    }
+  ],
+  "spaces": [
+    {
+      "id": "sp-main-hall",
+      "name": "主厅",
+      "purpose": "茶亭主厅：完整矩形、无隔断，容纳座位与北墙西段固定柜台",
+      "quantity": 1,
+      "areaM2": 50,
+      "levelHint": "ground",
+      "adjacency": ["sp-south-platform"],
+      "daylight": "required",
+      "privacy": "public",
+      "notes": "室内 10m×5m（50m²），南侧 2m 带为檐下平台；北墙开 2m 门洞直接进入。"
+    },
+    {
+      "id": "sp-south-platform",
+      "name": "南侧檐下平台",
+      "purpose": "2m 深半室外平台，室内到溪景的过渡与延伸停留空间",
+      "quantity": 1,
+      "areaM2": 20,
+      "levelHint": "ground",
+      "adjacency": ["sp-main-hall"],
+      "daylight": "required",
+      "privacy": "semi-public",
+      "notes": "10m×2m，位于 10×7 轮廓内南侧带，完全在檐下；非室内空间，不采暖/不封闭；临溪外侧建议设约 0.9m 木栏示意（代理建议，待确认）"
+    }
+  ],
+  "site": {
+    "widthM": null,
+    "depthM": null,
+    "orientation": "south",
+    "slope": "unknown",
+    "entrance": "north（北侧村道）",
+    "setbacksM": null,
+    "outdoorZones": [],
+    "surroundings": ["村道（北侧）", "溪流（南侧）", "村口"],
+    "notes": "溪边场地：边界尺寸、退线、溪侧高差与常水位均未知。南侧 2m 深檐下平台已确认在 10×7 轮廓内，按建筑构件处理，不列为独立室外分区，故 outdoorZones 为空。"
+  },
+  "constraints": [],
+  "preferences": [],
+  "ambiguities": [],
+  "conflicts": [],
+  "missing": [],
+  "capabilities": [],
+  "decisions": []
+}

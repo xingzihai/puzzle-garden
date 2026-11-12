@@ -1,0 +1,18 @@
+{
+  "name": "@pg/geometry",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "确定性构件与分层写入合成，零 I/O。",
+  "exports": {
+    ".": "./src/index.ts",
+    "./world.d.ts": "./world.d.ts"
+  },
+  "dependencies": {
+    "@pg/blocks": "*",
+    "@pg/core": "*",
+    "@pg/modeling": "*",
+    "zod": "4.6.7"
+  }
+}

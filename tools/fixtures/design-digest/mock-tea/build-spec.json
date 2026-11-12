@@ -1,0 +1,475 @@
+{
+  "schemeId": "scheme-tea",
+  "schemeRevision": 1,
+  "title": "稻田茶亭",
+  "scope": "exterior+interior",
+  "bounds": {
+    "min": [5, 1, 5],
+    "max": [16, 5, 14]
+  },
+  "siteBounds": {
+    "min": [0, 0, 0],
+    "max": [24, 9, 20]
+  },
+  "levels": [
+    {
+      "id": "lv-ground",
+      "name": "首层",
+      "elevation": 1,
+      "height": 4
+    }
+  ],
+  "spaces": [
+    {
+      "id": "sp-tea",
+      "name": "喝茶区",
+      "level": "lv-ground",
+      "kind": "room",
+      "bounds": {
+        "min": [5, 1, 5],
+        "max": [12, 5, 14]
+      },
+      "areaM2": 63,
+      "connections": ["sp-counter", "zone-terrace"]
+    },
+    {
+      "id": "sp-counter",
+      "name": "柜台与储物",
+      "level": "lv-ground",
+      "kind": "service",
+      "bounds": {
+        "min": [12, 1, 5],
+        "max": [16, 5, 14]
+      },
+      "areaM2": 36,
+      "connections": ["sp-tea"]
+    },
+    {
+      "id": "zone-terrace",
+      "name": "南侧檐下平台",
+      "level": "lv-ground",
+      "kind": "outdoor",
+      "bounds": {
+        "min": [5, 0, 14],
+        "max": [12, 1, 18]
+      },
+      "areaM2": 28,
+      "connections": ["sp-tea"]
+    },
+    {
+      "id": "zone-garden",
+      "name": "南侧草地",
+      "level": "lv-ground",
+      "kind": "outdoor",
+      "bounds": {
+        "min": [0, 0, 18],
+        "max": [24, 1, 20]
+      },
+      "areaM2": 48,
+      "connections": []
+    }
+  ],
+  "elements": [
+    {
+      "id": "wall-lv-ground-x-p000005-p000005-p000012",
+      "name": "喝茶区 北外墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [5, 1, 5],
+        "max": [12, 5, 6]
+      },
+      "material": "m-plaster",
+      "spaceId": "sp-tea"
+    },
+    {
+      "id": "wall-lv-ground-x-p000005-p000012-p000016",
+      "name": "柜台与储物 北外墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [12, 1, 5],
+        "max": [16, 5, 6]
+      },
+      "material": "m-plaster",
+      "spaceId": "sp-counter"
+    },
+    {
+      "id": "wall-lv-ground-x-p000014-p000005-p000012",
+      "name": "喝茶区 南外墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [5, 1, 13],
+        "max": [12, 5, 14]
+      },
+      "material": "m-plaster",
+      "spaceId": "sp-tea"
+    },
+    {
+      "id": "wall-lv-ground-x-p000014-p000012-p000016",
+      "name": "柜台与储物 南外墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [12, 1, 13],
+        "max": [16, 5, 14]
+      },
+      "material": "m-plaster",
+      "spaceId": "sp-counter"
+    },
+    {
+      "id": "wall-lv-ground-z-p000005-p000005-p000014",
+      "name": "喝茶区 西外墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [5, 1, 5],
+        "max": [6, 5, 14]
+      },
+      "material": "m-plaster",
+      "spaceId": "sp-tea"
+    },
+    {
+      "id": "wall-lv-ground-z-p000012-p000005-p000014",
+      "name": "喝茶区 / 柜台与储物 共享墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [12, 1, 5],
+        "max": [13, 5, 14]
+      },
+      "material": "m-plaster",
+      "spaceId": null
+    },
+    {
+      "id": "wall-lv-ground-z-p000016-p000005-p000014",
+      "name": "柜台与储物 东外墙",
+      "level": "lv-ground",
+      "kind": "wall",
+      "bounds": {
+        "min": [15, 1, 5],
+        "max": [16, 5, 14]
+      },
+      "material": "m-plaster",
+      "spaceId": "sp-counter"
+    },
+    {
+      "id": "roof-lv-ground",
+      "name": "稻田茶亭 屋面",
+      "level": "lv-ground",
+      "kind": "roof",
+      "bounds": {
+        "min": [4, 5, 4],
+        "max": [17, 9, 15]
+      },
+      "material": "m-roof",
+      "spaceId": null
+    },
+    {
+      "id": "slab-lv-ground-sp-tea",
+      "name": "喝茶区 楼板",
+      "level": "lv-ground",
+      "kind": "slab",
+      "bounds": {
+        "min": [5, 0, 5],
+        "max": [12, 1, 14]
+      },
+      "material": "m-stone",
+      "spaceId": "sp-tea"
+    },
+    {
+      "id": "slab-lv-ground-sp-counter",
+      "name": "柜台与储物 楼板",
+      "level": "lv-ground",
+      "kind": "slab",
+      "bounds": {
+        "min": [12, 0, 5],
+        "max": [16, 1, 14]
+      },
+      "material": "m-stone",
+      "spaceId": "sp-counter"
+    }
+  ],
+  "openings": [
+    {
+      "id": "op-entry",
+      "name": "北侧入口门",
+      "level": "lv-ground",
+      "host": "wall-lv-ground-x-p000005-p000005-p000012",
+      "kind": "door",
+      "side": "north",
+      "bounds": {
+        "min": [7, 1, 5],
+        "max": [9, 3, 6]
+      },
+      "width": 2,
+      "height": 2,
+      "sillHeight": 0,
+      "headHeight": 2,
+      "fill": "双扇木门",
+      "frameMaterial": "m-wood"
+    },
+    {
+      "id": "op-south-window",
+      "name": "南向看景窗",
+      "level": "lv-ground",
+      "host": "wall-lv-ground-x-p000014-p000005-p000012",
+      "kind": "window",
+      "side": "south",
+      "bounds": {
+        "min": [6, 2, 13],
+        "max": [10, 4, 14]
+      },
+      "width": 4,
+      "height": 2,
+      "sillHeight": 1,
+      "headHeight": 3,
+      "fill": "透明玻璃",
+      "frameMaterial": "m-wood"
+    },
+    {
+      "id": "op-west-window",
+      "name": "西侧高窗",
+      "level": "lv-ground",
+      "host": "wall-lv-ground-z-p000005-p000005-p000014",
+      "kind": "window",
+      "side": "west",
+      "bounds": {
+        "min": [5, 2, 8],
+        "max": [6, 4, 10]
+      },
+      "width": 1,
+      "height": 2,
+      "sillHeight": 1,
+      "headHeight": 3,
+      "fill": "透明玻璃",
+      "frameMaterial": "m-wood"
+    }
+  ],
+  "routes": [],
+  "structure": {
+    "system": "post-and-beam",
+    "material": "m-wood",
+    "spanX": 11,
+    "spanZ": 9,
+    "floorThickness": 1,
+    "cantilever": 1,
+    "notes": "木柱承托双坡屋面，石基座防潮。"
+  },
+  "roof": {
+    "form": "gable",
+    "material": "m-roof",
+    "pitchDegrees": 30,
+    "eaveHeight": 5,
+    "ridgeHeight": 8,
+    "overhang": 1,
+    "drainage": "南侧散排到砾石带",
+    "skylights": [],
+    "notes": "南侧檐口压低，屋脊沿东西向。"
+  },
+  "facades": [
+    {
+      "side": "north",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-plaster",
+      "topMaterialId": "m-roof",
+      "bays": 3,
+      "windowWallRatio": 0,
+      "notes": "入口门居中，两侧少开窗。"
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 2,
+      "windowWallRatio": 0,
+      "notes": null
+    },
+    {
+      "side": "south",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 4,
+      "windowWallRatio": 0.18,
+      "notes": "连续低窗台看景。"
+    },
+    {
+      "side": "west",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 2,
+      "windowWallRatio": 0.11,
+      "notes": null
+    }
+  ],
+  "materials": [
+    {
+      "id": "m-stone",
+      "name": "浅灰石基座",
+      "block": "stone_bricks",
+      "role": "structure",
+      "color": "#9a9a92",
+      "notes": null
+    },
+    {
+      "id": "m-wood",
+      "name": "深色木",
+      "block": "dark_oak_planks",
+      "role": "structure",
+      "color": "#4d3424",
+      "notes": null
+    },
+    {
+      "id": "m-plaster",
+      "name": "米色墙面",
+      "block": "smooth_sandstone",
+      "role": "wall",
+      "color": "#d8cbb0",
+      "notes": null
+    },
+    {
+      "id": "m-roof",
+      "name": "深瓦屋面",
+      "block": "deepslate_tiles",
+      "role": "roof",
+      "color": "#3f4145",
+      "notes": null
+    },
+    {
+      "id": "m-glass",
+      "name": "清玻璃",
+      "block": "glass",
+      "role": "glass",
+      "color": "#b8d4d6",
+      "notes": null
+    },
+    {
+      "id": "m-fabric",
+      "name": "米色织物",
+      "block": "white_wool",
+      "role": "furniture",
+      "color": "#e8e1d4",
+      "notes": null
+    },
+    {
+      "id": "m-grass",
+      "name": "草地",
+      "block": "grass_block",
+      "role": "landscape",
+      "color": "#6f8f4a",
+      "notes": null
+    },
+    {
+      "id": "m-light",
+      "name": "暖光灯具",
+      "block": "lantern",
+      "role": "furniture",
+      "color": "#f4c77a",
+      "notes": null
+    }
+  ],
+  "details": [],
+  "interiors": [
+    {
+      "id": "interior-sp-tea",
+      "spaceId": "sp-tea",
+      "name": "喝茶区 室内",
+      "furniture": ["中央长桌", "南窗长凳"],
+      "furnitureSpecs": [
+        {
+          "id": "fu-table",
+          "name": "中央长桌",
+          "kind": "table",
+          "bounds": {
+            "min": [8, 1, 9],
+            "max": [10, 2, 10]
+          },
+          "materialId": "m-wood",
+          "orientation": null,
+          "notes": null
+        },
+        {
+          "id": "fu-bench-south",
+          "name": "南窗长凳",
+          "kind": "bench",
+          "bounds": {
+            "min": [7, 1, 12],
+            "max": [10, 2, 13]
+          },
+          "materialId": "m-wood",
+          "orientation": "south",
+          "notes": null
+        }
+      ],
+      "included": true,
+      "notes": null
+    },
+    {
+      "id": "interior-sp-counter",
+      "spaceId": "sp-counter",
+      "name": "柜台与储物 室内",
+      "furniture": ["木柜台"],
+      "furnitureSpecs": [
+        {
+          "id": "fu-counter",
+          "name": "木柜台",
+          "kind": "counter",
+          "bounds": {
+            "min": [13, 1, 9],
+            "max": [15, 2, 10]
+          },
+          "materialId": "m-wood",
+          "orientation": "west",
+          "notes": null
+        }
+      ],
+      "included": true,
+      "notes": null
+    }
+  ],
+  "counts": {
+    "levels": 1,
+    "spaces": 4,
+    "elements": 10,
+    "openings": 3,
+    "routes": 0,
+    "musts": 3,
+    "footprintX": 11,
+    "footprintZ": 9,
+    "footprintAreaM2": 99
+  },
+  "budget": {
+    "maxBlocks": 20000,
+    "targetBlocks": null,
+    "estimatedBlocks": null,
+    "maxCostCny": null
+  },
+  "forbidden": [
+    "不得改变已确认方案的主要布局、层数、外部尺寸、层高、入口位置、屋面形式和主要材质",
+    "不得增加第二栋主体建筑、城市级场景或超出方案范围的体量",
+    "不得承诺或建造当前 World API 不支持的实体物件、动态电梯、完整地下空间展示",
+    "不得自行删除或替换用户点名的必须项；无法实现时停止并报告冲突",
+    "不要做成旅游景点式的售票亭。"
+  ],
+  "musts": [
+    {
+      "id": "req-use",
+      "text": "提供路人喝茶与短暂停留的室内空间。",
+      "source": "requirement"
+    },
+    {
+      "id": "req-view",
+      "text": "南向设置主要开口与檐下平台，能看到稻田。",
+      "source": "requirement"
+    },
+    {
+      "id": "constraint-reqc-budget",
+      "text": "实心方块预算不超过两万。",
+      "source": "constraint"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "code": {
+    "sha256": "12158713378e67599a63ce3dc93c71694e0e19cbf9f0288d56dca91720e408a5",
+    "bytes": 6269
+  },
+  "archive": {
+    "sha256": "eceeccdf52935af56c19fd2280fa41e4c78dc70fbd1b4a8b591afa369fb31795",
+    "bytes": 9224
+  },
+  "hash": "273b6f60c08933413dd547fef5a92efd",
+  "codeVersion": 8,
+  "renders": [
+    {
+      "view": "iso-se",
+      "png": {
+        "sha256": "98cee22f57dcfbbdb36fc4d7b622ab604daa60ce9364f5806ad1aab6a10ea9a7",
+        "bytes": 865474
+      }
+    },
+    {
+      "view": "south",
+      "png": {
+        "sha256": "2c87f9308f987ce67e64579729f17979234145c28cbb4e46e513c306abb54f43",
+        "bytes": 168698
+      }
+    },
+    {
+      "view": "east",
+      "png": {
+        "sha256": "b81d67085639cd5bb37dcabe0dde4a73c1212409357d16bd92aad46cc2f40e06",
+        "bytes": 260724
+      }
+    },
+    {
+      "view": "north",
+      "png": {
+        "sha256": "2b5d7e4624e40d95db456c6dfedf4884a8ed2b502a242526f5781eae48e31983",
+        "bytes": 185167
+      }
+    },
+    {
+      "view": "west",
+      "png": {
+        "sha256": "8b082113bb8a7231635eee71a84910cfb067f1880753f9ae8120daf4e9f94ea8",
+        "bytes": 261985
+      }
+    },
+    {
+      "view": "top",
+      "png": {
+        "sha256": "5f0c46d1d86448d6add784cfa048be29151bef83453a8fceb785f5c4f2cf87ac",
+        "bytes": 191583
+      }
+    }
+  ],
+  "design": {
+    "sha256": "e9bb0d9a12bcb30ffc9e31e321b5b527375e75885dc8fdafd069b5da05752c4b",
+    "bytes": 6484
+  },
+  "note": "# 交付注记（conformance 证据自动生成）\n\n> 本注记只从 conformance 报告与 must-clause 证据取数；设计者自述不参与判定，其原文不转载到本注记。\n\n## 构建标识\n- codeVersion：8\n- hash：273b6f60c08933413dd547fef5a92efd\n- runId：20261022-033507-build-task-48aba6\n\n## Conformance 报告\n- 状态：可用\n- report.summary：pass=4 fail=0 missing=0 extra=0 unverified=5\n- blockingCount=1\n- blocking=true\n- 报告条目：共 9 条；hard fail/missing/unverified 1 条\n\n### 报告阻断项\n- `expected:opening:op-entry-north`（expectedId=opening:op-entry-north，status=unverified，severity=hard）：opening checks unverified: door.threshold.op-entry-north\n\n## 必须项证据\n- 状态：可用\n- evidence.summary：met=14 notMet=5 waived=0 unverified=22\n- acceptEligible=false\n\n### 未满足必须项（not-met）\n- `req-bench-north`：clause-hard-fail\n- `req-bench-south`：clause-hard-fail\n- `req-seats-10`：clause-hard-fail\n- `req-wood-wall-column`：clause-hard-fail\n- `constraint-con-material-selection`：clause-hard-fail\n\n## hard fail 归因\n### 未归因 hard fail\n- 无\n### 已归因 hard fail\n- `check:material:structure` -> `req-wood-wall-column`、`constraint-con-material-selection`：structural material does not match the design\n- `check:material:wall` -> `req-wood-wall-column`、`constraint-con-material-selection`：exterior wall material does not match the design\n\n## 验收结论\n- 判定值：blockingCount=1；blocking=true；acceptEligible=false。\n- 判定来源：conformance 报告与 must-clause 证据；设计者自述不参与判定。\n- 不可接受：conformance 报告存在阻断（blockingCount=1；blocking=true），必须项 acceptEligible=false；不能接受当前结果。\n\n",
+  "noteSource": "conformance-evidence"
+}

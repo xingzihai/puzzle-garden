@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "title": "村口茶亭（墙类型回归）",
+    "concept": "由真实 content-json 失败 intent 的房间布局派生：主厅东侧与储物间共享，模型却把共享边写成 exterior。",
+    "scope": "exterior+interior"
+  },
+  "site": {
+    "bounds": {
+      "x": [-8, 16],
+      "z": [-6, 18]
+    },
+    "orientation": "south",
+    "entrance": {
+      "side": "north",
+      "notes": "入口从北侧村路进入。"
+    },
+    "outdoorZones": [
+      {
+        "id": "zone-entry-paving",
+        "name": "北侧入口铺装",
+        "kind": "path",
+        "rect": {
+          "x": [2, 10],
+          "z": [-4, -2]
+        },
+        "materialId": "mat-paving",
+        "notes": null
+      },
+      {
+        "id": "zone-south-terrace",
+        "name": "南侧观景檐廊",
+        "kind": "terrace",
+        "rect": {
+          "x": [2, 10],
+          "z": [6, 9]
+        },
+        "materialId": "mat-paving",
+        "notes": null
+      },
+      {
+        "id": "zone-rice-field-view",
+        "name": "南向稻田视域",
+        "kind": "garden",
+        "rect": {
+          "x": [-6, 14],
+          "z": [9, 17]
+        },
+        "materialId": "mat-paddy",
+        "notes": null
+      }
+    ],
+    "notes": null
+  },
+  "program": {
+    "levels": [
+      {
+        "id": "level-ground",
+        "name": "地面层",
+        "height": 4,
+        "floorMaterialId": "mat-floor-stone"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "room-hall",
+        "name": "茶亭主厅",
+        "level": "level-ground",
+        "kind": "room",
+        "rect": {
+          "x": [2, 9],
+          "z": [1, 6]
+        },
+        "occupancy": 6,
+        "adjacency": ["room-counter", "room-storage"],
+        "daylight": "required",
+        "notes": null
+      },
+      {
+        "id": "room-counter",
+        "name": "柜台服务区",
+        "level": "level-ground",
+        "kind": "service",
+        "rect": {
+          "x": [2, 12],
+          "z": [-2, 1]
+        },
+        "occupancy": 2,
+        "adjacency": ["room-hall", "room-storage"],
+        "daylight": "preferred",
+        "notes": null
+      },
+      {
+        "id": "room-storage",
+        "name": "储物间",
+        "level": "level-ground",
+        "kind": "service",
+        "rect": {
+          "x": [9, 12],
+          "z": [1, 6]
+        },
+        "occupancy": 1,
+        "adjacency": ["room-hall", "room-counter"],
+        "daylight": "none",
+        "notes": null
+      }
+    ]
+  },
+  "envelope": {
+    "wallDefaults": {
+      "exteriorThickness": 1,
+      "interiorThickness": 1
+    },
+    "walls": [
+      {
+        "roomId": "room-hall",
+        "side": "east",
+        "kind": "exterior",
+        "materialId": "mat-wood-column"
+      },
+      {
+        "roomId": "room-storage",
+        "side": "west",
+        "kind": "exterior",
+        "materialId": "mat-wood-column"
+      },
+      {
+        "roomId": "room-hall",
+        "side": "south",
+        "kind": "auto",
+        "materialId": "mat-wood-column"
+      }
+    ],
+    "stairs": []
+  },
+  "openings": [
+    {
+      "id": "op-entry",
+      "name": "北侧入口门",
+      "roomId": "room-counter",
+      "side": "north",
+      "kind": "door",
+      "role": "entrance",
+      "offset": 2,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "木框玻璃门",
+      "frameMaterial": "mat-wood-column"
+    },
+    {
+      "id": "op-south-window",
+      "name": "南向长窗",
+      "roomId": "room-hall",
+      "side": "south",
+      "kind": "window",
+      "role": "interior",
+      "offset": 1,
+      "width": 4,
+      "height": 1,
+      "sill": 1,
+      "fill": "透明玻璃",
+      "frameMaterial": "mat-wood-column"
+    },
+    {
+      "id": "op-west-window",
+      "name": "西侧窗",
+      "roomId": "room-hall",
+      "side": "west",
+      "kind": "window",
+      "role": "interior",
+      "offset": 2,
+      "width": 1,
+      "height": 1,
+      "sill": 1,
+      "fill": "透明玻璃",
+      "frameMaterial": "mat-wood-column"
+    },
+    {
+      "id": "op-storage-window",
+      "name": "储物间高窗",
+      "roomId": "room-storage",
+      "side": "east",
+      "kind": "window",
+      "role": "service",
+      "offset": 1,
+      "width": 1,
+      "height": 1,
+      "sill": 2,
+      "fill": "透明玻璃",
+      "frameMaterial": "mat-wood-column"
+    }
+  ],
+  "structure": {
+    "system": "post-and-beam",
+    "materialId": "mat-wood-column",
+    "floorThickness": 1,
+    "cantilever": 1,
+    "notes": null
+  },
+  "roof": {
+    "form": "gable",
+    "materialId": "mat-roof",
+    "pitchDegrees": 28,
+    "overhang": 2,
+    "ridgeAxis": "x",
+    "drainage": "南北自由落水",
+    "skylights": [],
+    "notes": null
+  },
+  "facades": [
+    {
+      "side": "north",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": "mat-roof",
+      "bays": 3,
+      "windowWallRatio": null,
+      "notes": null
+    },
+    {
+      "side": "south",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-wood-column",
+      "topMaterialId": "mat-roof",
+      "bays": 3,
+      "windowWallRatio": null,
+      "notes": null
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": "mat-roof",
+      "bays": 2,
+      "windowWallRatio": null,
+      "notes": null
+    },
+    {
+      "side": "west",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-wood-column",
+      "topMaterialId": "mat-roof",
+      "bays": 2,
+      "windowWallRatio": null,
+      "notes": null
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-floor-stone",
+      "name": "室内石铺地",
+      "block": "smooth_stone",
+      "role": "floor",
+      "color": "#b3b3ad",
+      "notes": null
+    },
+    {
+      "id": "mat-stone-wall",
+      "name": "石砌墙",
+      "block": "stone_bricks",
+      "role": "wall",
+      "color": "#8f8f8a",
+      "notes": null
+    },
+    {
+      "id": "mat-wood-column",
+      "name": "深色木柱梁",
+      "block": "stripped_dark_oak_log[axis=y]",
+      "role": "structure",
+      "color": "#4b3524",
+      "notes": null
+    },
+    {
+      "id": "mat-roof",
+      "name": "深色瓦屋面",
+      "block": "deepslate_tiles",
+      "role": "roof",
+      "color": "#33383c",
+      "notes": null
+    },
+    {
+      "id": "mat-paving",
+      "name": "入口与檐廊铺装",
+      "block": "stone_bricks",
+      "role": "landscape",
+      "color": "#a2a29a",
+      "notes": null
+    },
+    {
+      "id": "mat-paddy",
+      "name": "稻田视域",
+      "block": "grass_block",
+      "role": "landscape",
+      "color": "#7a8f3f",
+      "notes": null
+    },
+    {
+      "id": "mat-furniture",
+      "name": "木家具",
+      "block": "dark_oak_planks",
+      "role": "furniture",
+      "color": "#463020",
+      "notes": null
+    },
+    {
+      "id": "mat-light",
+      "name": "灯笼",
+      "block": "lantern",
+      "role": "furniture",
+      "color": "#c8a04e",
+      "notes": null
+    }
+  ],
+  "furniture": [
+    {
+      "id": "fz-table",
+      "name": "长茶桌",
+      "kind": "table",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 2,
+        "z": 1
+      },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-furniture",
+      "notes": null
+    },
+    {
+      "id": "fz-bench",
+      "name": "南窗长凳",
+      "kind": "bench",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "wall",
+        "side": "south",
+        "offset": 3
+      },
+      "footprint": {
+        "x": 3,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-furniture",
+      "notes": null
+    },
+    {
+      "id": "fz-light",
+      "name": "主厅灯",
+      "kind": "light",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "corner",
+        "corner": "ne"
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-light",
+      "notes": null
+    },
+    {
+      "id": "fz-counter",
+      "name": "柜台",
+      "kind": "counter",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "wall",
+        "side": "north",
+        "offset": 2
+      },
+      "footprint": {
+        "x": 2,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-furniture",
+      "notes": null
+    },
+    {
+      "id": "fz-storage-shelf",
+      "name": "储物架",
+      "kind": "shelf",
+      "roomId": "room-storage",
+      "anchor": {
+        "kind": "wall",
+        "side": "east",
+        "offset": 1
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": "west",
+      "height": 2,
+      "materialId": "mat-furniture",
+      "notes": null
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec-wall-type",
+      "topic": "墙类型",
+      "choice": "共享边由宿主按房间拓扑派生，模型不决定 exterior/shared。",
+      "rationale": "真实失败 intent 把主厅东侧共享边写成 exterior。",
+      "source": "agent",
+      "requirementIds": []
+    }
+  ],
+  "open": []
+}

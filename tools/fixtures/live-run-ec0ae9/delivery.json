@@ -1,0 +1,14 @@
+{
+  "code": {
+    "sha256": "9b292c8aed4cf21a005bfbcee5875541809fe59b7ea758e46441edfc7ef279af",
+    "bytes": 9815
+  },
+  "archive": {
+    "sha256": "bbd6954008e2f202cf1704323dd1be6406aa74d9b6a0a8af5bbfafb5cf780f6e",
+    "bytes": 23111
+  },
+  "hash": "1c2586d36f44ee15765e18ac5dae85e7",
+  "codeVersion": 13,
+  "noteSource": "conformance-evidence",
+  "note": "# 交付注记（conformance 证据自动生成）\n\n> 本注记只从 conformance 报告与 must-clause 证据取数；设计者自述不参与判定，其原文不转载到本注记。\n\n## 构建标识\n\n- codeVersion：13\n- hash：1c2586d36f44ee15765e18ac5dae85e7\n- runId：20261022-061757-build-task-ec0ae9\n\n## Conformance 报告\n\n- 状态：可用\n- report.summary：pass=3 fail=1 missing=0 extra=0 unverified=3\n- blockingCount=2\n- blocking=true\n- 报告条目：共 7 条；hard fail/missing/unverified 2 条\n\n### 报告阻断项\n\n- `expected:slab:f1`（expectedId=slab:f1，status=fail，severity=hard）：slab mismatch: bounds\n- `expected:opening:op-entry-north`（expectedId=opening:op-entry-north，status=unverified，severity=hard）：opening checks unverified: door.threshold.op-entry-north\n\n## 必须项证据\n\n- 状态：可用\n- evidence.summary：met=12 notMet=12 waived=0 unverified=17\n- acceptEligible=false\n\n### 未满足必须项（not-met）\n\n- `req-single-storey`：clause-hard-fail\n- `req-no-partitions`：clause-hard-fail\n- `req-no-glass-door`：clause-hard-fail\n- `req-no-outdoor-zone`：clause-hard-fail\n- `req-long-table`：clause-hard-fail\n- `req-bench-north`：clause-hard-fail\n- `req-bench-south`：clause-hard-fail\n- `req-seats-10`：clause-hard-fail\n- `req-stone-base`：clause-hard-fail\n- `req-wood-wall-column`：clause-hard-fail\n- `constraint-con-single-storey`：clause-hard-fail\n- `constraint-con-material-selection`：clause-hard-fail\n\n## hard fail 归因\n\n### 未归因 hard fail\n\n- 无\n\n### 已归因 hard fail\n\n- `check:material:structure` -> `req-wood-wall-column`、`constraint-con-material-selection`：structural material does not match the design\n- `check:material:wall` -> `req-wood-wall-column`、`constraint-con-material-selection`：exterior wall material does not match the design\n\n### 无必须项覆盖的全局阻断\n\n- `furniture:f-light-ridge-e: no must covers this expected furniture; build it exactly or waive it in design`\n- `furniture:f-light-ridge-w: no must covers this expected furniture; build it exactly or waive it in design`\n\n## 验收结论\n\n- 判定值：blockingCount=2；blocking=true；acceptEligible=false。\n- 判定来源：conformance 报告与 must-clause 证据；设计者自述不参与判定。\n- 不可接受：conformance 报告存在阻断（blockingCount=2；blocking=true），必须项 acceptEligible=false；不能接受当前结果。\n"
+}

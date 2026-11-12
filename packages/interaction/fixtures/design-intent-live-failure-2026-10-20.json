@@ -1,0 +1,493 @@
+{
+  "meta": {
+    "name": "村口茶亭",
+    "description": "木石深瓦半开敞茶亭，北侧服务带，南向大开口对稻田，南侧檐下平台过渡。",
+    "style": "乡土木石"
+  },
+  "site": {
+    "orientation": "south",
+    "slope": "flat",
+    "entrance": "north",
+    "surroundings": ["北侧村道（假设）", "南侧稻田", "周边村民住宅（距离未确认）"],
+    "outdoorZones": [
+      {
+        "id": "oz-entry-court",
+        "name": "入口前场",
+        "rect": {
+          "x": [2, 6],
+          "z": [-2, 0]
+        }
+      },
+      {
+        "id": "oz-eave-porch",
+        "name": "檐下平台",
+        "rect": {
+          "x": [1, 7],
+          "z": [6, 8]
+        }
+      },
+      {
+        "id": "oz-rice-view",
+        "name": "稻田观景带",
+        "rect": {
+          "x": [0, 8],
+          "z": [8, 10]
+        }
+      }
+    ]
+  },
+  "program": {
+    "rooms": [
+      {
+        "id": "room-tea-hall",
+        "name": "茶亭主厅",
+        "rect": {
+          "x": [0, 8],
+          "z": [0, 6]
+        },
+        "level": 0
+      }
+    ],
+    "service": []
+  },
+  "envelope": {
+    "wallDefaults": {
+      "exteriorThickness": 1,
+      "interiorThickness": 1
+    },
+    "walls": [
+      {
+        "roomId": "room-tea-hall",
+        "side": "north",
+        "kind": "exterior"
+      },
+      {
+        "roomId": "room-tea-hall",
+        "side": "south",
+        "kind": "exterior"
+      },
+      {
+        "roomId": "room-tea-hall",
+        "side": "east",
+        "kind": "exterior"
+      },
+      {
+        "roomId": "room-tea-hall",
+        "side": "west",
+        "kind": "exterior"
+      }
+    ]
+  },
+  "openings": [
+    {
+      "id": "op-south-opening",
+      "name": "南向景观大开口",
+      "roomId": "room-tea-hall",
+      "side": "south",
+      "kind": "window",
+      "offset": 1,
+      "width": 6,
+      "height": 3,
+      "sill": 0,
+      "fill": "air",
+      "frameMaterial": "mat-wood"
+    },
+    {
+      "id": "op-north-door",
+      "name": "北入口双开门",
+      "roomId": "room-tea-hall",
+      "side": "north",
+      "kind": "door",
+      "offset": 3,
+      "width": 2,
+      "height": 3,
+      "sill": 0,
+      "fill": "oak_door",
+      "frameMaterial": "mat-wood-dark"
+    },
+    {
+      "id": "op-east-high-window",
+      "name": "东侧高窗",
+      "roomId": "room-tea-hall",
+      "side": "east",
+      "kind": "window",
+      "offset": 2,
+      "width": 2,
+      "height": 1,
+      "sill": 2,
+      "fill": "glass",
+      "frameMaterial": "mat-wood"
+    },
+    {
+      "id": "op-west-high-window",
+      "name": "西侧高窗",
+      "roomId": "room-tea-hall",
+      "side": "west",
+      "kind": "window",
+      "offset": 2,
+      "width": 2,
+      "height": 1,
+      "sill": 2,
+      "fill": "glass",
+      "frameMaterial": "mat-wood"
+    }
+  ],
+  "structure": {
+    "system": "post-and-beam",
+    "materialId": "mat-wood",
+    "floorThickness": 1,
+    "cantilever": 1,
+    "notes": null
+  },
+  "roof": {
+    "form": "gable",
+    "materialId": "mat-roof-tile",
+    "pitchDegrees": 25,
+    "overhang": 2,
+    "ridgeAxis": "x",
+    "drainage": "north-south",
+    "skylights": [],
+    "notes": null
+  },
+  "facades": [
+    {
+      "side": "south",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-wood",
+      "topMaterialId": "mat-wood-dark",
+      "bays": 3,
+      "windowWallRatio": null,
+      "notes": null
+    },
+    {
+      "side": "north",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": "mat-wood-dark",
+      "bays": 3,
+      "windowWallRatio": null,
+      "notes": null
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-wood",
+      "topMaterialId": "mat-wood-dark",
+      "bays": 2,
+      "windowWallRatio": null,
+      "notes": null
+    },
+    {
+      "side": "west",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-wood",
+      "topMaterialId": "mat-wood-dark",
+      "bays": 2,
+      "windowWallRatio": null,
+      "notes": null
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-stone-base",
+      "name": "石砌台基与勒脚",
+      "block": "minecraft:stone_bricks",
+      "states": {}
+    },
+    {
+      "id": "mat-stone-wall",
+      "name": "石墙",
+      "block": "minecraft:cobblestone",
+      "states": {}
+    },
+    {
+      "id": "mat-wood",
+      "name": "浅色木构与木装修",
+      "block": "minecraft:spruce_planks",
+      "states": {}
+    },
+    {
+      "id": "mat-wood-dark",
+      "name": "深色木柜与门扇",
+      "block": "minecraft:dark_oak_planks",
+      "states": {}
+    },
+    {
+      "id": "mat-roof-tile",
+      "name": "深色瓦屋面",
+      "block": "minecraft:deepslate_tiles",
+      "states": {}
+    },
+    {
+      "id": "mat-glass",
+      "name": "窗玻璃",
+      "block": "minecraft:glass_pane",
+      "states": {}
+    },
+    {
+      "id": "mat-light",
+      "name": "吊灯",
+      "block": "minecraft:lantern",
+      "states": {
+        "hanging": "true"
+      }
+    },
+    {
+      "id": "mat-plant",
+      "name": "桌面绿植",
+      "block": "minecraft:potted_fern",
+      "states": {}
+    }
+  ],
+  "furniture": [
+    {
+      "id": "f-storage",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "corner",
+        "corner": "nw"
+      },
+      "footprint": {
+        "x": [1, 3],
+        "z": [1, 2]
+      },
+      "orientation": "east-west",
+      "kind": "storage",
+      "materialId": "mat-wood-dark"
+    },
+    {
+      "id": "f-counter",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "wall",
+        "side": "north",
+        "offset": 5
+      },
+      "footprint": {
+        "x": [5, 7],
+        "z": [1, 2]
+      },
+      "orientation": "east-west",
+      "kind": "counter",
+      "materialId": "mat-stone-base"
+    },
+    {
+      "id": "f-table",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [2, 5],
+        "z": [3, 4]
+      },
+      "orientation": "east-west",
+      "kind": "table",
+      "materialId": "mat-wood"
+    },
+    {
+      "id": "f-bench-north",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [2, 5],
+        "z": [2, 3]
+      },
+      "orientation": "east-west",
+      "kind": "bench",
+      "materialId": "mat-wood"
+    },
+    {
+      "id": "f-bench-south",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [2, 5],
+        "z": [4, 5]
+      },
+      "orientation": "east-west",
+      "kind": "bench",
+      "materialId": "mat-wood"
+    },
+    {
+      "id": "f-pendant-1",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [2, 3],
+        "z": [3, 4]
+      },
+      "orientation": "east-west",
+      "kind": "lamp",
+      "materialId": "mat-light"
+    },
+    {
+      "id": "f-pendant-2",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [4, 5],
+        "z": [3, 4]
+      },
+      "orientation": "east-west",
+      "kind": "lamp",
+      "materialId": "mat-light"
+    },
+    {
+      "id": "f-plant",
+      "roomId": "room-tea-hall",
+      "anchor": {
+        "type": "corner",
+        "corner": "se"
+      },
+      "footprint": {
+        "x": [6, 7],
+        "z": [4, 5]
+      },
+      "orientation": "east-west",
+      "kind": "plant",
+      "materialId": "mat-plant"
+    },
+    {
+      "id": "f-porch-bench",
+      "roomId": "oz-eave-porch",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [2, 5],
+        "z": [7, 8]
+      },
+      "orientation": "east-west",
+      "kind": "bench",
+      "materialId": "mat-wood"
+    },
+    {
+      "id": "f-entry-sign",
+      "roomId": "oz-entry-court",
+      "anchor": {
+        "type": "center"
+      },
+      "footprint": {
+        "x": [4, 5],
+        "z": [-1, 0]
+      },
+      "orientation": "south",
+      "kind": "sign",
+      "materialId": "mat-wood-dark"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec-footprint",
+      "topic": "主体与模数",
+      "choice": "主体按 8×6 整格布置，墙厚 1 格，主厅净 6×4 格。",
+      "rationale": "满足约 8×6 米主体与整格取整要求，同时为 6 座茶桌留出净空。",
+      "requirementIds": ["req-footprint", "con-footprint", "con-grid"]
+    },
+    {
+      "id": "dec-service-north",
+      "topic": "服务带靠北",
+      "choice": "柜台与储物柜全部靠北墙服务带，南侧留给座位与南向开口。",
+      "rationale": "避免服务空间遮挡南向稻田视线与采光。",
+      "requirementIds": ["req-counter", "req-storage", "req-south-view", "cap-furniture-grid"]
+    },
+    {
+      "id": "dec-seating",
+      "topic": "6 座配置",
+      "choice": "3×1 茶桌配南北两条 3 座长凳，共 6 座，主视线朝南。",
+      "rationale": "以整格近似满足 6 人同时饮茶，并保持交流紧凑。",
+      "requirementIds": ["req-seat-6", "cap-furniture-grid"]
+    },
+    {
+      "id": "dec-south-open",
+      "topic": "南向半开敞",
+      "choice": "南墙设 6 格宽落地大开口，洞口两侧各留 1 格墙垛，外侧接檐下平台。",
+      "rationale": "最大化南向稻田景观与室内外过渡，同时保留基本围护。",
+      "requirementIds": ["req-south-view", "req-eave-porch"]
+    },
+    {
+      "id": "dec-roof",
+      "topic": "深瓦双坡与出檐",
+      "choice": "双坡深瓦屋面，屋脊东西向，南坡出檐 2 格，南北排水。",
+      "rationale": "形成明确大出檐深瓦外观，并为南向开口遮阳挡雨。",
+      "requirementIds": ["req-dark-tile", "req-south-view", "req-eave-porch"]
+    },
+    {
+      "id": "dec-material",
+      "topic": "木石深瓦",
+      "choice": "木构架与木装修为主，石材用于台基、勒脚与局部铺地，屋面用深色瓦。",
+      "rationale": "落实用户木石深瓦材料偏好，并控制石材用量以兼顾造价。",
+      "requirementIds": ["req-wood-stone", "req-dark-tile", "con-material"]
+    },
+    {
+      "id": "dec-budget",
+      "topic": "造价控制",
+      "choice": "石材限台基、勒脚与铺地，取消异形构件与装饰性细部，采用简单坡瓦屋面。",
+      "rationale": "在木石深瓦前提下用材料用量与构造简化控制造价。",
+      "requirementIds": ["req-budget", "con-budget"]
+    },
+    {
+      "id": "dec-entry",
+      "topic": "北侧入口与到达",
+      "choice": "北墙中部设 2 格宽双开门，北侧入口前场留 1–2 级台阶过渡。",
+      "rationale": "默认北侧临村道，形成便捷到达并解决台基防潮抬高。",
+      "requirementIds": ["req-entry-step", "req-village-entrance"]
+    },
+    {
+      "id": "dec-interior",
+      "topic": "室内交付深度",
+      "choice": "室内配齐固定柜台、储物高柜、茶桌、南北长凳、吊灯与桌面绿植。",
+      "rationale": "满足完整室内要求；受体素模数限制，家具尺度为整格近似。",
+      "requirementIds": ["req-interior-complete", "cap-interior-view", "cap-furniture-grid"]
+    },
+    {
+      "id": "dec-storage-cabinet",
+      "topic": "储物形式",
+      "choice": "储物以 2 格宽高柜嵌入北墙服务带，不设独立储物间。",
+      "rationale": "小体量下独立储物间会挤压南向景观与主厅净空，故用固定高柜满足可关闭储物。",
+      "requirementIds": ["req-storage", "req-south-view", "cap-furniture-grid"]
+    },
+    {
+      "id": "dec-structure-note",
+      "topic": "结构限制",
+      "choice": "木构跨度与出檐只作经验控制，不做材料力学与抗震计算。",
+      "rationale": "能力卡明确不支持结构计算，需专业方复核。",
+      "requirementIds": ["con-no-structure-calc", "cap-structure"]
+    }
+  ],
+  "open": [
+    {
+      "id": "open-counter-program",
+      "topic": "柜台使用方式",
+      "question": "柜台最终按煮水冲泡、售卖展示还是备茶矮台？现按 2 格长煮水冲泡台设计，设备与水电待确认。",
+      "impact": "high"
+    },
+    {
+      "id": "open-roof-form",
+      "topic": "屋面形式与脊向",
+      "question": "深瓦屋面最终采用双坡、单坡还是四坡？现按双坡屋脊东西向、南坡大出檐。",
+      "impact": "high"
+    },
+    {
+      "id": "open-enclosure",
+      "topic": "围合程度",
+      "question": "南面是否保持大开口半开敞，还是加可关闭门扇？现按三面墙、南面落地大开口。",
+      "impact": "high"
+    },
+    {
+      "id": "open-site-survey",
+      "topic": "村口场地与入口方位",
+      "question": "场地尺寸、标高、村道位置与排水方向未确认；现假设北侧临村道、场地平整、入口在北。",
+      "impact": "high"
+    }
+  ]
+}

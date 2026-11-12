@@ -1,0 +1,30 @@
+{
+  "$comment": "Minecraft 1.20.1 官方资源导入元数据。官方 jar / 贴图 / 模型 JSON 只在本地 .work/mc-assets/1.20.1/ 使用，不入库；本文件只记录来源、哈希与覆盖率。由 tools/build-mc-catalog.ts 生成。",
+  "mcVersion": "1.20.1",
+  "source": {
+    "kind": "client-jar",
+    "sha256": "56b71336d2b4fdffd197f56595b0da93e32a946f78f382a299b8f4b92758bb0f",
+    "bytes": 23028853
+  },
+  "imported": {
+    "files": 4194,
+    "blockstates": 1005,
+    "models": 2016,
+    "textures": 1003,
+    "tags": 170,
+    "skipped": 0
+  },
+  "catalog": {
+    "blocks": 882,
+    "states": 11783,
+    "models": 4799,
+    "textures": 906,
+    "modelPackFormat": "PGMP v1",
+    "sceneProtocol": 2
+  },
+  "compliance": {
+    "localOnly": true,
+    "committedBinaries": false,
+    "downloadRequiresFlag": "--accept-minecraft-assets"
+  }
+}

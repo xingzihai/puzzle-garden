@@ -1,0 +1,94 @@
+{
+  "name": "edit-miss",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.walls({ height: 6 });\n}\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "   w.walls({ height: 4 });",
+                  "replace": "   w.walls({ height: 7 });"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "toolIncludes": ["出现 0 次", "最接近的一行", "按空白归一后也没有唯一匹配"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "read_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "toolIncludes": ["第 v1 版，共 4 行"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "w.walls({ height: 6 });",
+                  "replace": "w.walls({ height: 7 });"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "submit",
+            "arguments": {
+              "note": "完成"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

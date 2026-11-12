@@ -1,0 +1,5255 @@
+{
+  "designVersion": {
+    "schemeId": "scheme-draft",
+    "revision": 2
+  },
+  "buildRunId": "20261022-033507-build-task-48aba6",
+  "objective": {
+    "measurements": [
+      {
+        "name": "交付",
+        "expected": "构建成功且交付可用结果",
+        "actual": "已交付（status=succeeded）",
+        "unit": null,
+        "status": "pass",
+        "evidence": null
+      },
+      {
+        "name": "停止原因",
+        "expected": "无停止原因",
+        "actual": "无",
+        "unit": null,
+        "status": "pass",
+        "evidence": null
+      },
+      {
+        "name": "构建检查",
+        "expected": "检查通过",
+        "actual": "通过",
+        "unit": null,
+        "status": "pass",
+        "evidence": null
+      },
+      {
+        "name": "方块数",
+        "expected": "≤ 20000 块",
+        "actual": "364 块",
+        "unit": "块",
+        "status": "pass",
+        "evidence": null
+      },
+      {
+        "name": "占地（X × Z）",
+        "expected": "10 × 8 格",
+        "actual": "12 × 10 格",
+        "unit": "格",
+        "status": "not-checked",
+        "evidence": "运行包围盒尺寸 12 × 10 格，大于方案建筑范围 10 × 8 格；运行包围盒可能含屋面挑檐 / 场地构件，需对照渲染图或实测确认，不能仅凭该差异判定方案错误。"
+      },
+      {
+        "name": "渲染图",
+        "expected": "至少 1 张",
+        "actual": "6 张",
+        "unit": "张",
+        "status": "pass",
+        "evidence": null
+      }
+    ],
+    "notes": [
+      "客观测量只对比 BuildSpec 与运行事实；musts 逐条引用 conformance-evidence.json。",
+      "部分测量为 not-checked（缺少事实或需人工对照）；不能据此判定通过。",
+      "运行包围盒大于方案建筑范围，可能包含屋面挑檐 / 场地构件；需结合渲染图或实测确认，不能只凭该差异判定方案错误。",
+      "未接入看图评审：visual=not-reviewed 仅作建议，不阻断接受；没有必须项明确要求视觉证据。",
+      "必须项证据 mapping=verified：met 14 / not-met 5 / waived 0 / unverified 22。",
+      "clause 汇总：must 组 41（met 14 / not-met 5 / waived 0 / unverified 22），leaf 共 109 个，冲突 0 个，未归因 hard fail 0 个。",
+      "clause 证据仍有 30 个 unverified leaf（req-teahouse-program#program、req-single-storey#absence-stairs-basement、req-no-mezzanine#absence-mezzanine、req-single-hall#single-hall、req-no-partitions#absence-partition、req-wall-thick-1m#no-foyer-tail、req-door-north-west#report-opening、req-door-north-west#no-foyer-tail）；未验证 leaf 仍然阻断接受。"
+    ]
+  },
+  "visual": {
+    "verdict": "not-reviewed",
+    "strengths": [],
+    "weaknesses": [],
+    "notes": [
+      "未接入看图评审"
+    ]
+  },
+  "defects": [],
+  "verdict": {
+    "status": "not-satisfied",
+    "musts": [
+      {
+        "requirementId": "req-teahouse-program",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-teahouse-program#program）",
+        "text": "在村口溪边新建一座茶亭，作为村口公共小建筑供歇脚饮茶使用。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [],
+        "waiver": null,
+        "reason": "公共茶亭功能需要人工 / 使用场景复核",
+        "clauses": [
+          {
+            "clauseId": "req-teahouse-program#program",
+            "mustId": "req-teahouse-program",
+            "kind": "program",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-teahouse-program:program",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "公共茶亭功能需要人工 / 使用场景复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-outer-10x8",
+        "status": "met",
+        "note": "clause 证据：共 3 个 leaf（met 3，not-met 0，unverified 0，waived 0）",
+        "text": "建筑外轮廓为 10m×8m 的矩形体量，不得超出。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "wall:f1",
+            "actualId": "wall:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:wall:f1",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:wall:f1",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:wall:f1",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-outer-10x8#envelope-width",
+            "mustId": "req-outer-10x8",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 10,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "envelope",
+              "id": "check:envelope:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "checkId": "check:envelope:f1",
+                "field": "width",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 10,
+              "bounds": {
+                "max": [
+                  12,
+                  5,
+                  10
+                ],
+                "min": [
+                  2,
+                  1,
+                  2
+                ]
+              },
+              "field": "width",
+              "target": 10
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:wall:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-outer-10x8#envelope-depth",
+            "mustId": "req-outer-10x8",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 8,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "envelope",
+              "id": "check:envelope:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "checkId": "check:envelope:f1",
+                "field": "depth",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 8,
+              "bounds": {
+                "max": [
+                  12,
+                  5,
+                  10
+                ],
+                "min": [
+                  2,
+                  1,
+                  2
+                ]
+              },
+              "field": "depth",
+              "target": 8
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:wall:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-outer-10x8#report-wall",
+            "mustId": "req-outer-10x8",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:wall:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "wall:f1",
+                  "id": "expected:wall:f1",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:wall:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-single-storey",
+        "status": "unverified",
+        "note": "clause 证据：共 2 个 leaf（met 1，not-met 0，unverified 1，waived 0，unverified leaf: req-single-storey#absence-stairs-basement）",
+        "text": "整栋为单层，无楼层、无楼梯、无地下空间。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "slab:f1",
+            "actualId": "slab:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:storey:f1",
+            "summary": "coverage pass: check:storey:f1"
+          },
+          {
+            "kind": "check",
+            "ref": "check:absence:stairs-basement",
+            "summary": "unknown geometry may hide a stair"
+          }
+        ],
+        "waiver": null,
+        "reason": "unknown geometry may hide a stair",
+        "clauses": [
+          {
+            "clauseId": "req-single-storey#storey-levels",
+            "mustId": "req-single-storey",
+            "kind": "count",
+            "target": {
+              "metric": "count",
+              "value": 1,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:storey:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:storey:f1",
+                "field": "levels",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "field": "levels",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:storey:f1",
+                "summary": "coverage pass: check:storey:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-single-storey#absence-stairs-basement",
+            "mustId": "req-single-storey",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:stairs-basement",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:stairs-basement",
+                "field": "count",
+                "expectedId": "stairs-basement"
+              }
+            },
+            "status": "unverified",
+            "actual": {
+              "unknownCells": 16
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:stairs-basement",
+                "summary": "unknown geometry may hide a stair"
+              }
+            ],
+            "reason": "unknown geometry may hide a stair",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-no-mezzanine",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-no-mezzanine#absence-mezzanine）",
+        "text": "不加二层，也不做夹层（不得以夹层方式增加使用面积）。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [],
+        "waiver": null,
+        "reason": "夹层 absence 检查器会把厚楼板误报成夹层；不能假 met",
+        "clauses": [
+          {
+            "clauseId": "req-no-mezzanine#absence-mezzanine",
+            "mustId": "req-no-mezzanine",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-no-mezzanine:absence-mezzanine",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "夹层 absence 检查器会把厚楼板误报成夹层；不能假 met",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-single-hall",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-single-hall#single-hall）",
+        "text": "整栋只有一间完整主厅，就座、饮茶、备茶、观景等全部功能集中在同一空间内。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [],
+        "waiver": null,
+        "reason": "单一主厅是功能 / 空间组织目标，没有专用检查器",
+        "clauses": [
+          {
+            "clauseId": "req-single-hall#single-hall",
+            "mustId": "req-single-hall",
+            "kind": "program",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-single-hall:single-hall",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "单一主厅是功能 / 空间组织目标，没有专用检查器",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-no-partitions",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-no-partitions#absence-partition）",
+        "text": "不设玄关、门厅、走廊、卫生间、储藏间、操作间、设备间、厨房或任何隔间，室内不出现任何分隔墙。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:absence:partition",
+            "summary": "all unrecognized barrier cells lie inside designed furniture footprints; cannot prove no partition"
+          }
+        ],
+        "waiver": null,
+        "reason": "all unrecognized barrier cells lie inside designed furniture footprints; cannot prove no partition",
+        "clauses": [
+          {
+            "clauseId": "req-no-partitions#absence-partition",
+            "mustId": "req-no-partitions",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:partition",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:partition",
+                "field": "count",
+                "expectedId": "partition"
+              }
+            },
+            "status": "unverified",
+            "actual": {
+              "furnitureFootprintCells": 16
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:partition",
+                "summary": "all unrecognized barrier cells lie inside designed furniture footprints; cannot prove no partition"
+              }
+            ],
+            "reason": "all unrecognized barrier cells lie inside designed furniture footprints; cannot prove no partition",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-interior-8x6",
+        "status": "met",
+        "note": "clause 证据：共 3 个 leaf（met 3，not-met 0，unverified 0，waived 0）",
+        "text": "室内净尺寸 8m×6m，净面积 48㎡。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "slab:f1",
+            "actualId": "slab:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:clear:f1",
+            "summary": "coverage pass: check:clear:f1"
+          },
+          {
+            "kind": "check",
+            "ref": "check:clear:f1",
+            "summary": "coverage pass: check:clear:f1"
+          },
+          {
+            "kind": "check",
+            "ref": "check:clear:f1",
+            "summary": "coverage pass: check:clear:f1"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-interior-8x6#clear-width",
+            "mustId": "req-interior-8x6",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 8,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:clear:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:clear:f1",
+                "field": "width",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 8,
+              "field": "width",
+              "target": 8
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:clear:f1",
+                "summary": "coverage pass: check:clear:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-interior-8x6#clear-depth",
+            "mustId": "req-interior-8x6",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 6,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:clear:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:clear:f1",
+                "field": "depth",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 6,
+              "field": "depth",
+              "target": 6
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:clear:f1",
+                "summary": "coverage pass: check:clear:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-interior-8x6#clear-area",
+            "mustId": "req-interior-8x6",
+            "kind": "dimension",
+            "target": {
+              "metric": "area",
+              "value": 48,
+              "unit": "m²",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:clear:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:clear:f1",
+                "field": "area",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 48,
+              "field": "area",
+              "target": 48
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:clear:f1",
+                "summary": "coverage pass: check:clear:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-wall-thick-1m",
+        "status": "unverified",
+        "note": "clause 证据：共 2 个 leaf（met 1，not-met 0，unverified 1，waived 0，unverified leaf: req-wall-thick-1m#no-foyer-tail）",
+        "text": "外墙厚度 1m，形成较深的门窗洞口，但不因此产生门厅或隔间。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "wall:f1",
+            "actualId": "wall:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:thickness:f1",
+            "summary": "coverage pass: check:thickness:f1"
+          }
+        ],
+        "waiver": null,
+        "reason": "深墙洞口不得产生门厅或隔间；tail 无法由几何检查直接证明",
+        "clauses": [
+          {
+            "clauseId": "req-wall-thick-1m#thickness",
+            "mustId": "req-wall-thick-1m",
+            "kind": "dimension",
+            "target": {
+              "metric": "thickness",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:thickness:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "checkId": "check:thickness:f1",
+                "field": "thickness",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "field": "thickness",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:thickness:f1",
+                "summary": "coverage pass: check:thickness:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-wall-thick-1m#no-foyer-tail",
+            "mustId": "req-wall-thick-1m",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-wall-thick-1m:no-foyer-tail",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "深墙洞口不得产生门厅或隔间；tail 无法由几何检查直接证明",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-door-north-west",
+        "status": "unverified",
+        "note": "clause 证据：共 5 个 leaf（met 3，not-met 0，unverified 2，waived 0，unverified leaf: req-door-north-west#report-opening、req-door-north-west#no-foyer-tail）",
+        "text": "北墙西段直接开门，门洞净宽 2m，直接连通室外北侧村道，中间不设玄关或门厅。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": "opening:op-entry-north",
+            "status": "pass",
+            "severity": "hard"
+          },
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          }
+        ],
+        "waiver": null,
+        "reason": "opening checks unverified: door.threshold.op-entry-north",
+        "clauses": [
+          {
+            "clauseId": "req-door-north-west#door-width",
+            "mustId": "req-door-north-west",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 2,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "width"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 2,
+              "expectedId": "op-entry-north",
+              "metric": "width",
+              "target": 2
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-door-north-west#door-side",
+            "mustId": "req-door-north-west",
+            "kind": "relation",
+            "target": {
+              "metric": "side",
+              "value": "north",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:door-position:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "side",
+                "side": "north"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "north",
+              "expectedId": "op-entry-north",
+              "metric": "side",
+              "target": "north"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-door-north-west#door-west-of-center",
+            "mustId": "req-door-north-west",
+            "kind": "relation",
+            "target": {
+              "metric": "centerX",
+              "value": "west-of-center",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:door-position:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "centerX",
+                "centerX": 4,
+                "midX": 7,
+                "expected": "west-of-center"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 3.5,
+              "expectedId": "op-entry-north",
+              "metric": "centerX",
+              "midX": 7,
+              "target": "west-of-center"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-door-north-west#report-opening",
+            "mustId": "req-door-north-west",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:opening:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "opening:op-entry-north"
+              }
+            },
+            "status": "unverified",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "opening:op-entry-north",
+                  "id": "expected:opening:op-entry-north",
+                  "severity": "hard",
+                  "status": "unverified"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": "opening checks unverified: door.threshold.op-entry-north",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-door-north-west#no-foyer-tail",
+            "mustId": "req-door-north-west",
+            "kind": "program",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-door-north-west:no-foyer-tail",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "门内不设玄关或门厅；该尾句没有专用几何检查",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-door-clear-1m",
+        "status": "met",
+        "note": "clause 证据：共 1 个 leaf（met 1，not-met 0，unverified 0，waived 0）",
+        "text": "门内侧保留 1m 宽的空地（门内进深 1m 的净空带），该处不摆放家具。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": "opening:op-entry-north",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:door-clear:op-entry-north",
+            "summary": "coverage pass: check:door-clear:op-entry-north"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-door-clear-1m#door-clear",
+            "mustId": "req-door-clear-1m",
+            "kind": "dimension",
+            "target": {
+              "metric": "door-clear",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:door-clear:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:door-clear:op-entry-north",
+                "field": "width",
+                "expectedId": "op-entry-north"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "coverage": {
+                "furniture": 4
+              },
+              "doorClear": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:door-clear:op-entry-north",
+                "summary": "coverage pass: check:door-clear:op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-window-south-4m",
+        "status": "unverified",
+        "note": "clause 证据：共 5 个 leaf（met 4，not-met 0，unverified 1，waived 0，unverified leaf: req-window-south-4m#stream-view）",
+        "text": "南墙只做一条 4m 宽的大窗用于观看南侧溪流，南墙无其他洞口。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-south-window",
+            "actualId": "opening:op-south-window",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "check",
+            "ref": "check:schedule:south",
+            "summary": "schedule south"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": "观看南侧溪流是视觉 / 体验目标，需要渲染或人工复核",
+        "clauses": [
+          {
+            "clauseId": "req-window-south-4m#window-width",
+            "mustId": "req-window-south-4m",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 4,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "width"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 4,
+              "expectedId": "op-south-window",
+              "metric": "width",
+              "target": 4
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-south-4m#window-side",
+            "mustId": "req-window-south-4m",
+            "kind": "relation",
+            "target": {
+              "metric": "side",
+              "value": "south",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "side",
+                "side": "south"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "south",
+              "expectedId": "op-south-window",
+              "metric": "side",
+              "target": "south"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-south-4m#only-south-opening",
+            "mustId": "req-window-south-4m",
+            "kind": "count",
+            "target": {
+              "metric": "onlyOnSide",
+              "value": 1,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:schedule:south",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "checkId": "check:schedule:south",
+                "expectedId": "op-south-window",
+                "metric": "onlyOnSide",
+                "side": "south"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "metric": "onlyOnSide",
+              "side": "south",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              },
+              {
+                "kind": "check",
+                "ref": "check:schedule:south",
+                "summary": "schedule south"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-south-4m#report-opening",
+            "mustId": "req-window-south-4m",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "opening:op-south-window"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "opening:op-south-window",
+                  "id": "expected:opening:op-south-window",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-south-4m#stream-view",
+            "mustId": "req-window-south-4m",
+            "kind": "visual",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-window-south-4m:stream-view",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "观看南侧溪流是视觉 / 体验目标，需要渲染或人工复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-window-dim",
+        "status": "met",
+        "note": "clause 证据：共 5 个 leaf（met 5，not-met 0，unverified 0，waived 0）",
+        "text": "窗台高 1m、窗高 2m，洞口顶位于室内地面以上 3m。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "opening:op-south-window",
+            "actualId": "opening:op-south-window",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-window-dim#window-side",
+            "mustId": "req-window-dim",
+            "kind": "relation",
+            "target": {
+              "metric": "side",
+              "value": "south",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "side",
+                "side": "south"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "south",
+              "expectedId": "op-south-window",
+              "metric": "side",
+              "target": "south"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-dim#window-sill",
+            "mustId": "req-window-dim",
+            "kind": "dimension",
+            "target": {
+              "metric": "sill",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "sill"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "expectedId": "op-south-window",
+              "metric": "sill",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-dim#window-height",
+            "mustId": "req-window-dim",
+            "kind": "dimension",
+            "target": {
+              "metric": "height",
+              "value": 2,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "height"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 2,
+              "expectedId": "op-south-window",
+              "metric": "height",
+              "target": 2
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-dim#window-head",
+            "mustId": "req-window-dim",
+            "kind": "dimension",
+            "target": {
+              "metric": "head",
+              "value": 3,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "head"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 3,
+              "expectedId": "op-south-window",
+              "metric": "head",
+              "target": 3
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-window-dim#report-opening",
+            "mustId": "req-window-dim",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "opening:op-south-window"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "opening:op-south-window",
+                  "id": "expected:opening:op-south-window",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-no-glass-door",
+        "status": "met",
+        "note": "clause 证据：共 2 个 leaf（met 2，not-met 0，unverified 0，waived 0）",
+        "text": "南墙不做落地门或落地窗，室内外进出仅通过北门。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": "opening:op-entry-north",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:absence:glass-door",
+            "summary": "coverage pass: check:absence:glass-door"
+          },
+          {
+            "kind": "check",
+            "ref": "check:schedule:north",
+            "summary": "coverage pass: check:schedule:north"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-no-glass-door#absence-glass-door",
+            "mustId": "req-no-glass-door",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:glass-door",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:glass-door",
+                "field": "count",
+                "expectedId": "glass-door"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "field": "count",
+              "actual": 0,
+              "target": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:glass-door",
+                "summary": "coverage pass: check:absence:glass-door"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-no-glass-door#only-north-entry",
+            "mustId": "req-no-glass-door",
+            "kind": "count",
+            "target": {
+              "metric": "entryCount",
+              "value": 1,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:schedule:north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:schedule:north",
+                "field": "doorCount",
+                "expectedId": "op-entry-north",
+                "side": "north"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "field": "doorCount",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:schedule:north",
+                "summary": "coverage pass: check:schedule:north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-no-outdoor-zone",
+        "status": "unverified",
+        "note": "clause 证据：共 3 个 leaf（met 2，not-met 0，unverified 1，waived 0，unverified leaf: req-no-outdoor-zone#outdoor-zone-compound）",
+        "text": "不做檐下平台、露台、台阶或任何室外分区，场地不新设可停留的室外地面（无铺装平台、无檐廊、无庭院、无入口铺装带）。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:absence:eave-platform",
+            "summary": "coverage pass: check:absence:eave-platform"
+          },
+          {
+            "kind": "check",
+            "ref": "check:absence:base-platform",
+            "summary": "coverage pass: check:absence:base-platform"
+          }
+        ],
+        "waiver": null,
+        "reason": "任何室外分区 / 可停留地面是复合否定项，需要人工或场地证据复核",
+        "clauses": [
+          {
+            "clauseId": "req-no-outdoor-zone#absence-eave-platform",
+            "mustId": "req-no-outdoor-zone",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:eave-platform",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:eave-platform",
+                "field": "count",
+                "expectedId": "eave-platform"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "field": "count",
+              "actual": 0,
+              "target": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:eave-platform",
+                "summary": "coverage pass: check:absence:eave-platform"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-no-outdoor-zone#absence-base-platform",
+            "mustId": "req-no-outdoor-zone",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:base-platform",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:base-platform",
+                "field": "count",
+                "expectedId": "base-platform"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "field": "count",
+              "actual": 0,
+              "target": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:base-platform",
+                "summary": "coverage pass: check:absence:base-platform"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-no-outdoor-zone#outdoor-zone-compound",
+            "mustId": "req-no-outdoor-zone",
+            "kind": "program",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-no-outdoor-zone:outdoor-zone-compound",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "任何室外分区 / 可停留地面是复合否定项，需要人工或场地证据复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-no-steps",
+        "status": "unverified",
+        "note": "clause 证据：共 2 个 leaf（met 0，not-met 0，unverified 2，waived 0，unverified leaf: req-no-steps#flush、req-no-steps#no-ramp-tail）",
+        "text": "入口不设台阶、不设坡道；室内地面与室外地面齐平，经门洞直接连通村道。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:flush:op-entry-north",
+            "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+          }
+        ],
+        "waiver": null,
+        "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+        "clauses": [
+          {
+            "clauseId": "req-no-steps#flush",
+            "mustId": "req-no-steps",
+            "kind": "relation",
+            "target": {
+              "metric": "flush",
+              "value": true,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:flush:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:flush:op-entry-north",
+                "field": "flush",
+                "expectedId": "op-entry-north"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:flush:op-entry-north",
+                "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+              }
+            ],
+            "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-no-steps#no-ramp-tail",
+            "mustId": "req-no-steps",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-no-steps:no-ramp-tail",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "不设坡道没有专用几何检查；当前只能证明入口齐平",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-long-table",
+        "status": "met",
+        "note": "clause 证据：共 6 个 leaf（met 6，not-met 0，unverified 0，waived 0）",
+        "text": "主厅东侧靠东墙设一张 4m 长、2m 宽的长桌（长边沿东西向）。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "furniture:f-long-table",
+            "actualId": "furniture:f-long-table",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-long-table",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-long-table",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-long-table",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-long-table",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-long-table",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-long-table",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-long-table#table-length",
+            "mustId": "req-long-table",
+            "kind": "dimension",
+            "target": {
+              "metric": "length",
+              "value": 4,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-long-table",
+              "objectRefs": [
+                "furniture:f-long-table"
+              ],
+              "params": {
+                "expectedId": "f-long-table",
+                "metric": "length"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 4,
+              "metric": "length",
+              "target": 4
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-long-table",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-long-table#table-depth",
+            "mustId": "req-long-table",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 2,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-long-table",
+              "objectRefs": [
+                "furniture:f-long-table"
+              ],
+              "params": {
+                "expectedId": "f-long-table",
+                "metric": "depth"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 2,
+              "metric": "depth",
+              "target": 2
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-long-table",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-long-table#table-kind",
+            "mustId": "req-long-table",
+            "kind": "kind",
+            "target": {
+              "metric": "kind",
+              "value": "table",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-long-table",
+              "objectRefs": [
+                "furniture:f-long-table"
+              ],
+              "params": {
+                "expectedId": "f-long-table",
+                "metric": "kind"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "table",
+              "metric": "kind",
+              "target": "table"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-long-table",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-long-table#table-east-wall",
+            "mustId": "req-long-table",
+            "kind": "relation",
+            "target": {
+              "metric": "relation",
+              "value": "east-wall",
+              "unit": null,
+              "relation": "east-wall"
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-long-table",
+              "objectRefs": [
+                "furniture:f-long-table"
+              ],
+              "params": {
+                "expectedId": "f-long-table",
+                "metric": "relation",
+                "relation": "east-wall",
+                "referenceId": "wall-f1-z-p000012-p000002-p000010",
+                "tolerance": "0"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 11,
+              "reference": 11,
+              "relation": "east-wall"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-long-table",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-long-table#table-long-axis",
+            "mustId": "req-long-table",
+            "kind": "relation",
+            "target": {
+              "metric": "axis",
+              "value": "x",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-long-table",
+              "objectRefs": [
+                "furniture:f-long-table"
+              ],
+              "params": {
+                "expectedId": "f-long-table",
+                "metric": "axis"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "x",
+              "metric": "axis",
+              "target": "x"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-long-table",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-long-table#report-furniture",
+            "mustId": "req-long-table",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:furniture:f-long-table",
+              "objectRefs": [
+                "furniture:f-long-table"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "furniture:f-long-table"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "furniture:f-long-table",
+                  "id": "expected:furniture:f-long-table",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-long-table",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-bench-north",
+        "status": "not-met",
+        "note": "clause 证据：共 6 个 leaf（met 0，not-met 6，unverified 0，waived 0，not-met leaf: req-bench-north#north-bench-length、req-bench-north#north-bench-depth、req-bench-north#north-bench-kind、req-bench-north#north-bench-relation、req-bench-north#north-bench-west-of-door-clear）",
+        "text": "长桌北侧设一条 4m 长、1m 宽的长凳，其西端从门洞东侧开始，不侵占门内 1m 净空。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "furniture:f-bench-north",
+            "actualId": "furniture:f-bench-north",
+            "status": "fail",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-north",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-north",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-north",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-north",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-north",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-north",
+            "summary": "no actual furniture object matched the expected envelope"
+          }
+        ],
+        "waiver": null,
+        "reason": "must-entry-hard-fail: clause-hard-fail",
+        "clauses": [
+          {
+            "clauseId": "req-bench-north#north-bench-length",
+            "mustId": "req-bench-north",
+            "kind": "dimension",
+            "target": {
+              "metric": "length",
+              "value": 4,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-north",
+              "objectRefs": [
+                "furniture:f-bench-north"
+              ],
+              "params": {
+                "expectedId": "f-bench-north",
+                "metric": "length"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-north",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-north#north-bench-depth",
+            "mustId": "req-bench-north",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-north",
+              "objectRefs": [
+                "furniture:f-bench-north"
+              ],
+              "params": {
+                "expectedId": "f-bench-north",
+                "metric": "depth"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-north",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-north#north-bench-kind",
+            "mustId": "req-bench-north",
+            "kind": "kind",
+            "target": {
+              "metric": "kind",
+              "value": "bench",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-north",
+              "objectRefs": [
+                "furniture:f-bench-north"
+              ],
+              "params": {
+                "expectedId": "f-bench-north",
+                "metric": "kind"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-north",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-north#north-bench-relation",
+            "mustId": "req-bench-north",
+            "kind": "relation",
+            "target": {
+              "metric": "relation",
+              "value": "north-of",
+              "unit": null,
+              "relation": "north-of"
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-north",
+              "objectRefs": [
+                "furniture:f-bench-north"
+              ],
+              "params": {
+                "expectedId": "f-bench-north",
+                "metric": "relation",
+                "relation": "north-of",
+                "referenceId": "f-long-table",
+                "tolerance": "0"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-north",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-north#north-bench-west-of-door-clear",
+            "mustId": "req-bench-north",
+            "kind": "relation",
+            "target": {
+              "metric": "west-of-door-clear",
+              "value": true,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-north",
+              "objectRefs": [
+                "furniture:f-bench-north"
+              ],
+              "params": {
+                "expectedId": "f-bench-north",
+                "metric": "relation",
+                "relation": "west-of-door-clear",
+                "referenceId": "op-entry-north",
+                "tolerance": "0",
+                "doorMaxX": 5
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-north",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-north#report-furniture",
+            "mustId": "req-bench-north",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:furniture:f-bench-north",
+              "objectRefs": [
+                "furniture:f-bench-north"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "furniture:f-bench-north"
+              }
+            },
+            "status": "not-met",
+            "actual": {
+              "hardFail": true,
+              "items": [
+                {
+                  "expectedId": "furniture:f-bench-north",
+                  "id": "expected:furniture:f-bench-north",
+                  "severity": "hard",
+                  "status": "missing"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-north",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "report-hard-fail: no actual furniture object matched the expected envelope",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-bench-south",
+        "status": "not-met",
+        "note": "clause 证据：共 5 个 leaf（met 0，not-met 5，unverified 0，waived 0，not-met leaf: req-bench-south#south-bench-length、req-bench-south#south-bench-depth、req-bench-south#south-bench-kind、req-bench-south#south-bench-relation、req-bench-south#report-furniture）",
+        "text": "长桌南侧设一条 4m 长、1m 宽的长凳，与北凳相对布置。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "furniture:f-bench-south",
+            "actualId": "furniture:f-bench-south",
+            "status": "fail",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-south",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-south",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-south",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-south",
+            "summary": "no actual furniture object matched the expected envelope"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-bench-south",
+            "summary": "no actual furniture object matched the expected envelope"
+          }
+        ],
+        "waiver": null,
+        "reason": "must-entry-hard-fail: clause-hard-fail",
+        "clauses": [
+          {
+            "clauseId": "req-bench-south#south-bench-length",
+            "mustId": "req-bench-south",
+            "kind": "dimension",
+            "target": {
+              "metric": "length",
+              "value": 4,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-south",
+              "objectRefs": [
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "expectedId": "f-bench-south",
+                "metric": "length"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-south",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-south#south-bench-depth",
+            "mustId": "req-bench-south",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-south",
+              "objectRefs": [
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "expectedId": "f-bench-south",
+                "metric": "depth"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-south",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-south#south-bench-kind",
+            "mustId": "req-bench-south",
+            "kind": "kind",
+            "target": {
+              "metric": "kind",
+              "value": "bench",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-south",
+              "objectRefs": [
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "expectedId": "f-bench-south",
+                "metric": "kind"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-south",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-south#south-bench-relation",
+            "mustId": "req-bench-south",
+            "kind": "relation",
+            "target": {
+              "metric": "relation",
+              "value": "south-of",
+              "unit": null,
+              "relation": "south-of"
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-bench-south",
+              "objectRefs": [
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "expectedId": "f-bench-south",
+                "metric": "relation",
+                "relation": "south-of",
+                "referenceId": "f-long-table",
+                "tolerance": "0"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-south",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "no actual furniture object matched the expected envelope",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-bench-south#report-furniture",
+            "mustId": "req-bench-south",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:furniture:f-bench-south",
+              "objectRefs": [
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "furniture:f-bench-south"
+              }
+            },
+            "status": "not-met",
+            "actual": {
+              "hardFail": true,
+              "items": [
+                {
+                  "expectedId": "furniture:f-bench-south",
+                  "id": "expected:furniture:f-bench-south",
+                  "severity": "hard",
+                  "status": "missing"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-bench-south",
+                "summary": "no actual furniture object matched the expected envelope"
+              }
+            ],
+            "reason": "report-hard-fail: no actual furniture object matched the expected envelope",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-seats-10",
+        "status": "not-met",
+        "note": "clause 证据：共 2 个 leaf（met 0，not-met 2，unverified 0，waived 0，not-met leaf: req-seats-10#seat-count、req-seats-10#seat-per-bench）",
+        "text": "就座共 10 座，南北两条长凳各 5 座（5+5）。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "furniture:f-bench-north",
+            "actualId": "furniture:f-bench-north",
+            "status": "fail",
+            "severity": "hard"
+          },
+          {
+            "expectedId": "furniture:f-bench-south",
+            "actualId": "furniture:f-bench-south",
+            "status": "fail",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:seats:10",
+            "summary": "bench furniture is missing"
+          },
+          {
+            "kind": "check",
+            "ref": "check:seats:10",
+            "summary": "bench furniture is missing"
+          }
+        ],
+        "waiver": null,
+        "reason": "must-entry-hard-fail: clause-hard-fail",
+        "clauses": [
+          {
+            "clauseId": "req-seats-10#seat-count",
+            "mustId": "req-seats-10",
+            "kind": "count",
+            "target": {
+              "metric": "count",
+              "value": 10,
+              "unit": "seat",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:seats:10",
+              "objectRefs": [
+                "furniture:f-bench-north",
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "checkId": "check:seats:10",
+                "field": "count",
+                "expectedId": "f-bench-north,f-bench-south"
+              }
+            },
+            "status": "not-met",
+            "actual": {
+              "missing": [
+                "f-bench-north",
+                "f-bench-south"
+              ],
+              "perBench": {},
+              "seats": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:seats:10",
+                "summary": "bench furniture is missing"
+              }
+            ],
+            "reason": "report-hard-fail: bench furniture is missing",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-seats-10#seat-per-bench",
+            "mustId": "req-seats-10",
+            "kind": "count",
+            "target": {
+              "metric": "seatsPerBench",
+              "value": [
+                5,
+                5
+              ],
+              "unit": "seat",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:seats:10",
+              "objectRefs": [
+                "furniture:f-bench-north",
+                "furniture:f-bench-south"
+              ],
+              "params": {
+                "checkId": "check:seats:10",
+                "field": "perBench",
+                "expectedId": "f-bench-north,f-bench-south"
+              }
+            },
+            "status": "not-met",
+            "actual": {
+              "missing": [
+                "f-bench-north",
+                "f-bench-south"
+              ],
+              "perBench": {},
+              "seats": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:seats:10",
+                "summary": "bench furniture is missing"
+              }
+            ],
+            "reason": "report-hard-fail: bench furniture is missing",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-counter",
+        "status": "unverified",
+        "note": "clause 证据：共 6 个 leaf（met 5，not-met 0，unverified 1，waived 0，unverified leaf: req-counter#counter-not-extended）",
+        "text": "西墙中段设一张 2m 长、1m 深的柜台，作为主厅内的固定家具台面，不做单独隔间或操作间，也不延伸出备茶区。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "furniture:f-counter",
+            "actualId": "furniture:f-counter",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-counter",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-counter",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-counter",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-counter",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "coverage-evidence#expected:furniture:f-counter",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": "不延伸出备茶区 / 不做操作间是功能尾句，需要人工复核",
+        "clauses": [
+          {
+            "clauseId": "req-counter#counter-length",
+            "mustId": "req-counter",
+            "kind": "dimension",
+            "target": {
+              "metric": "length",
+              "value": 2,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-counter",
+              "objectRefs": [
+                "furniture:f-counter"
+              ],
+              "params": {
+                "expectedId": "f-counter",
+                "metric": "length"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 2,
+              "metric": "length",
+              "target": 2
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-counter",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-counter#counter-depth",
+            "mustId": "req-counter",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-counter",
+              "objectRefs": [
+                "furniture:f-counter"
+              ],
+              "params": {
+                "expectedId": "f-counter",
+                "metric": "depth"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "metric": "depth",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-counter",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-counter#counter-kind",
+            "mustId": "req-counter",
+            "kind": "kind",
+            "target": {
+              "metric": "kind",
+              "value": "counter",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-counter",
+              "objectRefs": [
+                "furniture:f-counter"
+              ],
+              "params": {
+                "expectedId": "f-counter",
+                "metric": "kind"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "counter",
+              "metric": "kind",
+              "target": "counter"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-counter",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-counter#counter-west-wall",
+            "mustId": "req-counter",
+            "kind": "relation",
+            "target": {
+              "metric": "relation",
+              "value": "west-wall",
+              "unit": null,
+              "relation": "west-wall"
+            },
+            "check": {
+              "kind": "furniture",
+              "id": "check:furniture:f-counter",
+              "objectRefs": [
+                "furniture:f-counter"
+              ],
+              "params": {
+                "expectedId": "f-counter",
+                "metric": "relation",
+                "relation": "west-wall",
+                "referenceId": "wall-f1-z-p000002-p000002-p000010",
+                "tolerance": "0"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 3,
+              "reference": 3,
+              "relation": "west-wall"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-counter",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-counter#report-furniture",
+            "mustId": "req-counter",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:furniture:f-counter",
+              "objectRefs": [
+                "furniture:f-counter"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "furniture:f-counter"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "furniture:f-counter",
+                  "id": "expected:furniture:f-counter",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "coverage-evidence#expected:furniture:f-counter",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-counter#counter-not-extended",
+            "mustId": "req-counter",
+            "kind": "program",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-counter:counter-not-extended",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "不延伸出备茶区 / 不做操作间是功能尾句，需要人工复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-counter-no-service",
+        "status": "met",
+        "note": "clause 证据：共 1 个 leaf（met 1，not-met 0，unverified 0，waived 0）",
+        "text": "柜台不设水槽、热水或其他备茶设备，不预留给排水与电源点位，仅为固定家具台面。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:absence:counter-service",
+            "summary": "coverage pass: check:absence:counter-service"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-counter-no-service#absence-counter-service",
+            "mustId": "req-counter-no-service",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:counter-service",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:counter-service",
+                "field": "count",
+                "expectedId": "counter-service"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "field": "count",
+              "actual": 0,
+              "target": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:counter-service",
+                "summary": "coverage pass: check:absence:counter-service"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-stone-base",
+        "status": "unverified",
+        "note": "clause 证据：共 4 个 leaf（met 2，not-met 0，unverified 2，waived 0，unverified leaf: req-stone-base#stone-material、req-stone-base#flush-no-raise）",
+        "text": "建筑坐于石基座上；石基座仅作墙下垫层与防潮层，不外挑成平台、不抬升室内地坪到需要踏步的高度。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "slab:f1",
+            "actualId": "slab:f1",
+            "status": "pass",
+            "severity": "hard"
+          },
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:slab:f1",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "check",
+            "ref": "check:absence:base-platform",
+            "summary": "coverage pass: check:absence:base-platform"
+          },
+          {
+            "kind": "check",
+            "ref": "check:flush:op-entry-north",
+            "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+          }
+        ],
+        "waiver": null,
+        "reason": "材料 / 防潮层不在 allowlist；不能仅凭材料声明 met",
+        "clauses": [
+          {
+            "clauseId": "req-stone-base#stone-material",
+            "mustId": "req-stone-base",
+            "kind": "material",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-stone-base:stone-material",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "材料 / 防潮层不在 allowlist；不能仅凭材料声明 met",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-stone-base#report-slab",
+            "mustId": "req-stone-base",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:slab:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "slab:f1",
+                  "id": "expected:slab:f1",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:slab:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-stone-base#absence-base-platform",
+            "mustId": "req-stone-base",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:base-platform",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:base-platform",
+                "field": "count",
+                "expectedId": "base-platform"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "field": "count",
+              "actual": 0,
+              "target": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:base-platform",
+                "summary": "coverage pass: check:absence:base-platform"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-stone-base#flush-no-raise",
+            "mustId": "req-stone-base",
+            "kind": "relation",
+            "target": {
+              "metric": "flush",
+              "value": true,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:flush:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:flush:op-entry-north",
+                "field": "flush",
+                "expectedId": "op-entry-north"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:flush:op-entry-north",
+                "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+              }
+            ],
+            "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-wood-wall-column",
+        "status": "not-met",
+        "note": "clause 证据：共 2 个 leaf（met 0，not-met 1，unverified 1，waived 0，not-met leaf: req-wood-wall-column#wood-material，unverified leaf: req-wood-wall-column#column-checker）",
+        "text": "外墙与柱为木材（木墙木柱）。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:material:wall",
+            "summary": "exterior wall material does not match the design"
+          },
+          {
+            "kind": "check",
+            "ref": "check:material:structure",
+            "summary": "structural material does not match the design"
+          }
+        ],
+        "waiver": null,
+        "reason": "must-entry-hard-fail: clause-hard-fail",
+        "clauses": [
+          {
+            "clauseId": "req-wood-wall-column#wood-material",
+            "mustId": "req-wood-wall-column",
+            "kind": "material",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-wood-wall-column:wood-material",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:material:wall",
+                "summary": "exterior wall material does not match the design"
+              },
+              {
+                "kind": "check",
+                "ref": "check:material:structure",
+                "summary": "structural material does not match the design"
+              }
+            ],
+            "reason": "木墙 / 木柱材料不在 allowlist; attributed-hard-fail: structural material does not match the design; attributed-hard-fail: exterior wall material does not match the design",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-wood-wall-column#column-checker",
+            "mustId": "req-wood-wall-column",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-wood-wall-column:column-checker",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "没有专用柱检查器；柱数量与位置需要人工复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-gable-tile-roof",
+        "status": "unverified",
+        "note": "clause 证据：共 3 个 leaf（met 1，not-met 0，unverified 2，waived 0，unverified leaf: req-gable-tile-roof#roof-form、req-gable-tile-roof#roof-material）",
+        "text": "屋面为双坡形式，覆深色瓦。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "roof",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          },
+          {
+            "expectedId": "roof",
+            "actualId": "roof",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:roof",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "check",
+            "ref": "check:roof:form",
+            "summary": "roof form stepped"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:roof",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": "roof object diff pass, but form classifier reports stepped; cannot prove gable",
+        "clauses": [
+          {
+            "clauseId": "req-gable-tile-roof#roof-form",
+            "mustId": "req-gable-tile-roof",
+            "kind": "form",
+            "target": {
+              "metric": "form",
+              "value": "gable",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "roof",
+              "id": "check:roof:form",
+              "objectRefs": [
+                "roof"
+              ],
+              "params": {
+                "metric": "form"
+              }
+            },
+            "status": "unverified",
+            "actual": {
+              "deltaKeys": [],
+              "expectedId": "roof",
+              "observedForm": "stepped",
+              "reportStatus": "pass",
+              "target": "gable"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:roof",
+                "summary": "pass/hard"
+              },
+              {
+                "kind": "check",
+                "ref": "check:roof:form",
+                "summary": "roof form stepped"
+              }
+            ],
+            "reason": "roof object diff pass, but form classifier reports stepped; cannot prove gable",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-gable-tile-roof#report-roof",
+            "mustId": "req-gable-tile-roof",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:roof",
+              "objectRefs": [
+                "roof"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "roof"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "roof",
+                  "id": "expected:roof",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:roof",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-gable-tile-roof#roof-material",
+            "mustId": "req-gable-tile-roof",
+            "kind": "material",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-gable-tile-roof:roof-material",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "深色瓦材料不在 allowlist；材料声明不能单独 met",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-eave-only",
+        "status": "unverified",
+        "note": "clause 证据：共 2 个 leaf（met 1，not-met 0，unverified 1，waived 0，unverified leaf: req-eave-only#eave-ground）",
+        "text": "屋面只做出檐，不做檐下平台或檐廊；出檐下方不设铺装与可停留地面。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:absence:eave-platform",
+            "summary": "coverage pass: check:absence:eave-platform"
+          }
+        ],
+        "waiver": null,
+        "reason": "出檐下方不设铺装 / 可停留地面需要人工或场地证据",
+        "clauses": [
+          {
+            "clauseId": "req-eave-only#absence-eave-platform",
+            "mustId": "req-eave-only",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:eave-platform",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:eave-platform",
+                "field": "count",
+                "expectedId": "eave-platform"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "field": "count",
+              "actual": 0,
+              "target": 0
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:eave-platform",
+                "summary": "coverage pass: check:absence:eave-platform"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-eave-only#eave-ground",
+            "mustId": "req-eave-only",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-eave-only:eave-ground",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "出檐下方不设铺装 / 可停留地面需要人工或场地证据",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-block-budget",
+        "status": "met",
+        "note": "clause 证据：共 1 个 leaf（met 1，not-met 0，unverified 0，waived 0）",
+        "text": "整体方块用量不超过 20000 方块；按 1 格≈1m 估算，10m×8m×约 6m 的主体体量远低于该上限。",
+        "source": "requirement",
+        "confidence": "high",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:budget:20000",
+            "summary": "budget actual 364"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "req-block-budget#budget-max",
+            "mustId": "req-block-budget",
+            "kind": "budget",
+            "target": {
+              "metric": "maxBlocks",
+              "value": 20000,
+              "unit": "blocks",
+              "relation": null
+            },
+            "check": {
+              "kind": "budget",
+              "id": "check:budget:20000",
+              "objectRefs": [],
+              "params": {
+                "metric": "maxBlocks",
+                "specMax": 20000
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 364,
+              "target": 20000,
+              "specMax": 20000,
+              "effective": 20000
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:budget:20000",
+                "summary": "budget actual 364"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-no-sign-ticket-frame",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-no-sign-ticket-frame#no-sign）",
+        "text": "不设招牌、售票窗口或装饰性构架。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [],
+        "waiver": null,
+        "reason": "招牌 / 售票窗口 / 装饰构架没有专用 absence 检查器",
+        "clauses": [
+          {
+            "clauseId": "req-no-sign-ticket-frame#no-sign",
+            "mustId": "req-no-sign-ticket-frame",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-no-sign-ticket-frame:no-sign",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "招牌 / 售票窗口 / 装饰构架没有专用 absence 检查器",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-site-stream-south",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-site-stream-south#stream-south）",
+        "text": "溪流位于场地南侧，是建筑的主要景观方向。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [],
+        "waiver": null,
+        "reason": "溪流方位属于场地语境，需要人工复核",
+        "clauses": [
+          {
+            "clauseId": "req-site-stream-south#stream-south",
+            "mustId": "req-site-stream-south",
+            "kind": "site",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-site-stream-south:stream-south",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "溪流方位属于场地语境，需要人工复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-site-road-north",
+        "status": "unverified",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 0，unverified 1，waived 0，unverified leaf: req-site-road-north#road-north）",
+        "text": "村道位于场地北侧，建筑位于村口溪边。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [],
+        "waiver": null,
+        "reason": "村道方位属于场地语境，需要人工复核",
+        "clauses": [
+          {
+            "clauseId": "req-site-road-north#road-north",
+            "mustId": "req-site-road-north",
+            "kind": "site",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-site-road-north:road-north",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "村道方位属于场地语境，需要人工复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-entrance-from-north",
+        "status": "unverified",
+        "note": "clause 证据：共 3 个 leaf（met 1，not-met 0，unverified 2，waived 0，unverified leaf: req-entrance-from-north#flush、req-entrance-from-north#village-road-context）",
+        "text": "人流由北侧村道直接进入北墙门洞，入口朝北；入口处地面齐平、无踏步。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": "opening:op-entry-north",
+            "status": "pass",
+            "severity": "hard"
+          },
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "check",
+            "ref": "check:flush:op-entry-north",
+            "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+          }
+        ],
+        "waiver": null,
+        "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+        "clauses": [
+          {
+            "clauseId": "req-entrance-from-north#entrance-side",
+            "mustId": "req-entrance-from-north",
+            "kind": "relation",
+            "target": {
+              "metric": "side",
+              "value": "north",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:door-position:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "side",
+                "side": "north"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "north",
+              "expectedId": "op-entry-north",
+              "metric": "side",
+              "target": "north"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-entrance-from-north#flush",
+            "mustId": "req-entrance-from-north",
+            "kind": "relation",
+            "target": {
+              "metric": "flush",
+              "value": true,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:flush:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:flush:op-entry-north",
+                "field": "flush",
+                "expectedId": "op-entry-north"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:flush:op-entry-north",
+                "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+              }
+            ],
+            "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-entrance-from-north#village-road-context",
+            "mustId": "req-entrance-from-north",
+            "kind": "site",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-entrance-from-north:village-road-context",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "北侧村道衔接属于场地语境，需要人工复核",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "req-view-frame",
+        "status": "unverified",
+        "note": "clause 证据：共 3 个 leaf（met 1，not-met 0，unverified 2，waived 0，unverified leaf: req-view-frame#view-frame、req-view-frame#seating-orientation）",
+        "text": "南墙 4m 大窗作为溪景取景框，是主厅的视觉中心，室内布置需让主要座席朝窗。",
+        "source": "requirement",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-south-window",
+            "actualId": "opening:op-south-window",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": "溪景取景框是视觉目标，需要渲染或人工复核",
+        "clauses": [
+          {
+            "clauseId": "req-view-frame#window-width",
+            "mustId": "req-view-frame",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 4,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "width"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 4,
+              "expectedId": "op-south-window",
+              "metric": "width",
+              "target": 4
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "req-view-frame#view-frame",
+            "mustId": "req-view-frame",
+            "kind": "visual",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-view-frame:view-frame",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "溪景取景框是视觉目标，需要渲染或人工复核",
+            "conflict": null
+          },
+          {
+            "clauseId": "req-view-frame#seating-orientation",
+            "mustId": "req-view-frame",
+            "kind": "visual",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:req-view-frame:seating-orientation",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "主要座席朝窗是布置意图，当前没有朝向检查器",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-outer-10x8",
+        "status": "met",
+        "note": "clause 证据：共 3 个 leaf（met 3，not-met 0，unverified 0，waived 0）",
+        "text": "建筑外轮廓 10m×8m 矩形，不得超出。",
+        "source": "constraint",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "wall:f1",
+            "actualId": "wall:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:wall:f1",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:wall:f1",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:wall:f1",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "constraint-con-outer-10x8#envelope-width",
+            "mustId": "constraint-con-outer-10x8",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 10,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "envelope",
+              "id": "check:envelope:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "checkId": "check:envelope:f1",
+                "field": "width",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 10,
+              "bounds": {
+                "max": [
+                  12,
+                  5,
+                  10
+                ],
+                "min": [
+                  2,
+                  1,
+                  2
+                ]
+              },
+              "field": "width",
+              "target": 10
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:wall:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-outer-10x8#envelope-depth",
+            "mustId": "constraint-con-outer-10x8",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 8,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "envelope",
+              "id": "check:envelope:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "checkId": "check:envelope:f1",
+                "field": "depth",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 8,
+              "bounds": {
+                "max": [
+                  12,
+                  5,
+                  10
+                ],
+                "min": [
+                  2,
+                  1,
+                  2
+                ]
+              },
+              "field": "depth",
+              "target": 8
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:wall:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-outer-10x8#report-wall",
+            "mustId": "constraint-con-outer-10x8",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:wall:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "wall:f1",
+                  "id": "expected:wall:f1",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:wall:f1",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-single-storey",
+        "status": "unverified",
+        "note": "clause 证据：共 2 个 leaf（met 1，not-met 0，unverified 1，waived 0，unverified leaf: constraint-con-single-storey#absence-stairs-basement）",
+        "text": "单层建筑，无二层、无夹层、无楼梯、无地下层。",
+        "source": "constraint",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "slab:f1",
+            "actualId": "slab:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:storey:f1",
+            "summary": "coverage pass: check:storey:f1"
+          },
+          {
+            "kind": "check",
+            "ref": "check:absence:stairs-basement",
+            "summary": "unknown geometry may hide a stair"
+          }
+        ],
+        "waiver": null,
+        "reason": "unknown geometry may hide a stair",
+        "clauses": [
+          {
+            "clauseId": "constraint-con-single-storey#storey-levels",
+            "mustId": "constraint-con-single-storey",
+            "kind": "count",
+            "target": {
+              "metric": "count",
+              "value": 1,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:storey:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:storey:f1",
+                "field": "levels",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "field": "levels",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:storey:f1",
+                "summary": "coverage pass: check:storey:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-single-storey#absence-stairs-basement",
+            "mustId": "constraint-con-single-storey",
+            "kind": "absence",
+            "target": {
+              "metric": "count",
+              "value": 0,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:absence:stairs-basement",
+              "objectRefs": [],
+              "params": {
+                "checkId": "check:absence:stairs-basement",
+                "field": "count",
+                "expectedId": "stairs-basement"
+              }
+            },
+            "status": "unverified",
+            "actual": {
+              "unknownCells": 16
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:absence:stairs-basement",
+                "summary": "unknown geometry may hide a stair"
+              }
+            ],
+            "reason": "unknown geometry may hide a stair",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-interior-clear",
+        "status": "met",
+        "note": "clause 证据：共 3 个 leaf（met 3，not-met 0，unverified 0，waived 0）",
+        "text": "室内净尺寸 8m×6m（48㎡）。",
+        "source": "constraint",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "slab:f1",
+            "actualId": "slab:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:clear:f1",
+            "summary": "coverage pass: check:clear:f1"
+          },
+          {
+            "kind": "check",
+            "ref": "check:clear:f1",
+            "summary": "coverage pass: check:clear:f1"
+          },
+          {
+            "kind": "check",
+            "ref": "check:clear:f1",
+            "summary": "coverage pass: check:clear:f1"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "constraint-con-interior-clear#clear-width",
+            "mustId": "constraint-con-interior-clear",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 8,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:clear:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:clear:f1",
+                "field": "width",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 8,
+              "field": "width",
+              "target": 8
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:clear:f1",
+                "summary": "coverage pass: check:clear:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-interior-clear#clear-depth",
+            "mustId": "constraint-con-interior-clear",
+            "kind": "dimension",
+            "target": {
+              "metric": "depth",
+              "value": 6,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:clear:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:clear:f1",
+                "field": "depth",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 6,
+              "field": "depth",
+              "target": 6
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:clear:f1",
+                "summary": "coverage pass: check:clear:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-interior-clear#clear-area",
+            "mustId": "constraint-con-interior-clear",
+            "kind": "dimension",
+            "target": {
+              "metric": "area",
+              "value": 48,
+              "unit": "m²",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:clear:f1",
+              "objectRefs": [
+                "slab:f1"
+              ],
+              "params": {
+                "checkId": "check:clear:f1",
+                "field": "area",
+                "expectedId": "slab:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 48,
+              "field": "area",
+              "target": 48
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:clear:f1",
+                "summary": "coverage pass: check:clear:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-wall-1m",
+        "status": "met",
+        "note": "clause 证据：共 1 个 leaf（met 1，not-met 0，unverified 0，waived 0）",
+        "text": "外墙厚 1m。",
+        "source": "constraint",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "wall:f1",
+            "actualId": "wall:f1",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:thickness:f1",
+            "summary": "coverage pass: check:thickness:f1"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "constraint-con-wall-1m#thickness",
+            "mustId": "constraint-con-wall-1m",
+            "kind": "dimension",
+            "target": {
+              "metric": "thickness",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:thickness:f1",
+              "objectRefs": [
+                "wall:f1"
+              ],
+              "params": {
+                "checkId": "check:thickness:f1",
+                "field": "thickness",
+                "expectedId": "wall:f1"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "field": "thickness",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:thickness:f1",
+                "summary": "coverage pass: check:thickness:f1"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-door-2m",
+        "status": "unverified",
+        "note": "clause 证据：共 4 个 leaf（met 3，not-met 0，unverified 1，waived 0，unverified leaf: constraint-con-door-2m#report-opening）",
+        "text": "北墙西段门洞净宽 2m。",
+        "source": "constraint",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": "opening:op-entry-north",
+            "status": "pass",
+            "severity": "hard"
+          },
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-entry-north",
+            "summary": "opening checks unverified: door.threshold.op-entry-north"
+          }
+        ],
+        "waiver": null,
+        "reason": "opening checks unverified: door.threshold.op-entry-north",
+        "clauses": [
+          {
+            "clauseId": "constraint-con-door-2m#door-width",
+            "mustId": "constraint-con-door-2m",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 2,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "width"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 2,
+              "expectedId": "op-entry-north",
+              "metric": "width",
+              "target": 2
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-door-2m#door-side",
+            "mustId": "constraint-con-door-2m",
+            "kind": "relation",
+            "target": {
+              "metric": "side",
+              "value": "north",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:door-position:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "side",
+                "side": "north"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "north",
+              "expectedId": "op-entry-north",
+              "metric": "side",
+              "target": "north"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-door-2m#door-west-of-center",
+            "mustId": "constraint-con-door-2m",
+            "kind": "relation",
+            "target": {
+              "metric": "centerX",
+              "value": "west-of-center",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:door-position:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "expectedId": "op-entry-north",
+                "metric": "centerX",
+                "centerX": 4,
+                "midX": 7,
+                "expected": "west-of-center"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 3.5,
+              "expectedId": "op-entry-north",
+              "metric": "centerX",
+              "midX": 7,
+              "target": "west-of-center"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-door-2m#report-opening",
+            "mustId": "constraint-con-door-2m",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:opening:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "opening:op-entry-north"
+              }
+            },
+            "status": "unverified",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "opening:op-entry-north",
+                  "id": "expected:opening:op-entry-north",
+                  "severity": "hard",
+                  "status": "unverified"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-entry-north",
+                "summary": "opening checks unverified: door.threshold.op-entry-north"
+              }
+            ],
+            "reason": "opening checks unverified: door.threshold.op-entry-north",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-door-clear-1m",
+        "status": "met",
+        "note": "clause 证据：共 1 个 leaf（met 1，not-met 0，unverified 0，waived 0）",
+        "text": "门内侧保留 1m 宽净空，不摆放家具。",
+        "source": "constraint",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": "opening:op-entry-north",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:door-clear:op-entry-north",
+            "summary": "coverage pass: check:door-clear:op-entry-north"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "constraint-con-door-clear-1m#door-clear",
+            "mustId": "constraint-con-door-clear-1m",
+            "kind": "dimension",
+            "target": {
+              "metric": "door-clear",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:door-clear:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:door-clear:op-entry-north",
+                "field": "width",
+                "expectedId": "op-entry-north"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "coverage": {
+                "furniture": 4
+              },
+              "doorClear": 1
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:door-clear:op-entry-north",
+                "summary": "coverage pass: check:door-clear:op-entry-north"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-window-south",
+        "status": "met",
+        "note": "clause 证据：共 7 个 leaf（met 7，not-met 0，unverified 0，waived 0）",
+        "text": "南墙唯一洞口：宽 4m、窗台高 1m、窗高 2m（洞口顶 3m）。",
+        "source": "constraint",
+        "confidence": "high",
+        "objects": [
+          {
+            "expectedId": "opening:op-south-window",
+            "actualId": "opening:op-south-window",
+            "status": "pass",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          },
+          {
+            "kind": "check",
+            "ref": "check:schedule:south",
+            "summary": "schedule south"
+          },
+          {
+            "kind": "diff",
+            "ref": "conformance-diff.json#expected:opening:op-south-window",
+            "summary": "pass/hard"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "constraint-con-window-south#window-side",
+            "mustId": "constraint-con-window-south",
+            "kind": "relation",
+            "target": {
+              "metric": "side",
+              "value": "south",
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "side",
+                "side": "south"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": "south",
+              "expectedId": "op-south-window",
+              "metric": "side",
+              "target": "south"
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-window-south#window-width",
+            "mustId": "constraint-con-window-south",
+            "kind": "dimension",
+            "target": {
+              "metric": "width",
+              "value": 4,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "width"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 4,
+              "expectedId": "op-south-window",
+              "metric": "width",
+              "target": 4
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-window-south#window-sill",
+            "mustId": "constraint-con-window-south",
+            "kind": "dimension",
+            "target": {
+              "metric": "sill",
+              "value": 1,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "sill"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "expectedId": "op-south-window",
+              "metric": "sill",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-window-south#window-height",
+            "mustId": "constraint-con-window-south",
+            "kind": "dimension",
+            "target": {
+              "metric": "height",
+              "value": 2,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "height"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 2,
+              "expectedId": "op-south-window",
+              "metric": "height",
+              "target": 2
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-window-south#window-head",
+            "mustId": "constraint-con-window-south",
+            "kind": "dimension",
+            "target": {
+              "metric": "head",
+              "value": 3,
+              "unit": "m",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "expectedId": "op-south-window",
+                "metric": "head"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 3,
+              "expectedId": "op-south-window",
+              "metric": "head",
+              "target": 3
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-window-south#only-south-opening",
+            "mustId": "constraint-con-window-south",
+            "kind": "count",
+            "target": {
+              "metric": "onlyOnSide",
+              "value": 1,
+              "unit": "count",
+              "relation": null
+            },
+            "check": {
+              "kind": "opening",
+              "id": "check:schedule:south",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "checkId": "check:schedule:south",
+                "expectedId": "op-south-window",
+                "metric": "onlyOnSide",
+                "side": "south"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 1,
+              "metric": "onlyOnSide",
+              "side": "south",
+              "target": 1
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              },
+              {
+                "kind": "check",
+                "ref": "check:schedule:south",
+                "summary": "schedule south"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-window-south#report-opening",
+            "mustId": "constraint-con-window-south",
+            "kind": "kind",
+            "target": {
+              "metric": "hardFail",
+              "value": false,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "report",
+              "id": "report:opening:op-south-window",
+              "objectRefs": [
+                "opening:op-south-window"
+              ],
+              "params": {
+                "metric": "hardFail",
+                "expectedId": "opening:op-south-window"
+              }
+            },
+            "status": "met",
+            "actual": {
+              "hardFail": false,
+              "items": [
+                {
+                  "expectedId": "opening:op-south-window",
+                  "id": "expected:opening:op-south-window",
+                  "severity": "hard",
+                  "status": "pass"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "kind": "diff",
+                "ref": "conformance-diff.json#expected:opening:op-south-window",
+                "summary": "pass/hard"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-material-selection",
+        "status": "not-met",
+        "note": "clause 证据：共 1 个 leaf（met 0，not-met 1，unverified 0，waived 0，not-met leaf: constraint-con-material-selection#material-selection）",
+        "text": "材料限定为石基座、木墙木柱、双坡深瓦。",
+        "source": "constraint",
+        "confidence": "medium",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:material:wall",
+            "summary": "exterior wall material does not match the design"
+          },
+          {
+            "kind": "check",
+            "ref": "check:material:structure",
+            "summary": "structural material does not match the design"
+          }
+        ],
+        "waiver": null,
+        "reason": "must-entry-hard-fail: clause-hard-fail",
+        "clauses": [
+          {
+            "clauseId": "constraint-con-material-selection#material-selection",
+            "mustId": "constraint-con-material-selection",
+            "kind": "material",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:constraint-con-material-selection:material-selection",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "not-met",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:material:wall",
+                "summary": "exterior wall material does not match the design"
+              },
+              {
+                "kind": "check",
+                "ref": "check:material:structure",
+                "summary": "structural material does not match the design"
+              }
+            ],
+            "reason": "材料限定不在 allowlist；需要材料 / 渲染证据; attributed-hard-fail: structural material does not match the design; attributed-hard-fail: exterior wall material does not match the design",
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-block-budget",
+        "status": "met",
+        "note": "clause 证据：共 1 个 leaf（met 1，not-met 0，unverified 0，waived 0）",
+        "text": "方块总量不超过 20000 方块。",
+        "source": "constraint",
+        "confidence": "high",
+        "objects": [],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:budget:20000",
+            "summary": "budget actual 364"
+          }
+        ],
+        "waiver": null,
+        "reason": null,
+        "clauses": [
+          {
+            "clauseId": "constraint-con-block-budget#budget-max",
+            "mustId": "constraint-con-block-budget",
+            "kind": "budget",
+            "target": {
+              "metric": "maxBlocks",
+              "value": 20000,
+              "unit": "blocks",
+              "relation": null
+            },
+            "check": {
+              "kind": "budget",
+              "id": "check:budget:20000",
+              "objectRefs": [],
+              "params": {
+                "metric": "maxBlocks",
+                "specMax": 20000
+              }
+            },
+            "status": "met",
+            "actual": {
+              "actual": 364,
+              "target": 20000,
+              "specMax": 20000,
+              "effective": 20000
+            },
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:budget:20000",
+                "summary": "budget actual 364"
+              }
+            ],
+            "reason": null,
+            "conflict": null
+          }
+        ]
+      },
+      {
+        "requirementId": "constraint-con-entry-flush",
+        "status": "unverified",
+        "note": "clause 证据：共 2 个 leaf（met 0，not-met 0，unverified 2，waived 0，unverified leaf: constraint-con-entry-flush#flush、constraint-con-entry-flush#no-ramp-tail）",
+        "text": "室内外地面齐平，门洞处不设踏步或坡道；石基座仅作墙下垫层，不外挑成平台。",
+        "source": "constraint",
+        "confidence": "medium",
+        "objects": [
+          {
+            "expectedId": "opening:op-entry-north",
+            "actualId": null,
+            "status": "unverified",
+            "severity": "hard"
+          }
+        ],
+        "evidence": [
+          {
+            "kind": "check",
+            "ref": "check:flush:op-entry-north",
+            "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+          }
+        ],
+        "waiver": null,
+        "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+        "clauses": [
+          {
+            "clauseId": "constraint-con-entry-flush#flush",
+            "mustId": "constraint-con-entry-flush",
+            "kind": "relation",
+            "target": {
+              "metric": "flush",
+              "value": true,
+              "unit": null,
+              "relation": null
+            },
+            "check": {
+              "kind": "coverage",
+              "id": "check:flush:op-entry-north",
+              "objectRefs": [
+                "opening:op-entry-north"
+              ],
+              "params": {
+                "checkId": "check:flush:op-entry-north",
+                "field": "flush",
+                "expectedId": "op-entry-north"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [
+              {
+                "kind": "check",
+                "ref": "check:flush:op-entry-north",
+                "summary": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured"
+              }
+            ],
+            "reason": "no adjacent outdoor ground surface measured at the entrance; threshold cannot be measured",
+            "conflict": null
+          },
+          {
+            "clauseId": "constraint-con-entry-flush#no-ramp-tail",
+            "mustId": "constraint-con-entry-flush",
+            "kind": "qualitative",
+            "target": null,
+            "check": {
+              "kind": "qualitative",
+              "id": "check:qualitative:constraint-con-entry-flush:no-ramp-tail",
+              "objectRefs": [],
+              "params": {
+                "metric": "qualitative"
+              }
+            },
+            "status": "unverified",
+            "actual": null,
+            "evidence": [],
+            "reason": "门洞不设坡道没有专用几何检查；基座不外挑由 absence 检查另行覆盖",
+            "conflict": null
+          }
+        ]
+      }
+    ],
+    "mustsTruncated": false
+  },
+  "nextAction": {
+    "kind": "targeted-revision",
+    "instructions": "以下必须项有 conformance 硬失败证据：req-bench-north、req-bench-south、req-seats-10、req-wood-wall-column、constraint-con-material-selection。请只针对这些必须项做定向修改并重新构建；不要接受当前结果。",
+    "affectedSpaceIds": [],
+    "affectedElementIds": []
+  },
+  "provenance": {
+    "version": 1,
+    "evidence": "verified",
+    "specSha256": "ea37e5b22c45d61c2121692a3995a9cb7cf2f318d790eefdb9204cdbca201ca6",
+    "archiveSha256": "eceeccdf52935af56c19fd2280fa41e4c78dc70fbd1b4a8b591afa369fb31795",
+    "verifiedMustIds": [
+      "req-outer-10x8",
+      "req-single-storey",
+      "req-interior-8x6",
+      "req-wall-thick-1m",
+      "req-door-north-west",
+      "req-window-dim",
+      "req-long-table",
+      "req-bench-north",
+      "req-bench-south",
+      "req-seats-10",
+      "req-counter",
+      "req-block-budget",
+      "constraint-con-outer-10x8",
+      "constraint-con-single-storey",
+      "constraint-con-interior-clear",
+      "constraint-con-wall-1m",
+      "constraint-con-door-2m",
+      "constraint-con-window-south",
+      "constraint-con-block-budget"
+    ],
+    "unattributedHardFails": []
+  }
+}

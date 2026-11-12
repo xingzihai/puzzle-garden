@@ -1,0 +1,431 @@
+{
+  "$comment": "多类型基准题库机器可读索引（18 题 = 6 家族 × 开发/验证/密封）。哈希由 benchmark/tools/refresh-manifest.mjs 现场计算填充；密封正文哈希不在此暴露正文。本索引不含任何模型产物，全部为人工设计/题库规范。",
+  "version": "multitype-0.1",
+  "generatedAt": "2026-09-29",
+  "status": "only-spec-and-tasks; no model runs; sealed bodies isolated",
+  "counts": {
+    "families": 6,
+    "N_task": 18,
+    "dev": 6,
+    "val": 6,
+    "seal": 6,
+    "supplement": 6,
+    "N_instance_final": 24,
+    "sealed_instances": 12,
+    "arms": 2,
+    "final_runs": 48
+  },
+  "families": [
+    {
+      "id": "f1-pav",
+      "name": "亭廊",
+      "loads": [
+        "单亭（小）",
+        "折廊（长条柱列）"
+      ]
+    },
+    {
+      "id": "f2-res",
+      "name": "住宅",
+      "loads": [
+        "单层小屋",
+        "2–3 层住宅（可走楼梯）"
+      ]
+    },
+    {
+      "id": "f3-stu",
+      "name": "现代商业或工作室",
+      "loads": [
+        "街角小工作室（平顶）",
+        "大跨商业（幕墙/水平带）"
+      ]
+    },
+    {
+      "id": "f4-chu",
+      "name": "教堂或礼拜堂",
+      "loads": [
+        "中型小礼拜堂（**非百万体素**）",
+        "带侧廊/双塔（中型上限）"
+      ]
+    },
+    {
+      "id": "f5-tow",
+      "name": "塔楼",
+      "loads": [
+        "观景方塔（小）",
+        "多层钟塔/八角塔（收分/梯井）"
+      ]
+    },
+    {
+      "id": "f6-crt",
+      "name": "多栋院落",
+      "loads": [
+        "2 栋+院墙（小）",
+        "3 栋+连廊（中）"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "f1-pav-dev",
+      "family": "f1-pav",
+      "split": "dev",
+      "path": "tasks/dev/f1-pav-dev.md",
+      "reuse": "v0.2beta/benchmark/exterior/tea-pavilion-task.md",
+      "solidBudget": 8000,
+      "sizeSummary": "12–14 × 10–12，h 9–12"
+    },
+    {
+      "task_id": "f2-res-dev",
+      "family": "f2-res",
+      "split": "dev",
+      "path": "tasks/dev/f2-res-dev.md",
+      "reuse": "v0.2beta/benchmark/exterior/village-cottage-task.md",
+      "solidBudget": 6000,
+      "sizeSummary": "11–13 × 7–9，h 9–11"
+    },
+    {
+      "task_id": "f3-stu-dev",
+      "family": "f3-stu",
+      "split": "dev",
+      "path": "tasks/dev/f3-stu-dev.md",
+      "reuse": "v0.2beta/benchmark/exterior/modern-corner-studio-task.md",
+      "solidBudget": 12000,
+      "sizeSummary": "13–15 × 9–11，h ≤12"
+    },
+    {
+      "task_id": "f4-chu-dev",
+      "family": "f4-chu",
+      "split": "dev",
+      "path": "tasks/dev/f4-chu-dev.md",
+      "reuse": "v0.2beta/benchmark/task-church.md（缩为中型）",
+      "solidBudget": 40000,
+      "sizeSummary": "中殿 18–24×10–14，h 22–28"
+    },
+    {
+      "task_id": "f5-tow-dev",
+      "family": "f5-tow",
+      "split": "dev",
+      "path": "tasks/dev/f5-tow-dev.md",
+      "reuse": "v0.2beta/benchmark/task-tower.md",
+      "solidBudget": 20000,
+      "sizeSummary": "15×15，h 35–48"
+    },
+    {
+      "task_id": "f6-crt-dev",
+      "family": "f6-crt",
+      "split": "dev",
+      "path": "tasks/dev/f6-crt-dev.md",
+      "reuse": "新写",
+      "solidBudget": 30000,
+      "sizeSummary": "地块 30–36×26–32，2 栋"
+    },
+    {
+      "task_id": "f1-pav-val",
+      "family": "f1-pav",
+      "split": "val",
+      "path": "tasks/val/f1-pav-val.md",
+      "reuse": "新写",
+      "solidBudget": 18000,
+      "sizeSummary": "折廊总长 24–32，宽 4–6"
+    },
+    {
+      "task_id": "f2-res-val",
+      "family": "f2-res",
+      "split": "val",
+      "path": "tasks/val/f2-res-val.md",
+      "reuse": "新写",
+      "solidBudget": 20000,
+      "sizeSummary": "11–14 × 8–11，h 16–22"
+    },
+    {
+      "task_id": "f3-stu-val",
+      "family": "f3-stu",
+      "split": "val",
+      "path": "tasks/val/f3-stu-val.md",
+      "reuse": "新写",
+      "solidBudget": 35000,
+      "sizeSummary": "24–30 × 16–20，净跨≥16"
+    },
+    {
+      "task_id": "f4-chu-val",
+      "family": "f4-chu",
+      "split": "val",
+      "path": "tasks/val/f4-chu-val.md",
+      "reuse": "新写",
+      "solidBudget": 55000,
+      "sizeSummary": "中殿+侧廊 22–28×16–20"
+    },
+    {
+      "task_id": "f5-tow-val",
+      "family": "f5-tow",
+      "split": "val",
+      "path": "tasks/val/f5-tow-val.md",
+      "reuse": "新写",
+      "solidBudget": 16000,
+      "sizeSummary": "9–11 方，h 30–38"
+    },
+    {
+      "task_id": "f6-crt-val",
+      "family": "f6-crt",
+      "split": "val",
+      "path": "tasks/val/f6-crt-val.md",
+      "reuse": "新写",
+      "solidBudget": 55000,
+      "sizeSummary": "地块 40–46×32–38，3 栋"
+    },
+    {
+      "task_id": "seal-01",
+      "family": "f1-pav",
+      "split": "seal",
+      "bodyPath": "sealed/content/v2/seal-01.md",
+      "reuse": "新写（封存 v2；不复用已泄漏旧题）",
+      "solidBudget": 9000,
+      "sizeSummary": "family f1-pav 中型；尺寸见封存正文"
+    },
+    {
+      "task_id": "seal-02",
+      "family": "f2-res",
+      "split": "seal",
+      "bodyPath": "sealed/content/v2/seal-02.md",
+      "reuse": "新写（封存 v2；不复用已泄漏旧题）",
+      "solidBudget": 22000,
+      "sizeSummary": "family f2-res 中型；尺寸见封存正文"
+    },
+    {
+      "task_id": "seal-03",
+      "family": "f3-stu",
+      "split": "seal",
+      "bodyPath": "sealed/content/v2/seal-03.md",
+      "reuse": "新写（封存 v2；不复用已泄漏旧题）",
+      "solidBudget": 34000,
+      "sizeSummary": "family f3-stu 中型；尺寸见封存正文"
+    },
+    {
+      "task_id": "seal-04",
+      "family": "f4-chu",
+      "split": "seal",
+      "bodyPath": "sealed/content/v2/seal-04.md",
+      "reuse": "新写（封存 v2；不复用已泄漏旧题）",
+      "solidBudget": 45000,
+      "sizeSummary": "family f4-chu 中型；尺寸见封存正文"
+    },
+    {
+      "task_id": "seal-05",
+      "family": "f5-tow",
+      "split": "seal",
+      "bodyPath": "sealed/content/v2/seal-05.md",
+      "reuse": "新写（封存 v2；不复用已泄漏旧题）",
+      "solidBudget": 16000,
+      "sizeSummary": "family f5-tow 中型；尺寸见封存正文"
+    },
+    {
+      "task_id": "seal-06",
+      "family": "f6-crt",
+      "split": "seal",
+      "bodyPath": "sealed/content/v2/seal-06.md",
+      "reuse": "新写（封存 v2；不复用已泄漏旧题）",
+      "solidBudget": 55000,
+      "sizeSummary": "family f6-crt 中型；尺寸见封存正文"
+    }
+  ],
+  "clauses": "critical-clauses.json",
+  "seeds": {
+    "building": "seeds/building-seeds.json",
+    "provider": "seeds/provider-seeds.json",
+    "sealedSeparate": true
+  },
+  "sealed": {
+    "manifest": "sealed/SEAL-MANIFEST.json",
+    "interface": "sealed/open-seal.mjs",
+    "contentDir": "sealed/content/v2",
+    "accessLog": "sealed/ACCESS-LOG.md",
+    "supplementManifest": "supplement/SUPPLEMENT-MANIFEST.json",
+    "bodiesReturnedToAgents": false,
+    "loadPhase": "P6-only",
+    "opaqueIdsOnly": true,
+    "familyKnown": true,
+    "themeHidden": true
+  },
+  "designBoards": [
+    "design-boards/f1-pav-board.md",
+    "design-boards/f2-res-board.md",
+    "design-boards/f3-stu-board.md",
+    "design-boards/f4-chu-board.md",
+    "design-boards/f5-tow-board.md",
+    "design-boards/f6-crt-board.md"
+  ],
+  "fixtures": [
+    "fixtures/f1-pav.designs.json",
+    "fixtures/f2-res.designs.json",
+    "fixtures/f3-stu.designs.json",
+    "fixtures/f4-chu.designs.json",
+    "fixtures/f5-tow.designs.json",
+    "fixtures/f6-crt.designs.json"
+  ],
+  "baseline": {
+    "execution": "p0/EXECUTION.md",
+    "runParams": "p0/run-params.json",
+    "freeze": "p0/FREEZE.md"
+  },
+  "hashes": {
+    "tasks": {
+      "f1-pav-dev": {
+        "sha256": "e0b92b7efaf58872bbaa07f798884a17051b3bf42de354c3f1ba1ea062d16eeb",
+        "path": "tasks/dev/f1-pav-dev.md"
+      },
+      "f2-res-dev": {
+        "sha256": "bc676acb41bb5fb8cc91a7a3f7c95944e972870a8e32f30c358cf3513e33ceff",
+        "path": "tasks/dev/f2-res-dev.md"
+      },
+      "f3-stu-dev": {
+        "sha256": "44ef5d02883a28124a44d51c95fbfb6b1f1c36d9ee17091d429bcde223905117",
+        "path": "tasks/dev/f3-stu-dev.md"
+      },
+      "f4-chu-dev": {
+        "sha256": "fe2644e4062b5617961f657ab6b7dd45a80d222ec80ba3e6e1287ea35d14cdb5",
+        "path": "tasks/dev/f4-chu-dev.md"
+      },
+      "f5-tow-dev": {
+        "sha256": "12702a2d4e3ccc649dda19fddea866915fec7abec22bdb94e3ab97923c8b0bd6",
+        "path": "tasks/dev/f5-tow-dev.md"
+      },
+      "f6-crt-dev": {
+        "sha256": "401ec0e0549d643173bf0e69c79ac8723ff98429cc7094817bc4d08eb57c3212",
+        "path": "tasks/dev/f6-crt-dev.md"
+      },
+      "f1-pav-val": {
+        "sha256": "cfee691133c677d0313eddd1b268d6ca04d976b3989064ffb48990f4b0dee1aa",
+        "path": "tasks/val/f1-pav-val.md"
+      },
+      "f2-res-val": {
+        "sha256": "6c2bbd2d59c8fbf04c15818df6ea214c0a084b9cb84dc2d78b69d5ecf478de3e",
+        "path": "tasks/val/f2-res-val.md"
+      },
+      "f3-stu-val": {
+        "sha256": "36d5f73d601092cc33d86a64b7fbb1de8eacd45d2f02caf103a81c4694aa12c9",
+        "path": "tasks/val/f3-stu-val.md"
+      },
+      "f4-chu-val": {
+        "sha256": "c0df1f29517745c93741e4448abfb160bc190850e76a435c693cceeb996b8e09",
+        "path": "tasks/val/f4-chu-val.md"
+      },
+      "f5-tow-val": {
+        "sha256": "a6b77826775daf713fab4dfc2becf543495dedee743b9d5b0e5f047276e879b5",
+        "path": "tasks/val/f5-tow-val.md"
+      },
+      "f6-crt-val": {
+        "sha256": "85a83a304a2275703cda91bc0dd8f3c899c208ec66dcdc6614d44e7d27fb3414",
+        "path": "tasks/val/f6-crt-val.md"
+      },
+      "seal-01": {
+        "sha256": "5ecae21b379294aaaaac1502d7d88e48eef722524624362339c22ed0e52e0733",
+        "path": "sealed/content/v2/seal-01.md"
+      },
+      "seal-02": {
+        "sha256": "b25f8f0d2997d40b6b0113d4453e54e041e5c5d0a2e8abc2ae9c97b5ffdc4dd7",
+        "path": "sealed/content/v2/seal-02.md"
+      },
+      "seal-03": {
+        "sha256": "1c2f8b2048cecd5decb640ccead7f8ac5f33cf300235b08b11833b50c6a831e4",
+        "path": "sealed/content/v2/seal-03.md"
+      },
+      "seal-04": {
+        "sha256": "317786cd9bff899d52ab806932bbb822fa294c073a919edebf6f7d7a79c4686e",
+        "path": "sealed/content/v2/seal-04.md"
+      },
+      "seal-05": {
+        "sha256": "c075615ee6b9357920ebe4669a94ce91b9d21dc974104fcb8d81150f28093217",
+        "path": "sealed/content/v2/seal-05.md"
+      },
+      "seal-06": {
+        "sha256": "60a0cc1130e51da74e0b45fd1e60ab7e25e89566c27944ebb7465fe6a7b59d30",
+        "path": "sealed/content/v2/seal-06.md"
+      }
+    },
+    "supplement": {
+      "xval-01": {
+        "sha256": "15ae4a009bbf813a245ac90db1cb1cd76306c374221f1b86545776ea8fffbe03",
+        "path": "supplement/xval-f1-pav.md",
+        "family": "f1-pav"
+      },
+      "xval-02": {
+        "sha256": "34efc09e4cd21f3d6b1bbef8bb5f16579dd5bd8f184c52d8c859c4163a976820",
+        "path": "supplement/xval-f2-res.md",
+        "family": "f2-res"
+      },
+      "xval-03": {
+        "sha256": "ba0254369b543cb8dd68621a6855878f56fc26856c1b9b72642e62dad765e60e",
+        "path": "supplement/xval-f3-stu.md",
+        "family": "f3-stu"
+      },
+      "xval-04": {
+        "sha256": "3389f4d56f1900d52e164a04b3c583f8a77ba1de8609f3cc59d0d3685aacf738",
+        "path": "supplement/xval-f4-chu.md",
+        "family": "f4-chu"
+      },
+      "xval-05": {
+        "sha256": "98ced62138ddcd4655d98f67dd795e2d8934580ad364a643ba2f57becd66af65",
+        "path": "supplement/xval-f5-tow.md",
+        "family": "f5-tow"
+      },
+      "xval-06": {
+        "sha256": "ea5f0e48ec4e06d274c9dcda21619c9c800d55e4c07471677c6a819e4a98bc66",
+        "path": "supplement/xval-f6-crt.md",
+        "family": "f6-crt"
+      }
+    },
+    "files": {
+      "critical-clauses.json": "416ae1d50ac83d8aa2d3563261c0bbf4f149aaf8d43006b06635114523446290",
+      "seeds/building-seeds.json": "4c15ec25635bd64d9bbffad57230d7a5ffd195f25953426f4214bba2f2c33b53",
+      "seeds/provider-seeds.json": "e3e4ffff4eb7b5357ce8bb3e7275c6958eef6c1fd29d6562c6bbb81e44689695",
+      "p0/run-params.json": "3a453d3754dd8dfe78cccf5ebb988823aed8a9a501ffaad6a534fbae87c99411",
+      "quality-roadmap/ledger.json": "f65e1befe543072a1680cf9d1fcbe426bf5a2ac5cf9a7d8779f335fa4fb78200",
+      "supplement/xval-building-seeds.json": "23be48a5c22543b3af4bb1a129602b302ad887ba02ff3db6d235b0e8062956ab"
+    }
+  },
+  "supplement": [
+    {
+      "id": "xval-01",
+      "family": "f1-pav",
+      "path": "supplement/xval-f1-pav.md",
+      "countedInSplit": false,
+      "role": "extra-validation (demoted leaked seal)"
+    },
+    {
+      "id": "xval-02",
+      "family": "f2-res",
+      "path": "supplement/xval-f2-res.md",
+      "countedInSplit": false,
+      "role": "extra-validation (demoted leaked seal)"
+    },
+    {
+      "id": "xval-03",
+      "family": "f3-stu",
+      "path": "supplement/xval-f3-stu.md",
+      "countedInSplit": false,
+      "role": "extra-validation (demoted leaked seal)"
+    },
+    {
+      "id": "xval-04",
+      "family": "f4-chu",
+      "path": "supplement/xval-f4-chu.md",
+      "countedInSplit": false,
+      "role": "extra-validation (demoted leaked seal)"
+    },
+    {
+      "id": "xval-05",
+      "family": "f5-tow",
+      "path": "supplement/xval-f5-tow.md",
+      "countedInSplit": false,
+      "role": "extra-validation (demoted leaked seal)"
+    },
+    {
+      "id": "xval-06",
+      "family": "f6-crt",
+      "path": "supplement/xval-f6-crt.md",
+      "countedInSplit": false,
+      "role": "extra-validation (demoted leaked seal)"
+    }
+  ]
+}

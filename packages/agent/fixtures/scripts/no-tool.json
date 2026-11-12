@@ -1,0 +1,27 @@
+{
+  "name": "no-tool",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": "我先想一想。"
+      }
+    },
+    {
+      "expect": {
+        "lastUserIncludes": ["本轮没有调用工具"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": "还在想。"
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": "快想好了。"
+      }
+    }
+  ]
+}

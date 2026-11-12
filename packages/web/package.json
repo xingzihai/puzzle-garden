@@ -1,0 +1,21 @@
+{
+  "name": "@pg/web",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "本地三维建筑草模查看器与只读服务",
+  "exports": {
+    "./server": "./src/server.ts",
+    "./model-render": "./src/model-render.ts"
+  },
+  "dependencies": {
+    "@pg/design": "*",
+    "@pg/modeling": "*",
+    "puppeteer-core": "25.17.0",
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "@types/three": "0.186.0"
+  }
+}

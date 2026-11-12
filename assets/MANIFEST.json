@@ -1,0 +1,141 @@
+{
+ "$comment": "由 tools/assets-manifest.ts --write 生成。",
+ "files": {
+  "deepseek-v4/source.json": {
+   "sha256": "fc38ed1911fd22366ad3aec14c780de2f8f53440818f9047c7b747ce64c4b1aa",
+   "bytes": 685
+  },
+  "deepseek-v4/tokenizer.json": {
+   "sha256": "89085f12ef79460ac5f66d1119325ddfc694b4ab209d80bbd81d35f081dc9614",
+   "bytes": 6367096
+  },
+  "deepseek-v4/tokenizer_config.json": {
+   "sha256": "841f8cf146e3f0ad1082594a31f68ecf7608c20467ef355081333d85bbaeb1cb",
+   "bytes": 3128
+  },
+  "mc-1.20.1/block-capabilities.json": {
+   "sha256": "a64584666d6c264ddd1765aeb992335a792b5983566690433fd6719c7b958baf",
+   "bytes": 46879
+  },
+  "mc-1.20.1/block-states.json": {
+   "sha256": "f8f0101c656bef3d28b790459e0ccce21fa6d5dd29c96dfcefe9a18aed1f5074",
+   "bytes": 296852
+  },
+  "mc-1.20.1/mc-assets.json": {
+   "sha256": "39e27b2cb9edbc37a49af4a060debc2cc355cdf1f8c7dbfec4033f9e50e7dd56",
+   "bytes": 854
+  },
+  "v02/benchmark/critical-clauses.json": {
+   "sha256": "416ae1d50ac83d8aa2d3563261c0bbf4f149aaf8d43006b06635114523446290",
+   "bytes": 18213
+  },
+  "v02/benchmark/manifest.json": {
+   "sha256": "fc90f960e03875d11916a786bb1f3debb90c5121ce3fe53d9401e52b863db188",
+   "bytes": 13604
+  },
+  "v02/benchmark/tasks/dev/f1-pav-dev.md": {
+   "sha256": "e0b92b7efaf58872bbaa07f798884a17051b3bf42de354c3f1ba1ea062d16eeb",
+   "bytes": 2689
+  },
+  "v02/benchmark/tasks/dev/f2-res-dev.md": {
+   "sha256": "bc676acb41bb5fb8cc91a7a3f7c95944e972870a8e32f30c358cf3513e33ceff",
+   "bytes": 1752
+  },
+  "v02/benchmark/tasks/dev/f3-stu-dev.md": {
+   "sha256": "44ef5d02883a28124a44d51c95fbfb6b1f1c36d9ee17091d429bcde223905117",
+   "bytes": 1861
+  },
+  "v02/benchmark/tasks/dev/f4-chu-dev.md": {
+   "sha256": "fe2644e4062b5617961f657ab6b7dd45a80d222ec80ba3e6e1287ea35d14cdb5",
+   "bytes": 2518
+  },
+  "v02/benchmark/tasks/dev/f5-tow-dev.md": {
+   "sha256": "12702a2d4e3ccc649dda19fddea866915fec7abec22bdb94e3ab97923c8b0bd6",
+   "bytes": 1887
+  },
+  "v02/benchmark/tasks/dev/f6-crt-dev.md": {
+   "sha256": "401ec0e0549d643173bf0e69c79ac8723ff98429cc7094817bc4d08eb57c3212",
+   "bytes": 1942
+  },
+  "v02/benchmark/tasks/val/f1-pav-val.md": {
+   "sha256": "cfee691133c677d0313eddd1b268d6ca04d976b3989064ffb48990f4b0dee1aa",
+   "bytes": 1638
+  },
+  "v02/benchmark/tasks/val/f2-res-val.md": {
+   "sha256": "6c2bbd2d59c8fbf04c15818df6ea214c0a084b9cb84dc2d78b69d5ecf478de3e",
+   "bytes": 1710
+  },
+  "v02/benchmark/tasks/val/f3-stu-val.md": {
+   "sha256": "36d5f73d601092cc33d86a64b7fbb1de8eacd45d2f02caf103a81c4694aa12c9",
+   "bytes": 1642
+  },
+  "v02/benchmark/tasks/val/f4-chu-val.md": {
+   "sha256": "c0df1f29517745c93741e4448abfb160bc190850e76a435c693cceeb996b8e09",
+   "bytes": 1884
+  },
+  "v02/benchmark/tasks/val/f5-tow-val.md": {
+   "sha256": "a6b77826775daf713fab4dfc2becf543495dedee743b9d5b0e5f047276e879b5",
+   "bytes": 1688
+  },
+  "v02/benchmark/tasks/val/f6-crt-val.md": {
+   "sha256": "85a83a304a2275703cda91bc0dd8f3c899c208ec66dcdc6614d44e7d27fb3414",
+   "bytes": 1690
+  },
+  "v02/fixture-cells/index.json": {
+   "sha256": "3df6a2e1d3a7330cfd992c369dec9cb59305e614c8ec1bfc737933b4d471e8f9",
+   "bytes": 3721
+  },
+  "v02/fixture-cells/massing-twin-spire.pgar": {
+   "sha256": "9dac24a75e75975cdbe1a9cfded97f3afe6804ce245377f0de6e22348d4f5f67",
+   "bytes": 19132
+  },
+  "v02/fixture-cells/pv-nocol.pgar": {
+   "sha256": "c492d52ca8bf69fd11d2a1bc8bf4342b6094c5144da00f983bba0db91ee21e66",
+   "bytes": 104796
+  },
+  "v02/fixture-cells/pv-noroof.pgar": {
+   "sha256": "d8dc769962b7bf2275d67d3a002d608b1ebfd58082fc1da7298e92a05d72b500",
+   "bytes": 19701
+  },
+  "v02/fixture-cells/pv-wall.pgar": {
+   "sha256": "f9a388b0bb8a86987af5c01d4cd13cb033b2902a2bdb22410fff9c8393977b03",
+   "bytes": 134357
+  },
+  "v02/fixture-cells/tower-broken.pgar": {
+   "sha256": "421a527ed346253518f995ed9dd78d1c190cc23768684f896f6a18d2323363fc",
+   "bytes": 91213
+  },
+  "v02/fixture-cells/tower-mut-noarch.pgar": {
+   "sha256": "3f4a5215f1723c381674a0390cf9a02f967acaee35f670a859629eb85bbaa253",
+   "bytes": 92877
+  },
+  "v02/fixture-cells/tower-mut-nofloor.pgar": {
+   "sha256": "387ccde7d0325ac0fccaae12d1e854a513720fb6c1d64fe1ab6c3ea97c7b81c6",
+   "bytes": 82980
+  },
+  "v02/fixture-cells/tower-mut-norail.pgar": {
+   "sha256": "5cb0d212ef68280d9ede2e302742317f2ea095cf228844b4c662c9299ff5b07b",
+   "bytes": 92859
+  },
+  "v02/fixture-cells/tower-mut-notop.pgar": {
+   "sha256": "8a9b58381624f4f89bf980221823bbd6a9814afb72c719f5616ad3ece54d41de",
+   "bytes": 81993
+  },
+  "v02/fixture-cells/tower-mut-nowin.pgar": {
+   "sha256": "c6de7f94627c61472ffb1fdc1449c6406e98bb044afeb539da566f3d9c1b2ab5",
+   "bytes": 92606
+  },
+  "v02/fixture-cells/tower-mut-wrongmat.pgar": {
+   "sha256": "030eb5928b17a65a047730e3f7d875548c751eb8ffedf0a8b45651d0683bcced",
+   "bytes": 92878
+  },
+  "v02/fixture-cells/tower-ok.pgar": {
+   "sha256": "16b77bfae0882cadafe693754ad8717ece6f9d19d6e48304c1cea53e73b8fd29",
+   "bytes": 92869
+  },
+  "v02/registry/blocks.json": {
+   "sha256": "9dcc5c4401b34d1f843df5d41218effa33b3736d03cfe8a80b249b5fc7780895",
+   "bytes": 490275
+  }
+ }
+}

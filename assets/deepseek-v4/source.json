@@ -1,0 +1,18 @@
+{
+ "$comment": "由 tools/import-deepseek-tokenizer.ts 生成，勿手改。",
+ "model": "deepseek-flash（DeepSeek-V4.1-Flash，官方定价页 2026-10-02）",
+ "url": "https://cdn.deepseek.com/api-docs/deepseek_v4_tokenizer.zip",
+ "docs": "https://api-docs.deepseek.com/quick_start/token_usage",
+ "downloaded": "2026-10-02",
+ "zipSha256": "e7310d1dafe0a86d8a5629fe78a7c763760f651db9b8682718a1781dcd6fe495",
+ "files": {
+  "tokenizer.json": {
+   "sha256": "89085f12ef79460ac5f66d1119325ddfc694b4ab209d80bbd81d35f081dc9614",
+   "bytes": 6367096
+  },
+  "tokenizer_config.json": {
+   "sha256": "841f8cf146e3f0ad1082594a31f68ecf7608c20467ef355081333d85bbaeb1cb",
+   "bytes": 3128
+  }
+ }
+}

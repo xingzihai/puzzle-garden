@@ -1,0 +1,1425 @@
+{
+  "schemaVersion": 1,
+  "tool": "conformance-diff",
+  "spec": {
+    "path": "<repo>/.work/sessions/web-next/ses-web-mvgl6oe5-c58cfc62/build-spec.json",
+    "sha256": "ea37e5b22c45d61c2121692a3995a9cb7cf2f318d790eefdb9204cdbca201ca6",
+    "schemeId": "scheme-draft",
+    "schemeRevision": 2
+  },
+  "archive": {
+    "path": "<repo>/.work/runs/20261020-112925-build-task-c9736e/delivery/building.pgar",
+    "sha256": "80d71115bf65ce5e991d2a65082798ba5f29039e0e74f1c66ed04c34df1954d3",
+    "bytes": 37604
+  },
+  "expected": {
+    "count": 5,
+    "counts": {
+      "wall": 1,
+      "slab": 1,
+      "roof": 1,
+      "opening": 2
+    }
+  },
+  "actual": {
+    "bounds": {
+      "min": [
+        0,
+        0,
+        0
+      ],
+      "max": [
+        14,
+        11,
+        12
+      ]
+    },
+    "summary": {
+      "totalCells": 835,
+      "assignedCells": 782,
+      "unknownCells": 53,
+      "objectCounts": {
+        "wall": 4,
+        "slab": 2,
+        "roof": 1,
+        "opening": 4,
+        "site": 1,
+        "furniture": 0,
+        "unknown": 6
+      },
+      "confidenceCounts": {
+        "high": 8,
+        "medium": 1,
+        "low": 9
+      }
+    },
+    "coverage": {
+      "totalCells": 835,
+      "assignedCells": 782,
+      "unknownCells": 53,
+      "assignedRatio": 0.9365269461077844
+    },
+    "diagnostics": []
+  },
+  "notCompared": {
+    "site": 1,
+    "furniture": 0,
+    "unknown": 6,
+    "total": 7,
+    "ids": {
+      "site": [
+        "site@0,0,0"
+      ],
+      "furniture": [],
+      "unknown": [
+        "unknown@1,5,1",
+        "unknown@3,3,6",
+        "unknown@6,3,3",
+        "unknown@6,3,8",
+        "unknown@7,2,3",
+        "unknown@7,2,8"
+      ]
+    }
+  },
+  "context": {
+    "openings": [
+      {
+        "id": "opening@3,1,2",
+        "bounds": {
+          "min": [
+            3,
+            1,
+            2
+          ],
+          "max": [
+            11,
+            5,
+            3
+          ]
+        },
+        "confidence": "low",
+        "subtype": "unknown",
+        "fill": "solid"
+      },
+      {
+        "id": "opening@2,1,3",
+        "bounds": {
+          "min": [
+            2,
+            1,
+            3
+          ],
+          "max": [
+            3,
+            2,
+            9
+          ]
+        },
+        "confidence": "low",
+        "subtype": "unknown",
+        "fill": "solid"
+      },
+      {
+        "id": "opening@11,1,3",
+        "bounds": {
+          "min": [
+            11,
+            1,
+            3
+          ],
+          "max": [
+            12,
+            2,
+            9
+          ]
+        },
+        "confidence": "low",
+        "subtype": "unknown",
+        "fill": "solid"
+      },
+      {
+        "id": "opening@3,1,9",
+        "bounds": {
+          "min": [
+            3,
+            1,
+            9
+          ],
+          "max": [
+            11,
+            5,
+            10
+          ]
+        },
+        "confidence": "high",
+        "subtype": "window",
+        "fill": "glass"
+      }
+    ]
+  },
+  "summary": {
+    "pass": 0,
+    "fail": 5,
+    "missing": 0,
+    "extra": 0,
+    "unverified": 6,
+    "blockingCount": 5,
+    "blocking": true,
+    "fullyVerified": false
+  },
+  "items": [
+    {
+      "id": "expected:wall:f1",
+      "kind": "wall",
+      "expectedId": "wall:f1",
+      "actualId": "wall-union",
+      "status": "fail",
+      "severity": "hard",
+      "expected": {
+        "id": "wall:f1",
+        "kind": "wall",
+        "bounds": {
+          "min": [
+            2,
+            1,
+            2
+          ],
+          "max": [
+            12,
+            5,
+            10
+          ]
+        },
+        "unverifiedReason": null
+      },
+      "actual": {
+        "id": "wall-union",
+        "kind": "wall",
+        "bounds": {
+          "min": [
+            2,
+            1,
+            2
+          ],
+          "max": [
+            12,
+            6,
+            10
+          ]
+        },
+        "confidence": "high",
+        "panelCount": 4,
+        "panelIds": [
+          "wall@11,1,2",
+          "wall@2,1,2",
+          "wall@2,1,2~2",
+          "wall@2,1,9"
+        ]
+      },
+      "delta": {
+        "bounds": {
+          "expected": [
+            2,
+            1,
+            2,
+            12,
+            5,
+            10
+          ],
+          "actual": [
+            2,
+            1,
+            2,
+            12,
+            6,
+            10
+          ],
+          "delta": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      "evidence": [
+        "4 actual wall panel(s) aggregated as one envelope",
+        "four-side coverage checked"
+      ],
+      "reason": "wall mismatch: bounds"
+    },
+    {
+      "id": "expected:slab:f1",
+      "kind": "slab",
+      "expectedId": "slab:f1",
+      "actualId": "slab-union",
+      "status": "fail",
+      "severity": "hard",
+      "expected": {
+        "id": "slab:f1",
+        "kind": "slab",
+        "bounds": {
+          "min": [
+            2,
+            0,
+            2
+          ],
+          "max": [
+            12,
+            1,
+            10
+          ]
+        },
+        "unverifiedReason": null
+      },
+      "actual": {
+        "id": "slab-union",
+        "kind": "slab",
+        "bounds": {
+          "min": [
+            1,
+            0,
+            1
+          ],
+          "max": [
+            13,
+            5,
+            11
+          ]
+        },
+        "confidence": "medium",
+        "objectCount": 2,
+        "objectIds": [
+          "slab@1,0,1",
+          "slab@1,4,1"
+        ]
+      },
+      "delta": {
+        "bounds": {
+          "expected": [
+            2,
+            0,
+            2,
+            12,
+            1,
+            10
+          ],
+          "actual": [
+            1,
+            0,
+            1,
+            13,
+            5,
+            11
+          ],
+          "delta": [
+            -1,
+            0,
+            -1,
+            1,
+            4,
+            1
+          ]
+        }
+      },
+      "evidence": [
+        "2 actual slab object(s) aggregated as one envelope"
+      ],
+      "reason": "slab mismatch: bounds"
+    },
+    {
+      "id": "expected:roof",
+      "kind": "roof",
+      "expectedId": "roof",
+      "actualId": "roof@1,6,1",
+      "status": "fail",
+      "severity": "hard",
+      "expected": {
+        "id": "roof",
+        "kind": "roof",
+        "bounds": {
+          "min": [
+            1,
+            5,
+            1
+          ],
+          "max": [
+            13,
+            8,
+            11
+          ]
+        },
+        "unverifiedReason": null,
+        "form": "gable",
+        "pitchDegrees": 25,
+        "eaveY": 5,
+        "ridgeY": 7,
+        "overhang": 1
+      },
+      "actual": {
+        "id": "roof@1,6,1",
+        "kind": "roof",
+        "bounds": {
+          "min": [
+            1,
+            6,
+            1
+          ],
+          "max": [
+            13,
+            11,
+            11
+          ]
+        },
+        "confidence": "high",
+        "cells": 360,
+        "footprintCells": 120,
+        "support": {
+          "state": "supported",
+          "supportedBy": [
+            "wall@11,1,2",
+            "wall@2,1,2",
+            "wall@2,1,2~2",
+            "wall@2,1,9"
+          ]
+        },
+        "roof": {
+          "eaveY": 6,
+          "ridgeY": 10,
+          "topCells": 120,
+          "pitchDegrees": 45,
+          "ridgeAxis": "x",
+          "ridgeWidth": 2,
+          "formHint": "pitched"
+        }
+      },
+      "delta": {
+        "bounds": {
+          "expected": [
+            1,
+            5,
+            1,
+            13,
+            8,
+            11
+          ],
+          "actual": [
+            1,
+            6,
+            1,
+            13,
+            11,
+            11
+          ],
+          "delta": [
+            0,
+            1,
+            0,
+            0,
+            3,
+            0
+          ]
+        },
+        "pitchDegrees": {
+          "expected": 25,
+          "actual": 45,
+          "delta": 20
+        },
+        "eaveY": {
+          "expected": 5,
+          "actual": 6,
+          "delta": 1
+        },
+        "ridgeY": {
+          "expected": 7,
+          "actual": 10,
+          "delta": 3
+        }
+      },
+      "evidence": [
+        "actual roof roof@1,6,1 selected as largest of 1"
+      ],
+      "reason": "roof mismatch: bounds, eaveY, pitchDegrees, ridgeY"
+    },
+    {
+      "id": "expected:opening:op-entry-north",
+      "kind": "opening",
+      "expectedId": "opening:op-entry-north",
+      "actualId": "evaluateOpenings:op-entry-north",
+      "status": "fail",
+      "severity": "hard",
+      "expected": {
+        "id": "opening:op-entry-north",
+        "kind": "opening",
+        "bounds": {
+          "min": [
+            3,
+            1,
+            2
+          ],
+          "max": [
+            5,
+            3,
+            3
+          ]
+        },
+        "subtype": "door",
+        "side": "north",
+        "width": 2,
+        "height": 2,
+        "sillY": 1,
+        "headY": 3,
+        "hostId": "wall-f1-x-p000002-p000002-p000012"
+      },
+      "actual": {
+        "id": "op-entry-north",
+        "kind": "opening",
+        "side": "north",
+        "measurement": {
+          "id": "op-entry-north",
+          "kind": "opening",
+          "side": "north",
+          "expected": {
+            "id": "op-entry-north",
+            "kind": "opening",
+            "side": "north",
+            "host": "wall-f1-x-p000002-p000002-p000012",
+            "level": "f1",
+            "bounds": {
+              "min": [
+                3,
+                1,
+                2
+              ],
+              "max": [
+                5,
+                3,
+                3
+              ]
+            },
+            "width": 2,
+            "height": 2,
+            "sillY": 1,
+            "headY": 3,
+            "fill": "洞口",
+            "frameMaterial": null
+          },
+          "actual": {
+            "planeAxis": "z",
+            "plane": 2,
+            "outward": -1,
+            "aperture": {
+              "width": 2,
+              "height": 3,
+              "bottom": 2,
+              "top": 4,
+              "columns": [
+                3,
+                4
+              ]
+            },
+            "threshold": {
+              "thresholdY": 1,
+              "indoorY": 1,
+              "outdoorY": 0,
+              "indoorStep": 0,
+              "outdoorStep": 1
+            },
+            "clearance": {
+              "innerCoord": 3,
+              "fromY": 2,
+              "toY": 4,
+              "columns": [
+                3,
+                4
+              ],
+              "blockers": 0
+            }
+          }
+        },
+        "checks": [
+          {
+            "id": "door.width.op-entry-north",
+            "status": "pass",
+            "severity": "hard",
+            "detail": "期望门洞净宽 2m，横向 x3..4；实际 2m（x3..4，洞底 y=2，水平位移 0x）。",
+            "expected": {
+              "width": 2,
+              "height": 2,
+              "horizontal": {
+                "first": 3,
+                "last": 4
+              }
+            },
+            "actual": {
+              "width": 2,
+              "bottom": 2,
+              "top": 4,
+              "columns": [
+                3,
+                4
+              ],
+              "horizontal": {
+                "first": 3,
+                "last": 4
+              }
+            },
+            "evidence": [
+              {
+                "x": 3,
+                "y": 2,
+                "z": 2,
+                "block": "air",
+                "call": 0,
+                "line": 0
+              },
+              {
+                "x": 4,
+                "y": 2,
+                "z": 2,
+                "block": "air",
+                "call": 0,
+                "line": 0
+              }
+            ]
+          },
+          {
+            "id": "door.height.op-entry-north",
+            "status": "fail",
+            "severity": "hard",
+            "detail": "期望门洞净高 2m；实际 3m（洞底 y=2、洞顶 y=4）。",
+            "expected": {
+              "width": 2,
+              "height": 2
+            },
+            "actual": {
+              "height": 3,
+              "bottom": 2,
+              "top": 4,
+              "headAligned": true,
+              "columns": [
+                3,
+                4
+              ],
+              "columnTops": [
+                {
+                  "h": 3,
+                  "top": 4
+                },
+                {
+                  "h": 4,
+                  "top": 4
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "x": 3,
+                "y": 2,
+                "z": 2,
+                "block": "air",
+                "call": 0,
+                "line": 0
+              },
+              {
+                "x": 3,
+                "y": 4,
+                "z": 2,
+                "block": "air",
+                "call": 0,
+                "line": 0
+              },
+              {
+                "x": 3,
+                "y": 5,
+                "z": 2,
+                "block": "oak_planks",
+                "call": 206,
+                "line": 117
+              }
+            ]
+          },
+          {
+            "id": "door.threshold.op-entry-north",
+            "status": "fail",
+            "severity": "hard",
+            "detail": "门槛顶面 y=1（stone_bricks）；室内楼面 y=1（polished_andesite）；室外相邻地面 y=0（gravel）；室内高差 0，室外高差 1。 门洞两侧存在至少 1 格台阶。",
+            "expected": {
+              "indoorStep": 0,
+              "outdoorStep": 0,
+              "threshold": "与室内楼面、室外相邻地面齐平"
+            },
+            "actual": {
+              "thresholdY": 1,
+              "indoorY": 1,
+              "outdoorY": 0,
+              "indoorStep": 0,
+              "outdoorStep": 1,
+              "thresholdBlock": "stone_bricks",
+              "indoorBlock": "polished_andesite",
+              "outdoorBlock": "gravel"
+            },
+            "evidence": [
+              {
+                "x": 3,
+                "y": 0,
+                "z": 1,
+                "block": "gravel",
+                "call": 8,
+                "line": 50
+              },
+              {
+                "x": 3,
+                "y": 1,
+                "z": 2,
+                "block": "stone_bricks",
+                "call": 83,
+                "line": 68
+              },
+              {
+                "x": 3,
+                "y": 1,
+                "z": 3,
+                "block": "polished_andesite",
+                "call": 50,
+                "line": 59
+              }
+            ]
+          },
+          {
+            "id": "door.clearance.op-entry-north",
+            "status": "pass",
+            "severity": "hard",
+            "detail": "门内 1m 净空带（z=3，x3..4 × y2..4）无硬遮挡；地面 y=1 不计入净空。",
+            "expected": {
+              "depth": 1,
+              "width": 2,
+              "clearHeight": 2
+            },
+            "actual": {
+              "innerCoord": 3,
+              "fromY": 2,
+              "toY": 4,
+              "columns": [
+                3,
+                4
+              ],
+              "blockers": 0
+            },
+            "evidence": [
+              {
+                "x": 3,
+                "y": 2,
+                "z": 3,
+                "block": "air",
+                "call": 0,
+                "line": 0
+              }
+            ]
+          }
+        ]
+      },
+      "delta": {
+        "height": {
+          "expected": 2,
+          "actual": 3,
+          "delta": 1
+        },
+        "threshold": {
+          "expected": {
+            "indoorStep": 0,
+            "outdoorStep": 0,
+            "threshold": "与室内楼面、室外相邻地面齐平"
+          },
+          "actual": {
+            "thresholdY": 1,
+            "indoorY": 1,
+            "outdoorY": 0,
+            "indoorStep": 0,
+            "outdoorStep": 1,
+            "thresholdBlock": "stone_bricks",
+            "indoorBlock": "polished_andesite",
+            "outdoorBlock": "gravel"
+          },
+          "delta": {
+            "indoorStep": 0,
+            "outdoorStep": 1
+          }
+        }
+      },
+      "evidence": [
+        "door.width.op-entry-north",
+        "door.height.op-entry-north",
+        "door.threshold.op-entry-north",
+        "door.clearance.op-entry-north",
+        "3,0,1=gravel",
+        "3,1,2=stone_bricks",
+        "3,1,3=polished_andesite",
+        "3,2,2=air",
+        "3,2,3=air",
+        "3,4,2=air",
+        "3,5,2=oak_planks",
+        "4,2,2=air"
+      ],
+      "reason": "opening checks failed: door.height.op-entry-north, door.threshold.op-entry-north"
+    },
+    {
+      "id": "expected:opening:op-south-window",
+      "kind": "opening",
+      "expectedId": "opening:op-south-window",
+      "actualId": "evaluateOpenings:op-south-window",
+      "status": "fail",
+      "severity": "hard",
+      "expected": {
+        "id": "opening:op-south-window",
+        "kind": "opening",
+        "bounds": {
+          "min": [
+            5,
+            2,
+            9
+          ],
+          "max": [
+            9,
+            4,
+            10
+          ]
+        },
+        "subtype": "window",
+        "side": "south",
+        "width": 4,
+        "height": 2,
+        "sillY": 2,
+        "headY": 4,
+        "hostId": "wall-f1-x-p000010-p000002-p000012"
+      },
+      "actual": {
+        "id": "op-south-window",
+        "kind": "window",
+        "side": "south",
+        "measurement": {
+          "id": "op-south-window",
+          "kind": "window",
+          "side": "south",
+          "expected": {
+            "id": "op-south-window",
+            "kind": "window",
+            "side": "south",
+            "host": "wall-f1-x-p000010-p000002-p000012",
+            "level": "f1",
+            "bounds": {
+              "min": [
+                5,
+                2,
+                9
+              ],
+              "max": [
+                9,
+                4,
+                10
+              ]
+            },
+            "width": 4,
+            "height": 2,
+            "sillY": 2,
+            "headY": 4,
+            "fill": "玻璃分格嵌于 1m 厚墙深窗套内",
+            "frameMaterial": "m-trim"
+          },
+          "actual": {
+            "planeAxis": "z",
+            "plane": 9,
+            "outward": 1,
+            "glass": {
+              "width": 4,
+              "height": 2,
+              "sillY": 3,
+              "headY": 5,
+              "offsetY": 1,
+              "horizontalMin": 5,
+              "horizontalMax": 8,
+              "horizontalOffset": 0,
+              "expectedCells": 8,
+              "missingCells": 4,
+              "segments": 1,
+              "cells": 8,
+              "filledCells": 8
+            },
+            "occlusion": {
+              "insideOccluders": 4,
+              "shellOccluders": 4,
+              "glassCells": 8,
+              "occluders": [
+                {
+                  "x": 5,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 6,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 7,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 8,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 5,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 6,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 7,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 8,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                }
+              ]
+            }
+          }
+        },
+        "checks": [
+          {
+            "id": "opening.window.occlusion.op-south-window",
+            "status": "fail",
+            "severity": "hard",
+            "detail": "窗洞内 4 个非玻璃实心格，外侧 1 格壳 4 个遮挡格。遮挡：(5,2,9)=smooth_stone_slab；(6,2,9)=smooth_stone_slab；(7,2,9)=smooth_stone_slab；(8,2,9)=smooth_stone_slab；(5,4,10)=smooth_stone_slab；(6,4,10)=smooth_stone_slab；(7,4,10)=smooth_stone_slab；(8,4,10)=smooth_stone_slab。",
+            "expected": "窗洞内及外侧 1 格壳无玻璃以外的实心遮挡",
+            "actual": {
+              "insideOccluders": 4,
+              "shellOccluders": 4,
+              "glassCells": 8,
+              "occluders": [
+                {
+                  "x": 5,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 6,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 7,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 8,
+                  "y": 2,
+                  "z": 9,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 5,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 6,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 7,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                },
+                {
+                  "x": 8,
+                  "y": 4,
+                  "z": 10,
+                  "block": "smooth_stone_slab"
+                }
+              ]
+            },
+            "evidence": [
+              {
+                "x": 5,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab",
+                "call": 199,
+                "line": 105
+              },
+              {
+                "x": 6,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab",
+                "call": 199,
+                "line": 105
+              },
+              {
+                "x": 7,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab",
+                "call": 199,
+                "line": 105
+              },
+              {
+                "x": 8,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab",
+                "call": 199,
+                "line": 105
+              },
+              {
+                "x": 5,
+                "y": 4,
+                "z": 10,
+                "block": "smooth_stone_slab",
+                "call": 217,
+                "line": 125
+              }
+            ]
+          },
+          {
+            "id": "opening.window.geometry.op-south-window",
+            "status": "fail",
+            "severity": "hard",
+            "detail": "期望 4×2，x5..8、窗台 y=2、洞顶 y=4；实际填充 4×2，x5..8，窗台 y=3、顶 y=5（水平位移 0，竖向位移 +1y），覆盖 4/8 格、玻璃 8 格、连续段 1。问题：竖向区间 y3..4 ≠ 期望 y2..3；洞内缺 4 格玻璃 / 窗框。",
+            "expected": {
+              "width": 4,
+              "height": 2,
+              "sillY": 2,
+              "headY": 4,
+              "horizontal": {
+                "axis": "x",
+                "first": 5,
+                "last": 8
+              }
+            },
+            "actual": {
+              "width": 4,
+              "height": 2,
+              "sillY": 3,
+              "headY": 5,
+              "offsetY": 1,
+              "horizontalMin": 5,
+              "horizontalMax": 8,
+              "horizontalOffset": 0,
+              "expectedCells": 8,
+              "missingCells": 4,
+              "segments": 1,
+              "cells": 8,
+              "filledCells": 8
+            },
+            "evidence": [
+              {
+                "x": 5,
+                "y": 3,
+                "z": 9,
+                "block": "glass",
+                "call": 353,
+                "line": 221
+              },
+              {
+                "x": 6,
+                "y": 3,
+                "z": 9,
+                "block": "glass",
+                "call": 353,
+                "line": 221
+              },
+              {
+                "x": 7,
+                "y": 3,
+                "z": 9,
+                "block": "glass",
+                "call": 353,
+                "line": 221
+              },
+              {
+                "x": 8,
+                "y": 3,
+                "z": 9,
+                "block": "glass",
+                "call": 353,
+                "line": 221
+              },
+              {
+                "x": 5,
+                "y": 4,
+                "z": 9,
+                "block": "glass",
+                "call": 353,
+                "line": 221
+              }
+            ]
+          }
+        ]
+      },
+      "delta": {
+        "occlusion": {
+          "expected": "窗洞内及外侧 1 格壳无玻璃以外的实心遮挡",
+          "actual": {
+            "insideOccluders": 4,
+            "shellOccluders": 4,
+            "glassCells": 8,
+            "occluders": [
+              {
+                "x": 5,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 6,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 7,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 8,
+                "y": 2,
+                "z": 9,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 5,
+                "y": 4,
+                "z": 10,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 6,
+                "y": 4,
+                "z": 10,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 7,
+                "y": 4,
+                "z": 10,
+                "block": "smooth_stone_slab"
+              },
+              {
+                "x": 8,
+                "y": 4,
+                "z": 10,
+                "block": "smooth_stone_slab"
+              }
+            ]
+          },
+          "delta": null
+        },
+        "geometry": {
+          "expected": {
+            "width": 4,
+            "height": 2,
+            "sillY": 2,
+            "headY": 4,
+            "horizontal": {
+              "axis": "x",
+              "first": 5,
+              "last": 8
+            }
+          },
+          "actual": {
+            "width": 4,
+            "height": 2,
+            "sillY": 3,
+            "headY": 5,
+            "offsetY": 1,
+            "horizontalMin": 5,
+            "horizontalMax": 8,
+            "horizontalOffset": 0,
+            "expectedCells": 8,
+            "missingCells": 4,
+            "segments": 1,
+            "cells": 8,
+            "filledCells": 8
+          },
+          "delta": {
+            "width": 0,
+            "height": 0,
+            "sillY": 1,
+            "headY": 1
+          }
+        }
+      },
+      "evidence": [
+        "opening.window.occlusion.op-south-window",
+        "opening.window.geometry.op-south-window",
+        "5,2,9=smooth_stone_slab",
+        "5,3,9=glass",
+        "5,4,10=smooth_stone_slab",
+        "5,4,9=glass",
+        "6,2,9=smooth_stone_slab",
+        "6,3,9=glass",
+        "7,2,9=smooth_stone_slab",
+        "7,3,9=glass"
+      ],
+      "reason": "opening checks failed: opening.window.occlusion.op-south-window, opening.window.geometry.op-south-window"
+    },
+    {
+      "id": "unverified:unknown:unknown@1,5,1",
+      "kind": "unknown",
+      "expectedId": null,
+      "actualId": "unknown@1,5,1",
+      "status": "unverified",
+      "severity": "soft",
+      "expected": null,
+      "actual": {
+        "id": "unknown@1,5,1",
+        "kind": "unknown",
+        "bounds": {
+          "min": [
+            1,
+            5,
+            1
+          ],
+          "max": [
+            13,
+            6,
+            11
+          ]
+        },
+        "confidence": "low",
+        "cells": 40,
+        "footprintCells": 40,
+        "support": null,
+        "unknown": {
+          "reason": "no-rule-match"
+        }
+      },
+      "delta": {},
+      "evidence": [
+        "actual:unknown@1,5,1"
+      ],
+      "reason": "unrecognized actual object (no-rule-match)"
+    },
+    {
+      "id": "unverified:unknown:unknown@3,3,6",
+      "kind": "unknown",
+      "expectedId": null,
+      "actualId": "unknown@3,3,6",
+      "status": "unverified",
+      "severity": "soft",
+      "expected": null,
+      "actual": {
+        "id": "unknown@3,3,6",
+        "kind": "unknown",
+        "bounds": {
+          "min": [
+            3,
+            3,
+            6
+          ],
+          "max": [
+            4,
+            4,
+            7
+          ]
+        },
+        "confidence": "low",
+        "cells": 1,
+        "footprintCells": 1,
+        "support": null,
+        "unknown": {
+          "reason": "no-rule-match"
+        }
+      },
+      "delta": {},
+      "evidence": [
+        "actual:unknown@3,3,6"
+      ],
+      "reason": "unrecognized actual object (no-rule-match)"
+    },
+    {
+      "id": "unverified:unknown:unknown@6,3,3",
+      "kind": "unknown",
+      "expectedId": null,
+      "actualId": "unknown@6,3,3",
+      "status": "unverified",
+      "severity": "soft",
+      "expected": null,
+      "actual": {
+        "id": "unknown@6,3,3",
+        "kind": "unknown",
+        "bounds": {
+          "min": [
+            6,
+            3,
+            3
+          ],
+          "max": [
+            7,
+            5,
+            4
+          ]
+        },
+        "confidence": "low",
+        "cells": 2,
+        "footprintCells": 1,
+        "support": null,
+        "unknown": {
+          "reason": "no-rule-match"
+        }
+      },
+      "delta": {},
+      "evidence": [
+        "actual:unknown@6,3,3"
+      ],
+      "reason": "unrecognized actual object (no-rule-match)"
+    },
+    {
+      "id": "unverified:unknown:unknown@6,3,8",
+      "kind": "unknown",
+      "expectedId": null,
+      "actualId": "unknown@6,3,8",
+      "status": "unverified",
+      "severity": "soft",
+      "expected": null,
+      "actual": {
+        "id": "unknown@6,3,8",
+        "kind": "unknown",
+        "bounds": {
+          "min": [
+            6,
+            3,
+            8
+          ],
+          "max": [
+            7,
+            5,
+            9
+          ]
+        },
+        "confidence": "low",
+        "cells": 2,
+        "footprintCells": 1,
+        "support": null,
+        "unknown": {
+          "reason": "no-rule-match"
+        }
+      },
+      "delta": {},
+      "evidence": [
+        "actual:unknown@6,3,8"
+      ],
+      "reason": "unrecognized actual object (no-rule-match)"
+    },
+    {
+      "id": "unverified:unknown:unknown@7,2,3",
+      "kind": "unknown",
+      "expectedId": null,
+      "actualId": "unknown@7,2,3",
+      "status": "unverified",
+      "severity": "soft",
+      "expected": null,
+      "actual": {
+        "id": "unknown@7,2,3",
+        "kind": "unknown",
+        "bounds": {
+          "min": [
+            7,
+            2,
+            3
+          ],
+          "max": [
+            11,
+            3,
+            4
+          ]
+        },
+        "confidence": "low",
+        "cells": 4,
+        "footprintCells": 4,
+        "support": null,
+        "unknown": {
+          "reason": "no-rule-match"
+        }
+      },
+      "delta": {},
+      "evidence": [
+        "actual:unknown@7,2,3"
+      ],
+      "reason": "unrecognized actual object (no-rule-match)"
+    },
+    {
+      "id": "unverified:unknown:unknown@7,2,8",
+      "kind": "unknown",
+      "expectedId": null,
+      "actualId": "unknown@7,2,8",
+      "status": "unverified",
+      "severity": "soft",
+      "expected": null,
+      "actual": {
+        "id": "unknown@7,2,8",
+        "kind": "unknown",
+        "bounds": {
+          "min": [
+            7,
+            2,
+            8
+          ],
+          "max": [
+            11,
+            3,
+            9
+          ]
+        },
+        "confidence": "low",
+        "cells": 4,
+        "footprintCells": 4,
+        "support": null,
+        "unknown": {
+          "reason": "no-rule-match"
+        }
+      },
+      "delta": {},
+      "evidence": [
+        "actual:unknown@7,2,8"
+      ],
+      "reason": "unrecognized actual object (no-rule-match)"
+    }
+  ],
+  "notes": [
+    "site / furniture / unknown are context only and did not participate in hard comparison",
+    "object-graph opening comparison disabled; 4 actual opening object(s) recorded as context only",
+    "opening items use grid-backed evaluateOpenings; object-graph openings are context only"
+  ]
+}

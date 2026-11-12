@@ -1,0 +1,24 @@
+{
+  "name": "@pg/render",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "把建筑存档渲染成固定视角 PNG：宿主网格化、页面只收面数据、Puppeteer 驱动本机 Chrome（见 docs/RENDER-SPEC.md）。",
+  "exports": {
+    "./render": "./src/render.ts",
+    "./asset-pack": "./src/asset-pack.ts",
+    "./model-pack": "./src/model-pack.ts",
+    "./mc-catalog": "./src/mc-catalog.ts"
+  },
+  "dependencies": {
+    "@pg/blocks": "*",
+    "@pg/core": "*",
+    "puppeteer-core": "25.17.0",
+    "three": "0.186.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/three": "0.186.0"
+  }
+}

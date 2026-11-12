@@ -1,0 +1,962 @@
+{
+  "id": "reqgraph-tea-pavilion-v1",
+  "revision": 2,
+  "summary": "村口溪边单层木构茶亭（第 3 版，仅修复能力卡引用）：外轮廓 10m×8m、外墙 1m、室内净 8m×6m（48㎡）的单一主厅，无任何隔间、无设备间/厨房；北墙西段 2m 门洞、门内 1m 净空带，南墙仅一条 4m 宽大窗（台高 1m、窗高 2m、洞顶 3m）看溪，不做落地门；东墙侧 4m×2m 长桌 + 南北各 4m×1m 长凳（5+5 共 10 座，北凳自门洞东侧起），西墙中段 2m×1m 柜台为纯固定家具（用户明确不设水槽、热水与任何机电点位）；石基座、木墙木柱、双坡深瓦，屋面只做出檐，不超过 20000 方块，无招牌/售票窗口/装饰性构架。已定：不做檐下平台、露台、台阶、坡道与任何室外分区（outdoorZones 为空），室内外地面齐平、石基座仅作墙下垫层；净高 4m、檐口 4m、屋脊约 6m，不加二层或夹层。本轮仅修正 cap-flush-entry 的 requirementIds 引用（原误引 con-entry-flush，改为 req-no-outdoor-zone）。",
+  "requirements": [
+    {
+      "id": "req-teahouse-program",
+      "text": "在村口溪边新建一座茶亭，作为村口公共小建筑供歇脚饮茶使用。",
+      "quote": "在村口溪边建一间建筑外轮廓 10m×8m 的单层矩形茶亭",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["scope", "experience", "site"],
+      "evidence": "用户原话第 1 段：'在村口溪边建一间建筑外轮廓 10m×8m 的单层矩形茶亭'"
+    },
+    {
+      "id": "req-outer-10x8",
+      "text": "建筑外轮廓为 10m×8m 的矩形体量，不得超出。",
+      "quote": "建筑外轮廓 10m×8m 的单层矩形茶亭",
+      "source": "user",
+      "kind": "dimension",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["plan", "section", "facade", "site"],
+      "evidence": "用户原话第 1 段；与'外墙厚 1m、室内净 8m×6m'互相验证（10−2×1=8，8−2×1=6）"
+    },
+    {
+      "id": "req-hall-axis",
+      "text": "（代理推断）建筑长边 10m 沿东西向、8m 沿南北向，室内净尺寸为东西 8m、南北 6m；这是东墙侧 4m 长桌与南北两条 4m 长凳能成立的前提。",
+      "quote": null,
+      "source": "agent",
+      "kind": "dimension",
+      "priority": "should",
+      "status": "assumed",
+      "confidence": 0.75,
+      "affects": ["plan", "section"],
+      "evidence": "由用户给定的桌椅尺寸与'南北两侧各一条 4m 长凳'推得；用户未明说长边朝向"
+    },
+    {
+      "id": "req-single-storey",
+      "text": "整栋为单层，无楼层、无楼梯、无地下空间。",
+      "quote": "单层矩形茶亭",
+      "source": "user",
+      "kind": "dimension",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["section", "plan", "scope"],
+      "evidence": "用户原话第 1 段：'……的单层矩形茶亭'"
+    },
+    {
+      "id": "req-no-mezzanine",
+      "text": "不加二层，也不做夹层（不得以夹层方式增加使用面积）。",
+      "quote": "不要加二层或夹层",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["section", "plan", "scope"],
+      "evidence": "用户回答第 2 条：'单层小体量，层高按常规茶亭比例，你定；不要加二层或夹层。'"
+    },
+    {
+      "id": "req-single-hall",
+      "text": "整栋只有一间完整主厅，就座、饮茶、备茶、观景等全部功能集中在同一空间内。",
+      "quote": "整栋只有一间完整主厅",
+      "source": "user",
+      "kind": "space",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["plan", "interior", "scope"],
+      "evidence": "用户原话第 1 段与澄清回答第 3 条：'整栋只有一间主厅……所有功能都在这个空间里'"
+    },
+    {
+      "id": "req-no-partitions",
+      "text": "不设玄关、门厅、走廊、卫生间、储藏间、操作间、设备间、厨房或任何隔间，室内不出现任何分隔墙。",
+      "quote": "没有卫生间、储藏间、操作间、设备间或厨房",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.98,
+      "affects": ["plan", "interior", "scope"],
+      "evidence": "用户原话第 1 段'不设玄关、门厅、走廊、卫生间、储藏间、操作间或任何隔间'+澄清回答第 3 条补充'设备间'与'厨房'"
+    },
+    {
+      "id": "req-interior-8x6",
+      "text": "室内净尺寸 8m×6m，净面积 48㎡。",
+      "quote": "室内净尺寸 8m×6m（48㎡）",
+      "source": "user",
+      "kind": "dimension",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.98,
+      "affects": ["plan", "interior"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-wall-thick-1m",
+      "text": "外墙厚度 1m，形成较深的门窗洞口，但不因此产生门厅或隔间。",
+      "quote": "外墙厚 1m",
+      "source": "user",
+      "kind": "dimension",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.98,
+      "affects": ["plan", "section", "facade", "material"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-door-north-west",
+      "text": "北墙西段直接开门，门洞净宽 2m，直接连通室外北侧村道，中间不设玄关或门厅。",
+      "quote": "北墙西段直接开门，门宽 2m",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["plan", "circulation", "facade"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-door-clear-1m",
+      "text": "门内侧保留 1m 宽的空地（门内进深 1m 的净空带），该处不摆放家具。",
+      "quote": "门内留出 1m 宽的空地",
+      "source": "user",
+      "kind": "dimension",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["plan", "circulation"],
+      "evidence": "用户原话第 1 段逐字；'宽'按门内进深 1m 的净空带理解"
+    },
+    {
+      "id": "req-window-south-4m",
+      "text": "南墙只做一条 4m 宽的大窗用于观看南侧溪流，南墙无其他洞口。",
+      "quote": "南墙只做一条 4m 宽的大窗看溪",
+      "source": "user",
+      "kind": "space",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["facade", "plan", "experience"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-window-dim",
+      "text": "窗台高 1m、窗高 2m，洞口顶位于室内地面以上 3m。",
+      "quote": "窗台 1m、窗高 2m",
+      "source": "user",
+      "kind": "dimension",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["facade", "section"],
+      "evidence": "用户原话第 1 段逐字；洞口顶 = 1m 台高 + 2m 窗高 = 3m"
+    },
+    {
+      "id": "req-no-glass-door",
+      "text": "南墙不做落地门或落地窗，室内外进出仅通过北门。",
+      "quote": "不做落地门",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["facade", "circulation"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-no-outdoor-zone",
+      "text": "不做檐下平台、露台、台阶或任何室外分区，场地不新设可停留的室外地面（无铺装平台、无檐廊、无庭院、无入口铺装带）。",
+      "quote": "不做檐下平台、露台、台阶或室外分区",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.97,
+      "affects": ["site", "plan", "section"],
+      "evidence": "用户原话第 1 段与澄清回答第 1 条：'不做檐下平台、露台、台阶或室外分区；屋面只做出檐。'"
+    },
+    {
+      "id": "req-no-steps",
+      "text": "入口不设台阶、不设坡道；室内地面与室外地面齐平，经门洞直接连通村道。",
+      "quote": "不做檐下平台、露台、台阶或室外分区",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["section", "site", "circulation", "plan"],
+      "evidence": "澄清回答第 1 条排除台阶与室外分区；与'北墙西段直接开门'共同构成齐平入口结论"
+    },
+    {
+      "id": "req-long-table",
+      "text": "主厅东侧靠东墙设一张 4m 长、2m 宽的长桌（长边沿东西向）。",
+      "quote": "主厅东侧靠东墙放一张 4m 长、2m 宽的长桌",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["plan", "interior"],
+      "evidence": "用户原话第 1 段逐字；长边取向见 req-hall-axis 与 dec-table-axis"
+    },
+    {
+      "id": "req-bench-north",
+      "text": "长桌北侧设一条 4m 长、1m 宽的长凳，其西端从门洞东侧开始，不侵占门内 1m 净空。",
+      "quote": "南北两侧各一条 4m 长、1m 宽的长凳，北凳从门洞东侧开始",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["plan", "interior", "circulation"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-bench-south",
+      "text": "长桌南侧设一条 4m 长、1m 宽的长凳，与北凳相对布置。",
+      "quote": "南北两侧各一条 4m 长、1m 宽的长凳",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["plan", "interior"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-seats-10",
+      "text": "就座共 10 座，南北两条长凳各 5 座（5+5）。",
+      "quote": "共 10 座（5+5）",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["plan", "interior", "experience"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-counter",
+      "text": "西墙中段设一张 2m 长、1m 深的柜台，作为主厅内的固定家具台面，不做单独隔间或操作间，也不延伸出备茶区。",
+      "quote": "西墙中段放一张 2m 长、1m 深的柜台，作为主厅内的固定家具，不要单独隔间",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["plan", "interior"],
+      "evidence": "用户原话第 1 段逐字 + 澄清回答第 3 条：'柜台只是主厅内 2m 长、1m 深的固定家具'"
+    },
+    {
+      "id": "req-counter-no-service",
+      "text": "柜台不设水槽、热水或其他备茶设备，不预留给排水与电源点位，仅为固定家具台面。",
+      "quote": "都不设",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["interior", "material", "scope"],
+      "evidence": "澄清回答第 3 条：'都不设。整栋只有一间主厅；没有卫生间、储藏间、操作间、设备间或厨房；柜台只是主厅内 2m 长、1m 深的固定家具。'"
+    },
+    {
+      "id": "req-stone-base",
+      "text": "建筑坐于石基座上；石基座仅作墙下垫层与防潮层，不外挑成平台、不抬升室内地坪到需要踏步的高度。",
+      "quote": "石基座、木墙木柱、双坡深瓦",
+      "source": "user",
+      "kind": "aesthetic",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.85,
+      "affects": ["facade", "section", "material"],
+      "evidence": "用户原话第 1 段材料意向；垫层化处理见澄清回答第 1 条与 dec-flat-entry"
+    },
+    {
+      "id": "req-wood-wall-column",
+      "text": "外墙与柱为木材（木墙木柱）。",
+      "quote": "石基座、木墙木柱、双坡深瓦",
+      "source": "user",
+      "kind": "aesthetic",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["facade", "structure", "material"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-gable-tile-roof",
+      "text": "屋面为双坡形式，覆深色瓦。",
+      "quote": "石基座、木墙木柱、双坡深瓦",
+      "source": "user",
+      "kind": "aesthetic",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["roof", "facade", "material"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-eave-only",
+      "text": "屋面只做出檐，不做檐下平台或檐廊；出檐下方不设铺装与可停留地面。",
+      "quote": "屋面只做出檐",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["roof", "section", "site"],
+      "evidence": "澄清回答第 1 条：'不做檐下平台、露台、台阶或室外分区；屋面只做出檐。'"
+    },
+    {
+      "id": "req-roof-ridge-ew",
+      "text": "（代理假设）屋脊沿东西向（平行 10m 长边），南坡朝溪、北坡朝村道。",
+      "quote": null,
+      "source": "agent",
+      "kind": "dimension",
+      "priority": "should",
+      "status": "assumed",
+      "confidence": 0.5,
+      "affects": ["roof", "section", "facade"],
+      "evidence": "用户未指定屋脊方向，由'南墙大窗看溪 + 双坡深瓦'推断"
+    },
+    {
+      "id": "req-eave-overhang",
+      "text": "（代理数值）四周出檐约 0.5m，檐口不落地、不做檐下地面。",
+      "quote": null,
+      "source": "agent",
+      "kind": "dimension",
+      "priority": "should",
+      "status": "assumed",
+      "confidence": 0.55,
+      "affects": ["roof", "section", "site"],
+      "evidence": "用户只要求'屋面只做出檐'，出檐尺寸由代理取 0.5m 以避免形成可停留的檐下地带"
+    },
+    {
+      "id": "req-ceiling-height",
+      "text": "室内净高 4m，檐口高 4m，屋脊高出檐口约 2m（约 6m），南窗洞顶 3m 之上留 1m 过梁；单层无夹层。该标高由建筑师按常规茶亭比例确定（用户委托'你定'）。",
+      "quote": "层高按常规茶亭比例，你定",
+      "source": "agent",
+      "kind": "dimension",
+      "priority": "should",
+      "status": "confirmed",
+      "confidence": 0.8,
+      "affects": ["section", "roof", "interior", "facade"],
+      "evidence": "澄清回答第 2 条明确委托建筑师确定层高，故按常规茶亭比例取净高 4m / 檐口 4m / 屋脊 6m"
+    },
+    {
+      "id": "req-block-budget",
+      "text": "整体方块用量不超过 20000 方块；按 1 格≈1m 估算，10m×8m×约 6m 的主体体量远低于该上限。",
+      "quote": "不超过 20000 方块",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["scope", "budget"],
+      "evidence": "用户原话第 1 段逐字；体量估算：（80−48）㎡×约 4m 墙高 + 屋面与家具，约数百至两千方块级"
+    },
+    {
+      "id": "req-no-sign-ticket-frame",
+      "text": "不设招牌、售票窗口或装饰性构架。",
+      "quote": "不要招牌、售票窗口或装饰性构架",
+      "source": "user",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.98,
+      "affects": ["facade", "experience", "scope"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-site-stream-south",
+      "text": "溪流位于场地南侧，是建筑的主要景观方向。",
+      "quote": "溪在南侧、村道在北侧",
+      "source": "user",
+      "kind": "site",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["site", "facade", "experience"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-site-road-north",
+      "text": "村道位于场地北侧，建筑位于村口溪边。",
+      "quote": "溪在南侧、村道在北侧",
+      "source": "user",
+      "kind": "site",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.95,
+      "affects": ["site", "circulation"],
+      "evidence": "用户原话第 1 段逐字"
+    },
+    {
+      "id": "req-entrance-from-north",
+      "text": "人流由北侧村道直接进入北墙门洞，入口朝北；入口处地面齐平、无踏步。",
+      "quote": "北墙西段直接开门",
+      "source": "user",
+      "kind": "function",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.9,
+      "affects": ["circulation", "site"],
+      "evidence": "用户原话第 1 段'北墙西段直接开门，门宽 2m'与村道在北侧的对应关系；齐平无踏步见澄清回答第 1 条"
+    },
+    {
+      "id": "req-view-frame",
+      "text": "南墙 4m 大窗作为溪景取景框，是主厅的视觉中心，室内布置需让主要座席朝窗。",
+      "quote": "大窗看溪",
+      "source": "user",
+      "kind": "aesthetic",
+      "priority": "must",
+      "status": "confirmed",
+      "confidence": 0.85,
+      "affects": ["facade", "experience", "interior"],
+      "evidence": "用户原话第 1 段：'南墙只做一条 4m 宽的大窗看溪'"
+    },
+    {
+      "id": "req-columns-support-roof",
+      "text": "（代理建议）以木柱承托双坡屋架，柱位贴 1m 厚木墙内侧或与墙体结合布置，避免室内出现独立柱列阻挡桌凳与通行。",
+      "quote": null,
+      "source": "agent",
+      "kind": "function",
+      "priority": "should",
+      "status": "assumed",
+      "confidence": 0.5,
+      "affects": ["structure", "plan", "section"],
+      "evidence": "用户只给'木墙木柱'，未给柱位；依单一大空间与桌凳占位推断"
+    },
+    {
+      "id": "req-furniture-fixed",
+      "text": "（代理假设）长桌、长凳与柜台同为固定家具，固定于地面，不可移动。",
+      "quote": null,
+      "source": "agent",
+      "kind": "function",
+      "priority": "should",
+      "status": "assumed",
+      "confidence": 0.6,
+      "affects": ["interior", "plan"],
+      "evidence": "用户仅对柜台说明'固定家具'，桌凳固定为代理假设"
+    },
+    {
+      "id": "req-lighting",
+      "text": "（默认）主厅设吊灯照明，保证傍晚使用；灯具避开南窗视线高度、不遮挡取景。",
+      "quote": null,
+      "source": "default",
+      "kind": "function",
+      "priority": "could",
+      "status": "assumed",
+      "confidence": 0.4,
+      "affects": ["interior", "experience"],
+      "evidence": "用户未提照明；按默认室内范围（灯具）补齐"
+    },
+    {
+      "id": "req-floor-finish",
+      "text": "（默认）室内地面采用深色石材或木地板，与石基座、木墙的木石调子一致。",
+      "quote": null,
+      "source": "default",
+      "kind": "aesthetic",
+      "priority": "could",
+      "status": "assumed",
+      "confidence": 0.4,
+      "affects": ["interior", "material", "experience"],
+      "evidence": "用户未给地面材质；按默认室内范围（地面材质）与木石材料意向补齐"
+    }
+  ],
+  "spaces": [
+    {
+      "id": "sp-main-hall",
+      "name": "主厅",
+      "purpose": "茶亭唯一完整空间：东墙侧长桌与南北长凳就座（10 座）、西墙中段柜台为固定家具台面、南窗看溪；北墙西段 2m 门洞进出，门内留 1m 净空；无任何隔间、无设备间与厨卫。",
+      "quantity": 1,
+      "areaM2": 48,
+      "levelHint": "ground",
+      "adjacency": [],
+      "daylight": "required",
+      "privacy": "semi-public",
+      "notes": "唯一有墙有顶可封闭的空间；外墙 1m，室内净 8m×6m（东西 8m、南北 6m），净高 4m；门洞净宽 2m 位于北墙西段，门内留 1m 净空带；南墙单条 4m 窗（台 1m、高 2m、洞顶 3m）；长桌 4m×2m 靠东墙，南北各 4m×1m 长凳（各 5 座），西墙中段 2m×1m 柜台，全部为固定家具、无水电点位。室内地面与室外齐平，入口无踏步。"
+    }
+  ],
+  "site": {
+    "widthM": null,
+    "depthM": null,
+    "orientation": "north",
+    "slope": "unknown",
+    "entrance": "north",
+    "setbacksM": null,
+    "outdoorZones": [],
+    "surroundings": ["南侧：溪流", "北侧：村道", "村口"],
+    "notes": "场地尺寸、边界与退距均未提供（widthM / depthM / setbacksM = null），定位按 ms-site-envelope 的默认（建筑长边平行溪岸、每边外扩 3m、北墙外皮距村道边 3m）暂定。溪在南、村道在北；orientation 按入口/主朝向（北，接村道）记录，主要景观面为南向溪流。地形未给定，按平坦处理（见 con-flat-site）；因用户明确排除台阶与坡道，若实际为坡地须复核。用户明确不做檐下平台、露台、台阶与任何室外分区，屋面只做出檐，故 outdoorZones 为空数组——不设入口铺装带、檐下地带与庭院，进出直接在北侧村道完成。"
+  },
+  "constraints": [
+    {
+      "id": "con-outer-10x8",
+      "text": "建筑外轮廓 10m×8m 矩形，不得超出。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "10m × 8m"
+    },
+    {
+      "id": "con-single-storey",
+      "text": "单层建筑，无二层、无夹层、无楼梯、无地下层。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "1 层，无夹层"
+    },
+    {
+      "id": "con-interior-clear",
+      "text": "室内净尺寸 8m×6m（48㎡）。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "8m × 6m / 48㎡"
+    },
+    {
+      "id": "con-wall-1m",
+      "text": "外墙厚 1m。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "1m"
+    },
+    {
+      "id": "con-door-2m",
+      "text": "北墙西段门洞净宽 2m。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "净宽 2m"
+    },
+    {
+      "id": "con-door-clear-1m",
+      "text": "门内侧保留 1m 宽净空，不摆放家具。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "1m"
+    },
+    {
+      "id": "con-window-south",
+      "text": "南墙唯一洞口：宽 4m、窗台高 1m、窗高 2m（洞口顶 3m）。",
+      "kind": "dimension",
+      "source": "user",
+      "hard": true,
+      "value": "宽 4m / 台高 1m / 高 2m"
+    },
+    {
+      "id": "con-ceiling-height",
+      "text": "室内净高 4m、檐口高 4m、屋脊约 6m（代理按用户委托确定）。",
+      "kind": "dimension",
+      "source": "agent",
+      "hard": false,
+      "value": "净高 4m / 檐口 4m / 屋脊 6m"
+    },
+    {
+      "id": "con-no-partition",
+      "text": "禁止任何隔间、隔墙、门厅、走廊、操作间、设备间与厨房。",
+      "kind": "forbidden",
+      "source": "user",
+      "hard": true,
+      "value": "无任何隔间"
+    },
+    {
+      "id": "con-no-outdoor-zone",
+      "text": "禁止檐下平台、露台、台阶、坡道及任何室外分区；屋面只做出檐。",
+      "kind": "forbidden",
+      "source": "user",
+      "hard": true,
+      "value": "无室外分区 / 无台阶"
+    },
+    {
+      "id": "con-no-sign-ticket-frame",
+      "text": "禁止招牌、售票窗口与装饰性构架。",
+      "kind": "forbidden",
+      "source": "user",
+      "hard": true,
+      "value": "无招牌 / 无售票窗口 / 无装饰构架"
+    },
+    {
+      "id": "con-counter-no-service",
+      "text": "柜台不设水槽、热水与上下水点位，不预留机电。",
+      "kind": "forbidden",
+      "source": "user",
+      "hard": true,
+      "value": "无水槽 / 无上下水 / 无热水"
+    },
+    {
+      "id": "con-material-selection",
+      "text": "材料限定为石基座、木墙木柱、双坡深瓦。",
+      "kind": "material",
+      "source": "user",
+      "hard": true,
+      "value": "石 / 木 / 深瓦"
+    },
+    {
+      "id": "con-block-budget",
+      "text": "方块总量不超过 20000 方块。",
+      "kind": "budget",
+      "source": "user",
+      "hard": true,
+      "value": "≤ 20000 方块"
+    },
+    {
+      "id": "con-door-height",
+      "text": "门洞净高按 2.2m 处理（用户未给，代理默认）。",
+      "kind": "dimension",
+      "source": "agent",
+      "hard": false,
+      "value": "2.2m（代理默认）"
+    },
+    {
+      "id": "con-entry-flush",
+      "text": "室内外地面齐平，门洞处不设踏步或坡道；石基座仅作墙下垫层，不外挑成平台。",
+      "kind": "accessibility",
+      "source": "agent",
+      "hard": true,
+      "value": "齐平，无踏步"
+    },
+    {
+      "id": "con-flat-site",
+      "text": "场地按平坦处理（用户未给定地形；若为坡地则与'不设台阶、不设坡道'要求冲突，需复核）。",
+      "kind": "other",
+      "source": "agent",
+      "hard": false,
+      "value": "平坦场地（假设）"
+    }
+  ],
+  "preferences": [
+    {
+      "id": "pref-material-palette",
+      "text": "石基座、木墙木柱、双坡深瓦，保持材料本色，不做额外涂装或贴面。",
+      "kind": "material",
+      "source": "user",
+      "strength": "strong",
+      "status": "confirmed"
+    },
+    {
+      "id": "pref-rustic-style",
+      "text": "乡土朴素气质：单一矩形体量、清水木构、深色瓦，与村口溪边环境协调。",
+      "kind": "style",
+      "source": "agent",
+      "strength": "medium",
+      "status": "proposed"
+    },
+    {
+      "id": "pref-window-view",
+      "text": "以 4m 大窗把溪景引入室内，室内要素精简，避免堆叠陈设分散视线。",
+      "kind": "atmosphere",
+      "source": "agent",
+      "strength": "medium",
+      "status": "proposed"
+    },
+    {
+      "id": "pref-no-ornament",
+      "text": "去装饰：不做招牌、售票窗口、装饰性构架与门头，形式靠体量、材料与洞口表达。",
+      "kind": "style",
+      "source": "user",
+      "strength": "strong",
+      "status": "confirmed"
+    },
+    {
+      "id": "pref-compact-proportion",
+      "text": "单层小体量：净高 4m、屋脊约 6m 的常规茶亭比例，出檐小，避免出现高大或层叠的体量。",
+      "kind": "style",
+      "source": "agent",
+      "strength": "medium",
+      "status": "proposed"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "amb-ceiling-height",
+      "question": "主厅室内净高与檐口/屋脊标高未给定；南窗洞口顶已达室内地面以上 3m，净高必须大于 3m。请确认净高与屋面高度。",
+      "options": [
+        "净高 3.5m、檐口 3.5m、屋脊约 5.5m（紧凑低矮）",
+        "净高 4m、檐口 4m、屋脊约 6m（窗顶 3m 以上留 1m 过梁）",
+        "净高 4.5m 以上、屋脊约 7m（高敞屋面，梁下更开阔）"
+      ],
+      "impact": "high",
+      "suggestedDefault": "已按用户委托确定：室内净高 4m、檐口 4m、屋脊约 6m，窗洞顶 3m 之上留 1m 过梁；门洞净高 2.2m；不加二层或夹层。",
+      "status": "resolved",
+      "requirementIds": ["req-ceiling-height", "req-window-dim", "req-gable-tile-roof", "req-no-mezzanine"]
+    },
+    {
+      "id": "amb-counter-service",
+      "question": "西墙 2m×1m 柜台是否需要热水、水槽等备茶设备的预留点位（涉及水电与墙身开口），还是仅为固定家具台面？",
+      "options": [
+        "纯固定家具台面，不设水槽与热水点位",
+        "柜台预留上水与排水点位（需机电专业配合，当前工具不生成管线）",
+        "柜台偏陈列/收银用途，只需台面与下部储物"
+      ],
+      "impact": "medium",
+      "suggestedDefault": "已按用户回答确定：纯固定家具台面，不设水槽、热水与任何机电点位，也无厨房/设备间。",
+      "status": "resolved",
+      "requirementIds": ["req-counter", "req-counter-no-service"]
+    },
+    {
+      "id": "amb-table-axis",
+      "question": "长桌 4m 与 2m 的取向及长凳相对位置如何理解？",
+      "options": [
+        "长桌 4m 沿东西向、2m 沿南北向靠东墙，两条 4m 长凳贴其南北长边（与'南北两侧'一致）",
+        "长桌 4m 沿南北向、2m 沿东西向靠东墙，长凳改为贴东墙一侧布置"
+      ],
+      "impact": "medium",
+      "suggestedDefault": "长桌 4m 沿东西向、2m 沿南北向靠东墙（东端贴东墙内表面），南北各一条 4m×1m 长凳；北凳自门洞东侧起，与门内 1m 净空带脱开。",
+      "status": "assumed",
+      "requirementIds": ["req-long-table", "req-bench-north", "req-bench-south"]
+    },
+    {
+      "id": "amb-door-height",
+      "question": "门洞净高未给定。",
+      "options": ["门洞净高 2.2m（常规木门尺度）", "门洞净高 2.4m（更高敞的洞口）"],
+      "impact": "low",
+      "suggestedDefault": "门洞净高 2.2m；因墙厚 1m，洞口为 1m 深的墙洞，装双开木门。",
+      "status": "assumed",
+      "requirementIds": ["req-door-north-west", "req-wall-thick-1m"]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "conf-base-steps",
+      "summary": "石基座通常抬高室内地坪，与'不设台阶、不做任何室外分区'以及'门口直接连通村道'之间存在矛盾：一旦抬高地坪，入口就需踏步或坡道，而两者都被用户排除。",
+      "requirementIds": ["req-stone-base", "req-no-outdoor-zone", "req-no-steps"],
+      "options": [
+        "石基座仅作墙下防潮垫层，不外挑、不抬升地坪，室内地面与场地齐平，门洞处无踏步（已由用户回答第 1 条确定方向）",
+        "门洞外做 ≤1:12 短坡连接村道（用户已排除）",
+        "基座抬高 0.15m，允许一级门槛（用户已排除）"
+      ],
+      "status": "resolved"
+    },
+    {
+      "id": "conf-deep-doorway",
+      "summary": "1m 厚外墙使 2m 宽门洞成为 1m 深的墙体洞口，容易被读成小型门斗，与'不设玄关/门厅'存在张力。",
+      "requirementIds": ["req-wall-thick-1m", "req-door-north-west", "req-no-partitions"],
+      "options": [
+        "洞口即为墙厚形成的开放墙洞，两侧不收窄、不设第二道门，不算隔间（采用）",
+        "外侧装双开木门，门扇贴外皮安装，内侧敞通",
+        "在洞口内侧做 45° 斜收边以弱化门斗感（增加构造复杂度）"
+      ],
+      "status": "resolved"
+    }
+  ],
+  "missing": [
+    {
+      "id": "ms-site-envelope",
+      "topic": "场地边界、退距与建筑在场地的定位",
+      "why": "未提供场地尺寸、边界、退距及到村道与溪岸的距离，无法确定建筑具体位置与北门到村道的衔接长度；外轮廓以外的场地不设任何处理。",
+      "blocking": false,
+      "suggestedDefault": "场地按建筑外轮廓每边外扩 3m 处理，建筑长边平行溪岸，北墙外皮距村道边 3m；不做任何室外分区与铺装。",
+      "status": "open"
+    },
+    {
+      "id": "ms-roof-pitch",
+      "topic": "屋面坡度与檐口做法",
+      "why": "用户只给'双坡深瓦'与'屋面只做出檐'，未给坡度与出檐尺寸，影响屋面体量、檐口标高与立面比例。",
+      "blocking": false,
+      "suggestedDefault": "坡度约 25°，屋脊较檐口高约 2m（净高 4m、屋脊约 6m），四周出檐约 0.5m 且不落地、下方无铺装。",
+      "status": "answered"
+    },
+    {
+      "id": "ms-climate-railing",
+      "topic": "临溪安全与防洪/耐久要求",
+      "why": "建筑南侧临溪，未提及防洪标高、防潮与临水安全要求；本工具不做规范与结构审查。",
+      "blocking": false,
+      "suggestedDefault": "石基座兼作防潮层，室内地面按不低于场地地面处理；防洪与耐久要求列为专业复核事项，不在模型中承诺。",
+      "status": "waived"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "cap-interior-view",
+      "topic": "室内与家具表达",
+      "status": "partial",
+      "detail": "长桌、长凳、柜台、吊灯与地面材质可用方块搭建，但渲染只有 south/east/north/west/top/iso-se/iso-nw 视图，没有人眼高度或室内视角，室内效果无法用截图验收。",
+      "workaround": "用 top 与 iso-se/iso-nw 核对家具占位、尺寸与通行净宽；把室内视角列为待补渲染能力，不用外部图当室内验收。",
+      "requirementIds": [
+        "req-long-table",
+        "req-bench-north",
+        "req-bench-south",
+        "req-counter",
+        "req-lighting",
+        "req-floor-finish"
+      ]
+    },
+    {
+      "id": "cap-flush-entry",
+      "topic": "无台阶齐平入口的体素表达",
+      "status": "partial",
+      "detail": "体素系统中地面为 y=0、首层为 y=1，室内地坪与场地之间天然存在 1 格高差；台基构件又按整数格外挑，严格意义上'完全无踏步、完全齐平'无法在方块渲染中精确表达。",
+      "workaround": "用台基作墙下垫层且不外挑，门洞开在 y=1 地坪上，门口不设台阶构件；在图纸与说明中注明方块系统存在 1 格构造高差，由后续放样/施工消解，不把它当作设计台阶。",
+      "requirementIds": ["req-no-steps", "req-stone-base", "req-eave-only", "req-no-outdoor-zone"]
+    },
+    {
+      "id": "cap-structure-check",
+      "topic": "结构可行性",
+      "status": "unsupported",
+      "detail": "不提供材料力学、荷载、抗震或施工图级结构计算；1m 厚木墙、木柱与 10m×8m 双坡屋面（无内柱大跨）只做启发式跨度与悬空检查。",
+      "workaround": "在图纸标注柱位、跨度与连接构造，交结构专业复核；报告中写明仅启发式检查、不作结构承诺。",
+      "requirementIds": ["req-wood-wall-column", "req-gable-tile-roof", "req-roof-ridge-ew", "req-columns-support-roof"]
+    },
+    {
+      "id": "cap-regulatory-review",
+      "topic": "规范与安全审查",
+      "status": "unsupported",
+      "detail": "不替代建筑规范、消防、无障碍或临水防洪审查；本方案的无台阶齐平入口、临溪位置与公共使用性质均需专业复核。",
+      "workaround": "把相关要求写成待专业复核项（防洪标高、临水安全、公共建筑疏散与无障碍），在交付说明中单列。",
+      "requirementIds": ["req-site-stream-south", "req-door-north-west", "req-entrance-from-north", "req-no-steps"]
+    },
+    {
+      "id": "cap-service-points",
+      "topic": "给排水/热水与动态系统",
+      "status": "unsupported",
+      "detail": "不生成给排水管线、水槽、热水设备、红石电路或可交互机械。本方案用户已明确不设任何备茶水电点位，故模型仅表达柜台体量。",
+      "workaround": "柜台只做固定家具与台面形态，不预留任何管线；若日后需要备茶点位，列为机电专业后续配合项。",
+      "requirementIds": ["req-counter", "req-counter-no-service"]
+    },
+    {
+      "id": "cap-block-accounting",
+      "topic": "方块量核算",
+      "status": "supported",
+      "detail": "可按体量统计方块数量核对 20000 方块上限；本方案主体体量为数百至两千方块级，上限充裕。",
+      "workaround": null,
+      "requirementIds": ["req-block-budget", "req-outer-10x8"]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec-layout-zoning",
+      "topic": "单一大空间的平面分区",
+      "choice": "主厅不设任何隔墙，按三条带组织：北侧门内 1m 净空带；东侧长桌 + 南北长凳座区；西墙中段柜台；中部与南窗前沿各留约 1m 通行带。",
+      "rationale": "在无隔间前提下满足 10 座、备茶台面与观景三类功能，并保住门口 1m 净空与南窗前的通行。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": [
+        "req-door-clear-1m",
+        "req-long-table",
+        "req-bench-north",
+        "req-bench-south",
+        "req-counter",
+        "req-seats-10"
+      ]
+    },
+    {
+      "id": "dec-table-axis",
+      "topic": "长桌长凳取向",
+      "choice": "长桌 4m 沿东西向、2m 沿南北向，东端贴东墙内表面；南北各一条 4m×1m 长凳分别贴桌的南北长边，各 5 座；北凳西端自门洞东侧起。",
+      "rationale": "只有长桌长边沿东西向时，'南北两侧各一条 4m 长凳'才能成立；同时北凳与门内净空脱开。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": ["req-long-table", "req-bench-north", "req-bench-south", "req-hall-axis"]
+    },
+    {
+      "id": "dec-door-position",
+      "topic": "门洞定位",
+      "choice": "门洞置于北墙西段（室内净宽 8m 的西端），净宽 2m，门内侧保留 1m 净空带，不摆放任何家具。",
+      "rationale": "符合'北墙西段直接开门'与'门内留出 1m 宽的空地'，并保证北凳自门洞东侧起。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": ["req-door-north-west", "req-door-clear-1m", "req-hall-axis"]
+    },
+    {
+      "id": "dec-door-type",
+      "topic": "门洞构造",
+      "choice": "门洞为 1m 深（墙厚）的开放墙洞，净高 2.2m，外侧装双开木门，内侧不收窄、不设第二道门、不做门斗；门洞处地面齐平无门槛台阶。",
+      "rationale": "在 1m 厚木墙上实现 2m 净宽入口，同时不产生玄关或门厅，也不引入台阶。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": ["req-door-north-west", "req-wall-thick-1m", "req-no-partitions", "con-door-height"]
+    },
+    {
+      "id": "dec-window-position",
+      "topic": "南窗定位",
+      "choice": "南墙 4m 宽窗在内侧 8m 宽度上居中，窗台高 1m、洞口高 2m（洞顶 3m），南墙不设其他洞口。",
+      "rationale": "保证看溪视线的居中取景，并使洞顶 3m 与净高 4m 之间留 1m 过梁。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": ["req-window-south-4m", "req-window-dim", "req-hall-axis", "req-ceiling-height"]
+    },
+    {
+      "id": "dec-no-outdoor",
+      "topic": "场地不做室外分区",
+      "choice": "场地不设檐下平台、露台、台阶、坡道、入口铺装或任何室外分区，site.outdoorZones 为空数组；屋面只做出檐。",
+      "rationale": "用户原话与澄清回答第 1 条均明确排除任何室外分区与台阶：'不做檐下平台、露台、台阶或室外分区；屋面只做出檐。'",
+      "source": "user",
+      "status": "confirmed",
+      "requirementIds": ["req-no-outdoor-zone", "req-eave-only"]
+    },
+    {
+      "id": "dec-flat-entry",
+      "topic": "基座与入口衔接",
+      "choice": "石基座仅作墙下垫层与防潮层，不外挑成平台，室内地面与场地齐平，门洞处不设踏步或坡道。",
+      "rationale": "用户回答第 1 条同时排除了台阶、坡道与任何室外平台，唯一可行解是基座垫层化、地面齐平；方块系统的 1 格构造高差已在 cap-flush-entry 标注。",
+      "source": "agent",
+      "status": "confirmed",
+      "requirementIds": ["req-stone-base", "con-entry-flush", "req-no-steps", "req-no-outdoor-zone"]
+    },
+    {
+      "id": "dec-ceiling-height",
+      "topic": "层高与屋面标高",
+      "choice": "室内净高 4m、檐口 4m、屋脊高出檐口约 2m（约 6m），屋面坡度约 25°，南窗洞顶 3m 以上留 1m 过梁，门洞净高 2.2m；不设二层或夹层。",
+      "rationale": "用户回答第 2 条明确委托建筑师'层高按常规茶亭比例，你定；不要加二层或夹层'，故按紧凑单层茶亭比例取值。",
+      "source": "agent",
+      "status": "confirmed",
+      "requirementIds": ["req-ceiling-height", "req-no-mezzanine", "req-window-dim", "con-door-height"]
+    },
+    {
+      "id": "dec-ridge-direction",
+      "topic": "屋脊方向",
+      "choice": "屋脊沿东西向平行 10m 长边，南坡朝溪、北坡朝村道，四周出檐约 0.5m 且不落地、檐下无铺装。",
+      "rationale": "双坡对称、南坡排雨至溪侧，小出檐避免形成檐下平台或檐廊。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": ["req-roof-ridge-ew", "req-eave-overhang", "req-eave-only", "req-gable-tile-roof"]
+    },
+    {
+      "id": "dec-material",
+      "topic": "材料与色调",
+      "choice": "石基座 + 木墙木柱 + 深色瓦双坡屋面，保持材料本色，室内地面取深色石材或木地板与之协调。",
+      "rationale": "直接落实用户给定的石、木、瓦材料意向，不做额外饰面。",
+      "source": "user",
+      "status": "confirmed",
+      "requirementIds": ["req-stone-base", "req-wood-wall-column", "req-gable-tile-roof", "req-floor-finish"]
+    },
+    {
+      "id": "dec-no-sign",
+      "topic": "无标识与无装饰构架",
+      "choice": "立面与场地均不设招牌、售票窗口或装饰性构架，入口不做门头。",
+      "rationale": "用户明确排除这三类构件，形式靠体量与洞口表达。",
+      "source": "user",
+      "status": "confirmed",
+      "requirementIds": ["req-no-sign-ticket-frame", "con-no-sign-ticket-frame"]
+    },
+    {
+      "id": "dec-no-service-points",
+      "topic": "柜台不设备茶水电点位",
+      "choice": "柜台仅为 2m×1m 固定家具台面，不设水槽、热水、上下水与电源预留；整栋无厨房、设备间或操作间。",
+      "rationale": "用户回答第 3 条明确'都不设'，并重申整栋只有一间主厅、柜台只是固定家具。",
+      "source": "user",
+      "status": "confirmed",
+      "requirementIds": ["req-counter", "req-counter-no-service", "con-counter-no-service", "req-no-partitions"]
+    },
+    {
+      "id": "dec-lighting",
+      "topic": "照明",
+      "choice": "主厅沿长桌上方等距布置 3–4 盏吊灯（链吊灯笼），灯具避开南窗视线高度。",
+      "rationale": "用户未提照明，按默认室内范围补齐，同时不分散南窗取景；不含任何电路或动态系统。",
+      "source": "default",
+      "status": "proposed",
+      "requirementIds": ["req-lighting", "req-view-frame"]
+    }
+  ]
+}

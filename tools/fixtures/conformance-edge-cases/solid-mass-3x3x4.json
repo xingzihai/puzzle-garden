@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "name": "solid-mass-3x3x4",
+  "description": "3x3 footprint, 4 cells tall solid stone mass; no interior air and no roof cavity.",
+  "boundsConvention": "half-open [min,max)",
+  "boxes": [
+    {
+      "min": [1, 0, 1],
+      "max": [4, 4, 4],
+      "block": "stone_bricks"
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "meta": {
+    "id": "scheme-draft",
+    "revision": 1,
+    "title": "村口溪边茶亭",
+    "concept": "严格 10m×8m 单层矩形茶亭，1m 厚墙体内嵌 8m×6m 单一主厅；北墙西段 2m 门洞直通村道，南墙唯一 4m 大窗框取溪景；石基座、木墙木柱与深瓦双坡屋面只以体量、材料与洞口表达。",
+    "status": "superseded",
+    "scope": "exterior+interior",
+    "sourceRequirements": {
+      "graphId": "reqgraph-tea-pavilion-v1",
+      "revision": 2
+    }
+  },
+  "site": {
+    "bounds": {
+      "min": [0, 0, 0],
+      "max": [14, 8, 12]
+    },
+    "buildingBounds": {
+      "min": [2, 1, 2],
+      "max": [12, 5, 10]
+    },
+    "orientation": "north",
+    "entranceSide": "north",
+    "outdoorZones": [],
+    "notes": "建筑外轮廓 10m×8m 完整落在场地内，四周留草地与砾石收边，不设任何室外分区与铺装。"
+  },
+  "levels": [
+    {
+      "id": "f1",
+      "name": "地面层",
+      "elevation": 1,
+      "height": 4
+    }
+  ],
+  "spaces": [
+    {
+      "id": "sp-main-hall",
+      "name": "主厅",
+      "level": "f1",
+      "kind": "room",
+      "bounds": {
+        "min": [2, 1, 2],
+        "max": [12, 5, 10]
+      },
+      "connections": [],
+      "notes": "外轮廓 10m×8m，外墙 1m 厚，室内净尺寸 8m×6m；单一空间，无任何隔墙与隔间。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "wall-f1-x-p000002-p000002-p000012",
+      "name": "主厅 北外墙",
+      "level": "f1",
+      "kind": "wall",
+      "bounds": {
+        "min": [2, 1, 2],
+        "max": [12, 5, 3]
+      },
+      "material": "m-dark-wood",
+      "spaceId": "sp-main-hall",
+      "thickness": 1,
+      "notes": null
+    },
+    {
+      "id": "wall-f1-x-p000010-p000002-p000012",
+      "name": "主厅 南外墙",
+      "level": "f1",
+      "kind": "wall",
+      "bounds": {
+        "min": [2, 1, 9],
+        "max": [12, 5, 10]
+      },
+      "material": "m-dark-wood",
+      "spaceId": "sp-main-hall",
+      "thickness": 1,
+      "notes": null
+    },
+    {
+      "id": "wall-f1-z-p000002-p000002-p000010",
+      "name": "主厅 西外墙",
+      "level": "f1",
+      "kind": "wall",
+      "bounds": {
+        "min": [2, 1, 2],
+        "max": [3, 5, 10]
+      },
+      "material": "m-dark-wood",
+      "spaceId": "sp-main-hall",
+      "thickness": 1,
+      "notes": null
+    },
+    {
+      "id": "wall-f1-z-p000012-p000002-p000010",
+      "name": "主厅 东外墙",
+      "level": "f1",
+      "kind": "wall",
+      "bounds": {
+        "min": [11, 1, 2],
+        "max": [12, 5, 10]
+      },
+      "material": "m-dark-wood",
+      "spaceId": "sp-main-hall",
+      "thickness": 1,
+      "notes": null
+    },
+    {
+      "id": "roof-f1",
+      "name": "村口溪边茶亭 屋面",
+      "level": "f1",
+      "kind": "roof",
+      "bounds": {
+        "min": [1, 5, 1],
+        "max": [13, 8, 11]
+      },
+      "material": "m-roof",
+      "spaceId": null,
+      "thickness": 1,
+      "notes": "东西向屋脊，檐口 4m、屋脊约 6m，坡度约 25°；出檐短促仅遮雨，不形成檐下平台。"
+    },
+    {
+      "id": "slab-f1-sp-main-hall",
+      "name": "主厅 楼板",
+      "level": "f1",
+      "kind": "slab",
+      "bounds": {
+        "min": [2, 0, 2],
+        "max": [12, 1, 10]
+      },
+      "material": "m-floor",
+      "spaceId": "sp-main-hall",
+      "thickness": 1,
+      "notes": null
+    }
+  ],
+  "openings": [
+    {
+      "id": "op-entry-north",
+      "name": "北墙西段入口门洞",
+      "level": "f1",
+      "host": "wall-f1-x-p000002-p000002-p000012",
+      "kind": "opening",
+      "side": "north",
+      "bounds": {
+        "min": [3, 1, 2],
+        "max": [5, 3, 3]
+      },
+      "fill": "洞口",
+      "frameMaterial": null,
+      "notes": null
+    },
+    {
+      "id": "op-south-window",
+      "name": "南墙 4m 观景大窗",
+      "level": "f1",
+      "host": "wall-f1-x-p000010-p000002-p000012",
+      "kind": "window",
+      "side": "south",
+      "bounds": {
+        "min": [5, 2, 9],
+        "max": [9, 4, 10]
+      },
+      "fill": "玻璃分格嵌于 1m 厚墙深窗套内",
+      "frameMaterial": "m-trim",
+      "notes": null
+    }
+  ],
+  "circulation": [],
+  "structure": {
+    "system": "post-and-beam",
+    "material": "m-wood",
+    "spanX": 10,
+    "spanZ": 8,
+    "floorThickness": 1,
+    "cantilever": 0,
+    "notes": "石基座仅作墙下防潮垫层，不外挑成平台；木柱沿墙位与室内落点支撑 10m 跨双坡屋面，1m 厚木墙兼作围护与稳定体，大跨与结构可行性需专业复核。"
+  },
+  "roof": {
+    "form": "gable",
+    "material": "m-roof",
+    "pitchDegrees": 25,
+    "eaveHeight": 5,
+    "ridgeHeight": 7,
+    "overhang": 1,
+    "drainage": "南北两侧短檐自由散排",
+    "skylights": [],
+    "notes": "东西向屋脊，檐口 4m、屋脊约 6m，坡度约 25°；出檐短促仅遮雨，不形成檐下平台。"
+  },
+  "facades": [
+    {
+      "side": "north",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 3,
+      "windowWallRatio": 0,
+      "notes": "西段 2m 门洞直通村道，其余为清水木墙与可见木柱立面的素面表达。"
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 2,
+      "windowWallRatio": 0,
+      "notes": "不开洞，仅表达石基座、木墙与出檐三层。"
+    },
+    {
+      "side": "south",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 3,
+      "windowWallRatio": 0.2,
+      "notes": "仅一条 4m 宽大窗，窗台以上为木墙，洞口以上留 1m 木过梁。"
+    },
+    {
+      "side": "west",
+      "baseMaterialId": "m-stone",
+      "bodyMaterialId": "m-wood",
+      "topMaterialId": "m-roof",
+      "bays": 2,
+      "windowWallRatio": 0,
+      "notes": "不开洞，仅表达石基座、木墙与出檐三层。"
+    }
+  ],
+  "materials": [
+    {
+      "id": "m-stone",
+      "name": "石基座",
+      "block": "stone_bricks",
+      "role": "structure",
+      "color": "#9a9a92",
+      "notes": "墙下防潮垫层，不外挑。"
+    },
+    {
+      "id": "m-wood",
+      "name": "暖木墙与木柱",
+      "block": "oak_planks",
+      "role": "structure",
+      "color": "#b08a5a",
+      "notes": "清水木构，保持本色。"
+    },
+    {
+      "id": "m-dark-wood",
+      "name": "深色木",
+      "block": "dark_oak_planks",
+      "role": "wall",
+      "color": "#4a3423",
+      "notes": "用于门窗框与深窗套收边。"
+    },
+    {
+      "id": "m-roof",
+      "name": "深瓦",
+      "block": "deepslate_tiles",
+      "role": "roof",
+      "color": "#3f4145",
+      "notes": null
+    },
+    {
+      "id": "m-floor",
+      "name": "深色室内地面",
+      "block": "polished_andesite",
+      "role": "floor",
+      "color": "#5a5d61",
+      "notes": "压住木色，衬托南向溪景。"
+    },
+    {
+      "id": "m-trim",
+      "name": "木饰面",
+      "block": "stripped_spruce_log",
+      "role": "trim",
+      "color": "#c9a982",
+      "notes": "窗框与吊灯吊杆。"
+    },
+    {
+      "id": "m-glass",
+      "name": "玻璃",
+      "block": "glass",
+      "role": "glass",
+      "color": null,
+      "notes": "南墙大窗分格。"
+    },
+    {
+      "id": "m-fabric",
+      "name": "织物坐垫",
+      "block": "white_wool",
+      "role": "furniture",
+      "color": "#e8e2d6",
+      "notes": null
+    },
+    {
+      "id": "m-light",
+      "name": "暖光",
+      "block": "lantern",
+      "role": "furniture",
+      "color": "#f4c77a",
+      "notes": "沿屋脊吊挂。"
+    },
+    {
+      "id": "m-grass",
+      "name": "草地",
+      "block": "grass_block",
+      "role": "landscape",
+      "color": "#7c9a4e",
+      "notes": null
+    },
+    {
+      "id": "m-gravel",
+      "name": "砾石收边",
+      "block": "gravel",
+      "role": "landscape",
+      "color": "#8a8378",
+      "notes": "沿建筑周边窄边带。"
+    }
+  ],
+  "details": [],
+  "interiors": [
+    {
+      "id": "interior-sp-main-hall",
+      "spaceId": "sp-main-hall",
+      "name": "主厅 室内",
+      "furniture": [
+        "中央长桌",
+        "北侧通长坐凳",
+        "南侧通长坐凳",
+        "东侧活动坐垫",
+        "西侧活动坐垫",
+        "固定茶具柜台",
+        "屋脊西侧吊灯",
+        "屋脊东侧吊灯"
+      ],
+      "furnitureSpecs": [
+        {
+          "id": "f-long-table",
+          "name": "中央长桌",
+          "kind": "table",
+          "bounds": {
+            "min": [5, 1, 5],
+            "max": [9, 2, 6]
+          },
+          "materialId": "m-wood",
+          "orientation": "south",
+          "notes": "居中偏南面向大窗，避开北侧门内 1m 净空带。"
+        },
+        {
+          "id": "f-bench-north",
+          "name": "北侧通长坐凳",
+          "kind": "bench",
+          "bounds": {
+            "min": [4, 1, 3],
+            "max": [8, 2, 4]
+          },
+          "materialId": "m-wood",
+          "orientation": "south",
+          "notes": "位于门洞东侧，不侵占门内净空带。"
+        },
+        {
+          "id": "f-bench-south",
+          "name": "南侧通长坐凳",
+          "kind": "bench",
+          "bounds": {
+            "min": [4, 1, 8],
+            "max": [8, 2, 9]
+          },
+          "materialId": "m-wood",
+          "orientation": "north",
+          "notes": "与大窗保持视距。"
+        },
+        {
+          "id": "f-cushion-east",
+          "name": "东侧活动坐垫",
+          "kind": "chair",
+          "bounds": {
+            "min": [10, 1, 4],
+            "max": [11, 2, 5]
+          },
+          "materialId": "m-fabric",
+          "orientation": "west",
+          "notes": "配合长凳与坐垫凑足十人饮茶位置。"
+        },
+        {
+          "id": "f-cushion-west",
+          "name": "西侧活动坐垫",
+          "kind": "chair",
+          "bounds": {
+            "min": [3, 1, 5],
+            "max": [4, 2, 6]
+          },
+          "materialId": "m-fabric",
+          "orientation": "east",
+          "notes": null
+        },
+        {
+          "id": "f-counter",
+          "name": "固定茶具柜台",
+          "kind": "counter",
+          "bounds": {
+            "min": [9, 1, 8],
+            "max": [11, 2, 9]
+          },
+          "materialId": "m-dark-wood",
+          "orientation": "west",
+          "notes": "2m×1m 台面体量，不设水槽、热水、上下水与电源预留。"
+        },
+        {
+          "id": "f-light-ridge-w",
+          "name": "屋脊西侧吊灯",
+          "kind": "light",
+          "bounds": {
+            "min": [6, 1, 5],
+            "max": [7, 2, 6]
+          },
+          "materialId": "m-light",
+          "orientation": null,
+          "notes": "沿屋脊排布，夜间从门洞与大窗透出。"
+        },
+        {
+          "id": "f-light-ridge-e",
+          "name": "屋脊东侧吊灯",
+          "kind": "light",
+          "bounds": {
+            "min": [10, 1, 4],
+            "max": [11, 2, 5]
+          },
+          "materialId": "m-light",
+          "orientation": null,
+          "notes": null
+        }
+      ],
+      "included": true,
+      "notes": null
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec-single-hall",
+      "topic": "单一主厅",
+      "choice": "建筑外轮廓 10m×8m 内仅设一间 8m×6m 净空主厅，无任何隔墙与隔间。",
+      "rationale": "满足 48㎡ 净面积与全部功能集中于同一空间的要求，避免门厅、走廊与操作间。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": [
+        "req-teahouse-program",
+        "req-outer-10x8",
+        "req-single-hall",
+        "req-no-partitions",
+        "req-interior-8x6",
+        "con-outer-10x8",
+        "con-interior-clear",
+        "con-no-partition"
+      ]
+    },
+    {
+      "id": "dec-single-storey",
+      "topic": "单层无夹层",
+      "choice": "整栋单层，层高 4m，不设楼梯、二层或夹层，无地下空间。",
+      "rationale": "遵循单层矩形茶亭定位，控制体量与方块用量。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": ["req-single-storey", "req-no-mezzanine", "con-single-storey"]
+    },
+    {
+      "id": "dec-door-north-west",
+      "topic": "北墙西段入口",
+      "choice": "北墙西段开 2m 净宽门洞，无玻璃门扇与台阶，直线连通北侧村道。",
+      "rationale": "入口对应村道，门洞直接开敞，门内留 1m 净空带不摆家具。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": [
+        "req-door-north-west",
+        "req-door-clear-1m",
+        "req-no-glass-door",
+        "req-entrance-from-north",
+        "con-door-2m",
+        "con-door-clear-1m",
+        "con-door-height",
+        "con-entry-flush"
+      ]
+    },
+    {
+      "id": "dec-south-window",
+      "topic": "南墙唯一大窗",
+      "choice": "南墙只设一条 4m 宽窗，窗台 1m、窗高 2m、洞顶 3m，以上留 1m 过梁。",
+      "rationale": "把南侧溪景作为室内唯一对外画面，1m 墙深形成深窗套。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": [
+        "req-window-south-4m",
+        "req-window-dim",
+        "req-view-frame",
+        "req-site-stream-south",
+        "con-window-south"
+      ]
+    },
+    {
+      "id": "dec-wall-1m",
+      "topic": "1m 厚外墙",
+      "choice": "外墙统一 1m 厚，石基座仅作墙下防潮垫层不外挑，门洞处室内外地面齐平。",
+      "rationale": "深墙形成门窗深度，同时不产生门厅或平台。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": [
+        "req-wall-thick-1m",
+        "req-no-outdoor-zone",
+        "req-no-steps",
+        "con-wall-1m",
+        "con-no-outdoor-zone"
+      ]
+    },
+    {
+      "id": "dec-material",
+      "topic": "材料与屋面",
+      "choice": "石基座、清水木墙木柱、深瓦双坡屋面，东西向屋脊，坡度约 25°，仅短出檐。",
+      "rationale": "保持材料本色与乡土朴素气质，形式靠体量、材料与洞口表达，不做装饰构架。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": [
+        "req-stone-base",
+        "req-wood-wall-column",
+        "req-gable-tile-roof",
+        "req-eave-only",
+        "req-roof-ridge-ew",
+        "req-eave-overhang",
+        "req-no-sign-ticket-frame",
+        "con-material-selection",
+        "con-no-sign-ticket-frame"
+      ]
+    },
+    {
+      "id": "dec-furniture",
+      "topic": "固定家具与照明",
+      "choice": "中央长桌、南北通长坐凳、活动坐垫与 2m×1m 固定柜台，屋脊吊挂暖光灯；柜台不设水电点位。",
+      "rationale": "家具靠边布置、面向大窗，满足十人饮茶并减少对视线的干扰。",
+      "source": "user",
+      "status": "proposed",
+      "requirementIds": [
+        "req-long-table",
+        "req-bench-north",
+        "req-bench-south",
+        "req-seats-10",
+        "req-counter",
+        "req-counter-no-service",
+        "req-furniture-fixed",
+        "req-lighting",
+        "req-floor-finish",
+        "con-counter-no-service"
+      ]
+    },
+    {
+      "id": "dec-budget",
+      "topic": "方块用量控制",
+      "choice": "以 1m 厚墙体、石基座与双坡屋面为主要用量，家具与场地收边克制。",
+      "rationale": "保持总量在 20000 方块以内。",
+      "source": "agent",
+      "status": "proposed",
+      "requirementIds": ["req-block-budget", "con-block-budget", "cap-block-accounting"]
+    }
+  ],
+  "open": [
+    {
+      "id": "op-flush-entry",
+      "question": "无台阶齐平入口在体素中无法完全消除室内外一格高差，是否需要以缓坡或地面块处理？",
+      "impact": "layout",
+      "owner": "user",
+      "status": "open",
+      "defaultAssumption": "保持石基座不外挑、门洞处不设台阶与坡道，接受一格高差由场地自然收边消化。",
+      "freeForBuilder": true
+    },
+    {
+      "id": "op-structure-review",
+      "question": "1m 厚木墙、木柱与 10m×8m 无内柱大跨双坡屋面需专业结构复核，是否允许增设隐蔽内柱？",
+      "impact": "layout",
+      "owner": "user",
+      "status": "open",
+      "defaultAssumption": "按可见木柱沿墙位与室内落点支撑，不设打断空间的中央内柱。",
+      "freeForBuilder": false
+    },
+    {
+      "id": "op-flood-safety",
+      "question": "临溪位置与公共使用性质需防洪、无障碍与消防专业复核，入口标高是否需要调整？",
+      "impact": "other",
+      "owner": "user",
+      "status": "open",
+      "defaultAssumption": "当前按平整场地与齐平入口设计，待专业审查后再定标高。",
+      "freeForBuilder": false
+    }
+  ],
+  "budget": {
+    "maxBlocks": 20000,
+    "targetBlocks": null,
+    "estimatedBlocks": null,
+    "maxCostCny": null
+  },
+  "forbidden": [
+    "禁止任何隔间、隔墙、门厅、走廊、操作间、设备间与厨房。",
+    "禁止檐下平台、露台、台阶、坡道及任何室外分区；屋面只做出檐。",
+    "禁止招牌、售票窗口与装饰性构架。",
+    "柜台不设水槽、热水与上下水点位，不预留机电。"
+  ]
+}

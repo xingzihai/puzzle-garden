@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "tool": "conformance-expect",
+  "specSha256": "ea37e5b22c45d61c2121692a3995a9cb7cf2f318d790eefdb9204cdbca201ca6",
+  "objects": [
+    {
+      "id": "wall:f1",
+      "kind": "wall",
+      "bounds": {
+        "min": [
+          2,
+          1,
+          2
+        ],
+        "max": [
+          12,
+          5,
+          10
+        ]
+      },
+      "unverifiedReason": null
+    },
+    {
+      "id": "slab:f1",
+      "kind": "slab",
+      "bounds": {
+        "min": [
+          2,
+          0,
+          2
+        ],
+        "max": [
+          12,
+          1,
+          10
+        ]
+      },
+      "unverifiedReason": null
+    },
+    {
+      "id": "roof",
+      "kind": "roof",
+      "bounds": {
+        "min": [
+          1,
+          5,
+          1
+        ],
+        "max": [
+          13,
+          8,
+          11
+        ]
+      },
+      "unverifiedReason": null,
+      "form": "gable",
+      "pitchDegrees": 25,
+      "eaveY": 5,
+      "ridgeY": 7,
+      "overhang": 1
+    },
+    {
+      "id": "opening:op-entry-north",
+      "kind": "opening",
+      "bounds": {
+        "min": [
+          3,
+          1,
+          2
+        ],
+        "max": [
+          5,
+          3,
+          3
+        ]
+      },
+      "unverifiedReason": null,
+      "subtype": "door",
+      "side": "north",
+      "width": 2,
+      "height": 2,
+      "sillY": 1,
+      "headY": 3,
+      "hostId": "wall-f1-x-p000002-p000002-p000012"
+    },
+    {
+      "id": "opening:op-south-window",
+      "kind": "opening",
+      "bounds": {
+        "min": [
+          5,
+          2,
+          9
+        ],
+        "max": [
+          9,
+          4,
+          10
+        ]
+      },
+      "unverifiedReason": null,
+      "subtype": "window",
+      "side": "south",
+      "width": 4,
+      "height": 2,
+      "sillY": 2,
+      "headY": 4,
+      "hostId": "wall-f1-x-p000010-p000002-p000012"
+    }
+  ],
+  "counts": {
+    "wall": 1,
+    "slab": 1,
+    "roof": 1,
+    "opening": 2
+  },
+  "notes": []
+}

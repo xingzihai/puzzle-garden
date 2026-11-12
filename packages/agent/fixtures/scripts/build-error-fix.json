@@ -1,0 +1,64 @@
+{
+  "name": "build-error-fix",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.opening({ kind: 'window', mullion: 0 });\n}\n"
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "toolIncludes": ["执行出错", "building.ts:3:"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "mullion: 0",
+                  "replace": "mullion: 1"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "submit",
+            "arguments": {
+              "note": "完成"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

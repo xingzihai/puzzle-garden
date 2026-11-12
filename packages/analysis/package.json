@@ -1,0 +1,24 @@
+{
+  "name": "@pg/analysis",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "事实测量：悬空、夹层、可达、屋面剖面。纯函数，只报数字与可定位的样例，不判合格。",
+  "exports": {
+    "./as-built": "./src/as-built.ts",
+    "./block-interface": "./src/block-interface.ts",
+    "./floating": "./src/floating.ts",
+    "./object-diff": "./src/object-diff.ts",
+    "./reach": "./src/reach.ts",
+    "./reach-targets": "./src/reach-targets.ts",
+    "./roof-profile": "./src/roof-profile.ts",
+    "./seams": "./src/seams.ts",
+    "./symmetry": "./src/symmetry.ts"
+  },
+  "dependencies": {
+    "@pg/blocks": "*",
+    "@pg/core": "*",
+    "zod": "4.6.7"
+  }
+}

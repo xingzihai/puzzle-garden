@@ -1,0 +1,91 @@
+{
+  "meta": { "title": "家具适配回归", "concept": "真实 f-shelf 放不进小房间的形态。", "scope": "exterior+interior" },
+  "site": {
+    "bounds": { "x": [0, 12], "z": [0, 12] },
+    "orientation": "south",
+    "entrance": { "side": "south", "notes": null },
+    "outdoorZones": [],
+    "notes": null
+  },
+  "program": {
+    "levels": [{ "id": "f1", "name": "首层", "height": 3, "floorMaterialId": "mat-floor" }],
+    "rooms": [
+      {
+        "id": "room",
+        "name": "小房间",
+        "level": "f1",
+        "kind": "room",
+        "rect": { "x": [2, 8], "z": [2, 8] },
+        "occupancy": 1,
+        "adjacency": [],
+        "daylight": "preferred",
+        "notes": null
+      }
+    ]
+  },
+  "envelope": { "wallDefaults": { "exteriorThickness": 1, "interiorThickness": 1 }, "walls": [], "stairs": [] },
+  "openings": [
+    {
+      "id": "door",
+      "name": "门",
+      "roomId": "room",
+      "side": "south",
+      "kind": "door",
+      "role": "entrance",
+      "offset": 2,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "木门",
+      "frameMaterial": "mat-wall"
+    }
+  ],
+  "structure": { "system": "frame", "materialId": "mat-structure", "floorThickness": 1, "notes": null },
+  "roof": { "form": "flat", "materialId": "mat-roof", "overhang": 0, "drainage": null, "skylights": [], "notes": null },
+  "facades": [
+    {
+      "side": "north",
+      "baseMaterialId": "mat-wall",
+      "bodyMaterialId": "mat-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "south",
+      "baseMaterialId": "mat-wall",
+      "bodyMaterialId": "mat-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "mat-wall",
+      "bodyMaterialId": "mat-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    { "side": "west", "baseMaterialId": "mat-wall", "bodyMaterialId": "mat-wall", "topMaterialId": null, "notes": null }
+  ],
+  "materials": [
+    { "id": "mat-floor", "name": "地面", "block": "stone_bricks", "role": "floor", "notes": null },
+    { "id": "mat-structure", "name": "结构", "block": "oak_planks", "role": "structure", "notes": null },
+    { "id": "mat-wall", "name": "墙", "block": "smooth_sandstone", "role": "wall", "notes": null },
+    { "id": "mat-roof", "name": "屋面", "block": "deepslate_tiles", "role": "roof", "notes": null }
+  ],
+  "furniture": [
+    {
+      "id": "f-shelf",
+      "name": "储物架",
+      "kind": "shelf",
+      "roomId": "room",
+      "anchor": { "kind": "wall", "side": "north", "offset": 2 },
+      "footprint": { "x": 10, "z": 3 },
+      "orientation": "south",
+      "height": 2,
+      "materialId": "mat-structure",
+      "notes": null
+    }
+  ],
+  "decisions": [],
+  "open": []
+}

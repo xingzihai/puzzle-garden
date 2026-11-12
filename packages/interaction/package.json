@@ -1,0 +1,42 @@
+{
+  "name": "@pg/interaction",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "层4：用户交互、需求图、建筑方案、设计报告、构建简报与会话状态机（离线骨架）。",
+  "exports": {
+    "./schema": "./src/schema.ts",
+    "./report": "./src/report.ts",
+    "./session": "./src/session.ts",
+    "./capability": "./src/capability.ts",
+    "./brief": "./src/brief.ts",
+    "./lint": "./src/lint.ts",
+    "./example": "./src/example.ts",
+    "./prompts": "./src/prompts.ts",
+    "./design-intent": "./src/design-intent.ts",
+    "./flush-text": "./src/flush-text.ts",
+    "./design-intent-draft": "./src/design-intent-draft.ts",
+    "./design-intent-normalize": "./src/design-intent-normalize.ts",
+    "./design-expand": "./src/design-expand.ts",
+    "./must-links": "./src/must-links.ts",
+    "./generate-intent": "./src/generate-intent.ts",
+    "./prompts-intent": "./src/prompts-intent.ts",
+    "./generate": "./src/generate.ts",
+    "./conversation": "./src/conversation.ts",
+    "./conversation-intent": "./src/conversation-intent.ts",
+    "./conversation-progress": "./src/conversation-progress.ts",
+    "./store": "./src/store.ts",
+    "./preview": "./src/preview.ts",
+    "./review": "./src/review.ts",
+    "./review-evidence": "./src/review-evidence.ts",
+    "./review-generate": "./src/review-generate.ts"
+  },
+  "dependencies": {
+    "@pg/agent": "*",
+    "@pg/blocks": "*",
+    "@pg/core": "*",
+    "@pg/llm": "*",
+    "zod": "4.6.7"
+  }
+}

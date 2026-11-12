@@ -1,0 +1,67 @@
+{
+  "name": "precheck-fix",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.plinth({ material: 'stone_brikcs' });\n}\n"
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "toolIncludes": ["TS2820", "stone_bricks"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "stone_brikcs",
+                  "replace": "stone_bricks"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "toolIncludes": ["执行成功"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "submit",
+            "arguments": {
+              "note": "完成"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

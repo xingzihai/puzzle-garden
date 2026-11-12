@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "title": "洞口冲突回归",
+    "concept": "真实失败 op-south-win / op-south-glass 同墙段重叠形态。",
+    "scope": "exterior+interior"
+  },
+  "site": {
+    "bounds": { "x": [0, 12], "z": [0, 12] },
+    "orientation": "south",
+    "entrance": { "side": "north", "notes": null },
+    "outdoorZones": [],
+    "notes": null
+  },
+  "program": {
+    "levels": [{ "id": "f1", "name": "首层", "height": 3, "floorMaterialId": "mat-floor" }],
+    "rooms": [
+      {
+        "id": "room",
+        "name": "茶室",
+        "level": "f1",
+        "kind": "room",
+        "rect": { "x": [2, 8], "z": [2, 8] },
+        "occupancy": 4,
+        "adjacency": [],
+        "daylight": "required",
+        "notes": null
+      }
+    ]
+  },
+  "envelope": { "wallDefaults": { "exteriorThickness": 1, "interiorThickness": 1 }, "walls": [], "stairs": [] },
+  "openings": [
+    {
+      "id": "op-entry",
+      "name": "北侧入口",
+      "roomId": "room",
+      "side": "north",
+      "kind": "door",
+      "role": "entrance",
+      "offset": 2,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "木门",
+      "frameMaterial": "mat-wall"
+    },
+    {
+      "id": "op-south-win",
+      "name": "南向窗 A",
+      "roomId": "room",
+      "side": "south",
+      "kind": "window",
+      "role": "interior",
+      "offset": 1,
+      "width": 3,
+      "height": 1,
+      "sill": 1,
+      "fill": "透明玻璃",
+      "frameMaterial": "mat-wall"
+    },
+    {
+      "id": "op-south-glass",
+      "name": "南向窗 B",
+      "roomId": "room",
+      "side": "south",
+      "kind": "window",
+      "role": "interior",
+      "offset": 2,
+      "width": 3,
+      "height": 1,
+      "sill": 1,
+      "fill": "透明玻璃",
+      "frameMaterial": "mat-wall"
+    }
+  ],
+  "structure": { "system": "frame", "materialId": "mat-structure", "floorThickness": 1, "notes": null },
+  "roof": {
+    "form": "gable",
+    "materialId": "mat-roof",
+    "pitchDegrees": 25,
+    "overhang": 1,
+    "ridgeAxis": "x",
+    "drainage": null,
+    "skylights": [],
+    "notes": null
+  },
+  "facades": [
+    {
+      "side": "north",
+      "baseMaterialId": "mat-wall",
+      "bodyMaterialId": "mat-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "south",
+      "baseMaterialId": "mat-wall",
+      "bodyMaterialId": "mat-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "mat-wall",
+      "bodyMaterialId": "mat-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    { "side": "west", "baseMaterialId": "mat-wall", "bodyMaterialId": "mat-wall", "topMaterialId": null, "notes": null }
+  ],
+  "materials": [
+    { "id": "mat-floor", "name": "地面", "block": "stone_bricks", "role": "floor", "notes": null },
+    { "id": "mat-structure", "name": "结构", "block": "oak_planks", "role": "structure", "notes": null },
+    { "id": "mat-wall", "name": "墙", "block": "smooth_sandstone", "role": "wall", "notes": null },
+    { "id": "mat-roof", "name": "屋面", "block": "deepslate_tiles", "role": "roof", "notes": null }
+  ],
+  "furniture": [
+    {
+      "id": "f-table",
+      "name": "茶桌",
+      "kind": "table",
+      "roomId": "room",
+      "anchor": { "kind": "center" },
+      "footprint": { "x": 2, "z": 1 },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-structure",
+      "notes": null
+    }
+  ],
+  "decisions": [],
+  "open": []
+}

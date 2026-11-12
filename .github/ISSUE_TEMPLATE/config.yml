@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 安全漏洞（私密）
+    url: https://github.com/xingzihai/puzzle-garden/security/advisories/new
+    about: 请不要公开报告安全问题；使用 GitHub 私密漏洞报告。
+  - name: 使用问题 / 方向讨论
+    url: https://github.com/xingzihai/puzzle-garden/discussions
+    about: 用法、设计讨论、展示与问答。
+  - name: 文档索引
+    url: https://github.com/xingzihai/puzzle-garden/blob/main/docs/README.md
+    about: 先看架构、用法、预算与资产说明。

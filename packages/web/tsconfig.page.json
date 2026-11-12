@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": { "lib": ["ES2024", "DOM"], "types": [] },
+  "include": ["src/page/main.ts", "src/page/scene.ts", "src/page/controls.ts", "src/page/mesh-viewer.ts"]
+}

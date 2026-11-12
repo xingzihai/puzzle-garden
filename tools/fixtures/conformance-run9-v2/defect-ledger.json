@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "tool": "run9-defect-ledger",
+  "v1": {
+    "fixture": "tools/fixtures/conformance-run9",
+    "summary": { "pass": 0, "fail": 5, "unverified": 6, "blocking": true }
+  },
+  "v2": {
+    "fixture": "tools/fixtures/conformance-run9-v2",
+    "summary": { "pass": 1, "fail": 4, "unverified": 6, "blocking": true }
+  },
+  "entries": [
+    {
+      "id": "wall:f1",
+      "v1Status": "fail",
+      "v2Status": "pass",
+      "classification": "artifact",
+      "artifact": "eave cap / top-plate row counted into wall height",
+      "evidence": [
+        "v1 wall bounds max y=6 (height 5); v2 max y=5 (height 4)",
+        "trimmed row is a one-cell cap adjacent to the roof eave; it is left as unknown, not slab"
+      ]
+    },
+    {
+      "id": "slab:f1",
+      "v1Status": "fail",
+      "v2Status": "fail",
+      "classification": "true-defect",
+      "artifactComponents": [
+        "roof-overhang grass/gravel and stone belt no longer enter the slab envelope",
+        "residual: some raised y=2 furniture tops still merge into the slab (classifier gap)"
+      ],
+      "defect": "interior floor is two solid layers (y0..1) against expected one layer (y0); actual top y1",
+      "evidence": [
+        "v1 slab envelope x-z [1,13)/[1,11) and y [0,5); v2 envelope x-z [2,12)/[2,10)",
+        "v2 actual top y=2 (includes y2 tops); expected top y=1"
+      ]
+    },
+    {
+      "id": "roof",
+      "v1Status": "fail",
+      "v2Status": "fail",
+      "classification": "true-defect",
+      "artifactComponents": ["eaveY delta is partly caused by the unclaimed y=5 roof eave ring (unknown)"],
+      "defect": "actual 45-degree stepped roof vs specified 25-degree gable; ridge y10 vs y7",
+      "evidence": [
+        "pitch 45 vs 25",
+        "ridge 10 vs 7",
+        "formHint stepped/pitched vs gable"
+      ]
+    },
+    {
+      "id": "opening:op-entry-north",
+      "v1Status": "fail",
+      "v2Status": "fail",
+      "classification": "true-defect",
+      "defect": "door height 3 vs 2 and one-cell outdoor threshold step",
+      "evidence": ["door.height 3 vs 2", "threshold outdoorStep 1"]
+    },
+    {
+      "id": "opening:op-south-window",
+      "v1Status": "fail",
+      "v2Status": "fail",
+      "classification": "true-defect",
+      "defect": "window shifted up one cell; stone belt cuts the window void",
+      "evidence": ["sill/head +1", "4 void cells missing", "4 inside + 4 shell occluders"]
+    }
+  ],
+  "unverified": {
+    "count": 6,
+    "classification": "unknown",
+    "ids": [
+      "unknown@1,4,1",
+      "unknown@3,3,6",
+      "unknown@6,3,3",
+      "unknown@6,3,8",
+      "unknown@7,2,3",
+      "unknown@7,2,8"
+    ],
+    "note": "unknown stays soft unverified; it is never counted as met or as a defect"
+  }
+}

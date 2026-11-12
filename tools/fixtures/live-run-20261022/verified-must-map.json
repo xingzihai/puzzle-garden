@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "verified-must-map",
+  "mapping": "verified",
+  "schemeRevision": 2,
+  "schemes": {
+    "scheme-draft": {
+      "req-outer-10x8": ["wall:f1"],
+      "req-single-storey": ["check:storey:f1"],
+      "req-interior-8x6": ["check:clear:f1"],
+      "req-wall-thick-1m": ["check:thickness:f1"],
+      "req-door-north-west": ["opening:op-entry-north", "check:schedule:north", "check:door-position:op-entry-north"],
+      "req-window-dim": ["opening:op-south-window", "check:schedule:south"],
+      "req-long-table": ["furniture:f-long-table"],
+      "req-bench-north": ["furniture:f-bench-north", "furniture:f-bench-south"],
+      "req-bench-south": ["furniture:f-bench-north", "furniture:f-bench-south"],
+      "req-seats-10": ["furniture:f-bench-north", "furniture:f-bench-south", "check:seats:10"],
+      "req-counter": ["furniture:f-counter"],
+      "req-block-budget": ["check:budget:20000"],
+      "constraint-con-outer-10x8": ["wall:f1"],
+      "constraint-con-single-storey": ["check:storey:f1"],
+      "constraint-con-interior-clear": ["check:clear:f1"],
+      "constraint-con-wall-1m": ["check:thickness:f1"],
+      "constraint-con-door-2m": [
+        "opening:op-entry-north",
+        "check:schedule:north",
+        "check:door-position:op-entry-north"
+      ],
+      "constraint-con-window-south": ["opening:op-south-window", "check:schedule:south"],
+      "constraint-con-block-budget": ["check:budget:20000"]
+    }
+  }
+}

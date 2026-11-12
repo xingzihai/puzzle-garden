@@ -1,0 +1,54 @@
+{
+  "name": "success",
+  "task": "# M1-01 住宅 · 冒烟题：坡顶小屋\n\n## 一、must\n- 单栋坡顶小屋\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const base = w.plinth({ footprint: rect(-4, -4, 4, 4), height: 1, project: 1, material: 'stone_bricks' });\n  const walls = w.walls({ on: base, height: 4, material: 'oak_planks' });\n  w.opening({ in: walls.facade('south'), kind: 'door', width: 1, height: 3 });\n  w.opening({ in: walls.facade('east'), kind: 'window', width: 2, height: 1, sill: 1 });\n  w.opening({ in: walls.facade('west'), kind: 'window', width: 2, height: 1, sill: 1 });\n  w.roof({ on: walls, kind: 'gable', ridge: 'x', pitch: 0.5, material: 'deepslate_tiles' });\n}\n"
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "view_building",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "imageBlocks": 2,
+        "toolIncludes": ["已渲染第 v1 版 2 张"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "submit",
+            "arguments": {
+              "note": "完成：单栋坡顶小屋，石基木墙，南门东窗。"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

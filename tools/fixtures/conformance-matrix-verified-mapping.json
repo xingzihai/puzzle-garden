@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "verified-must-map",
+  "mapping": "verified",
+  "schemeRevision": 1,
+  "schemes": {
+    "matrix-h1-flat": {
+      "must-no-step": ["opening:op-h1-door"],
+      "must-door-clear": ["opening:op-h1-door"]
+    },
+    "matrix-h2-gable": {
+      "must-no-step": ["opening:op-h2-door"],
+      "must-door-clear": ["opening:op-h2-door"]
+    },
+    "matrix-h3-shed": {
+      "must-no-step": ["opening:op-h3-door"],
+      "must-door-clear": ["opening:op-h3-door"]
+    },
+    "matrix-h4-l-shape": {
+      "must-no-step": ["opening:op-h4-door"],
+      "must-door-clear": ["opening:op-h4-door"]
+    }
+  }
+}

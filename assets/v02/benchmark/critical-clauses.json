@@ -1,0 +1,528 @@
+{
+  "$comment": "多类型基准（MULTI-TYPE-BENCHMARK）机器可读关键条款。check=mechanical 的条款必须可复算；未校准的阈值 thresholdStatus=uncalibrated，只报实测值、不判满足（承袭 v0.2beta/benchmark/clauses.json 的 thresholdDiscipline）。check=manual 为人工/授权代理按固定题面可判的观察/二值判据（本文件重点是这些'手动判据'），不得伪称机械。check=blind 为 0/1/2 盲评。",
+  "version": "multitype-0.1",
+  "frozenAt": "2026-09-29",
+  "relationToExisting": "通用条款（delivered / no-solid-floating）与楼梯判据沿用 v0.2beta/benchmark/clauses.json（stairWalkability：可攀路径存在性，非比率阈值）。家族机械条款凡检查器未实现者 implementation=notImplemented，不计分。",
+  "checkTypes": {
+    "mechanical": "check-coverage.mjs 类工具可复算",
+    "manual": "人工/授权代理按固定题面二值或分项可判，是本文件重点",
+    "blind": "0/1/2 盲评，>=1 满足"
+  },
+  "thresholdStatusValues": [
+    "calibrated",
+    "uncalibrated",
+    "notImplemented"
+  ],
+  "genericClauses": [
+    {
+      "id": "delivered",
+      "text": "提交并产出成品文件",
+      "check": "mechanical",
+      "how": "delivered/building.js 存在且可执行",
+      "implementation": "existing",
+      "thresholdStatus": "calibrated",
+      "source": "通用工程口径"
+    },
+    {
+      "id": "no-solid-floating",
+      "text": "结构稳定、无完全悬空碎块",
+      "check": "mechanical",
+      "how": "完全悬空格数=0（斜角相接另计，不算此条）",
+      "implementation": "existing",
+      "thresholdStatus": "calibrated",
+      "source": "通用工程口径"
+    }
+  ],
+  "tasks": {
+    "f1-pav-dev": {
+      "family": "f1-pav",
+      "split": "dev",
+      "reuse": "exterior/tea-pavilion-task.md",
+      "clauses": [
+        {
+          "id": "f1-pav-dev-open",
+          "text": "开放亭：≥4 根可辨认角柱，柱间除坐凳栏杆外通透",
+          "check": "manual",
+          "how": "人/代理从正侧/45°判断可辨认角柱数与通透面数；不与封闭小屋混淆",
+          "thresholdStatus": "calibrated",
+          "source": "task f1-pav-dev must-1"
+        },
+        {
+          "id": "f1-pav-dev-base",
+          "text": "抬高石台基（高于地面≥1、外挑≥1）",
+          "check": "manual",
+          "how": "从侧视读台基高度与外挑；台基与草地相接",
+          "thresholdStatus": "calibrated",
+          "source": "must-2"
+        },
+        {
+          "id": "f1-pav-dev-roof",
+          "text": "完整坡屋顶有可读檐口、四边出檐≥1",
+          "check": "manual",
+          "how": "顶视+侧视确认屋顶盖过柱网；可复用现有 pv-roof 机械判据做辅助",
+          "thresholdStatus": "uncalibrated",
+          "source": "must-4（机械口径沿用 pv-roof，未按本题单独校准）"
+        },
+        {
+          "id": "f1-pav-dev-entry",
+          "text": "南向或临水一面有≥2 格净宽上台踏步",
+          "check": "manual",
+          "how": "正视图辨认踏步与入口方向",
+          "thresholdStatus": "calibrated",
+          "source": "must-3"
+        }
+      ]
+    },
+    "f2-res-dev": {
+      "family": "f2-res",
+      "split": "dev",
+      "reuse": "exterior/village-cottage-task.md",
+      "clauses": [
+        {
+          "id": "f2-res-dev-partition",
+          "text": "浅石基座/木墙/深色双坡屋面三分区清楚",
+          "check": "manual",
+          "how": "从正视辨认三种材质带",
+          "thresholdStatus": "calibrated",
+          "source": "must-1"
+        },
+        {
+          "id": "f2-res-dev-openings",
+          "text": "正面一门 + 从外可见≥2 窗洞",
+          "check": "manual",
+          "how": "计数可辨认门/窗；禁以颜色块冒充洞",
+          "thresholdStatus": "calibrated",
+          "source": "must-2"
+        },
+        {
+          "id": "f2-res-dev-ridge",
+          "text": "连续屋脊双坡屋面、斜面接墙",
+          "check": "manual",
+          "how": "侧视看屋脊贯通与檐墙关系",
+          "thresholdStatus": "calibrated",
+          "source": "must-3"
+        },
+        {
+          "id": "f2-res-dev-nooverhang",
+          "text": "檐口不又厚又宽盖住整面墙",
+          "check": "manual",
+          "how": "若檐厚>2 或出檐>2 判不满足",
+          "thresholdStatus": "uncalibrated",
+          "source": "must-5（阈值未按本题校准）"
+        }
+      ]
+    },
+    "f3-stu-dev": {
+      "family": "f3-stu",
+      "split": "dev",
+      "reuse": "exterior/modern-corner-studio-task.md",
+      "clauses": [
+        {
+          "id": "f3-stu-dev-flat",
+          "text": "平屋面/平缓退台且有完整收边",
+          "check": "manual",
+          "how": "看平顶收边是否压在外墙/柱梁上",
+          "thresholdStatus": "calibrated",
+          "source": "must-1/4"
+        },
+        {
+          "id": "f3-stu-dev-entry",
+          "text": "一个主入口 + 贴地铺装",
+          "check": "manual",
+          "how": "正视角辨认主入口与铺装",
+          "thresholdStatus": "calibrated",
+          "source": "must-2/6"
+        },
+        {
+          "id": "f3-stu-dev-openings",
+          "text": "≥2 个位置合理的可辨认窗洞",
+          "check": "manual",
+          "how": "各立面计数",
+          "thresholdStatus": "calibrated",
+          "source": "must-3"
+        },
+        {
+          "id": "f3-stu-dev-layering",
+          "text": "外墙非无层次白盒；主材浅色、次框架木/金属",
+          "check": "manual",
+          "how": "观察立面色块/进退关系",
+          "thresholdStatus": "calibrated",
+          "source": "must-5"
+        }
+      ]
+    },
+    "f4-chu-dev": {
+      "family": "f4-chu",
+      "split": "dev",
+      "reuse": "task-church.md（尺寸按用户口径缩小为中型的更正版）",
+      "clauses": [
+        {
+          "id": "f4-chu-dev-plan",
+          "text": "中殿+单塔+半圆后殿三段层次",
+          "check": "manual",
+          "how": "俯视/45°辨识三段；旧 ch-plan 只报实测值、未校准，故本题用人工判据",
+          "thresholdStatus": "uncalibrated",
+          "source": "must-1（旧 ch-plan thresholdStatus=uncalibrated）"
+        },
+        {
+          "id": "f4-chu-dev-rose",
+          "text": "主立面圆形玫瑰窗（直径5–7）居中",
+          "check": "blind",
+          "how": "盲评彩色放射图案是否居中可读",
+          "thresholdStatus": "calibrated",
+          "source": "must-2；沿用 ch-rose 盲评口径"
+        },
+        {
+          "id": "f4-chu-dev-stair",
+          "text": "存在从地面通往塔顶/阁楼的可攀路径",
+          "check": "mechanical",
+          "how": "沿用 clauses.json stairWalkability（路径存在性、剔中柱）",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "must-4；旧 ch-stair"
+        },
+        {
+          "id": "f4-chu-dev-arch",
+          "text": "主立面尖拱大门净宽4–6、净高7–9",
+          "check": "manual",
+          "how": "正视读取洞口尺寸与起券",
+          "thresholdStatus": "calibrated",
+          "source": "must-2"
+        },
+        {
+          "id": "f4-chu-dev-budget",
+          "text": "实体方块预算 ≤ 40,000（中型）",
+          "check": "mechanical",
+          "how": "统计非 air/skip 实体格数",
+          "thresholdStatus": "calibrated",
+          "source": "用户口径'教堂中型非百万体素'"
+        }
+      ]
+    },
+    "f5-tow-dev": {
+      "family": "f5-tow",
+      "split": "dev",
+      "reuse": "task-tower.md",
+      "clauses": [
+        {
+          "id": "f5-tow-dev-footprint",
+          "text": "方形塔身外轮廓约 15×15",
+          "check": "mechanical",
+          "how": "沿用 tw-footprint（13–17）",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "must-1"
+        },
+        {
+          "id": "f5-tow-dev-height",
+          "text": "地面到塔顶约 40",
+          "check": "mechanical",
+          "how": "沿用 tw-height（35–48）",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "must-1"
+        },
+        {
+          "id": "f5-tow-dev-stair",
+          "text": "螺旋梯可登顶、无断梯",
+          "check": "mechanical",
+          "how": "沿用 tw-stair / stairWalkability",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "must-2"
+        },
+        {
+          "id": "f5-tow-dev-rail",
+          "text": "顶层栏杆无缺口",
+          "check": "mechanical",
+          "how": "沿用 tw-rail（覆盖率>=0.9，已校准）",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "must-4"
+        },
+        {
+          "id": "f5-tow-dev-top",
+          "text": "攒尖顶+顶饰",
+          "check": "mechanical",
+          "how": "沿用 tw-top（递减次数>=3，已校准）",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "must-6"
+        },
+        {
+          "id": "f5-tow-dev-material",
+          "text": "下两层石/上两层木/顶深板岩",
+          "check": "manual",
+          "how": "tw-material 现校准分离不足，改用人工读带",
+          "thresholdStatus": "uncalibrated",
+          "source": "must-7；旧 tw-material 读数未分离"
+        }
+      ]
+    },
+    "f6-crt-dev": {
+      "family": "f6-crt",
+      "split": "dev",
+      "reuse": "无（新写）",
+      "clauses": [
+        {
+          "id": "f6-crt-dev-count",
+          "text": "恰好 2 栋功能相异建筑、主次分明",
+          "check": "manual",
+          "how": "计数并判断体量主次",
+          "thresholdStatus": "calibrated",
+          "source": "must-1"
+        },
+        {
+          "id": "f6-crt-dev-wall",
+          "text": "院墙围合 + 1 处门洞/门楼",
+          "check": "manual",
+          "how": "俯视看围合是否闭合、门洞位置",
+          "thresholdStatus": "calibrated",
+          "source": "must-2"
+        },
+        {
+          "id": "f6-crt-dev-axis",
+          "text": "入口轴线可读（门 → 主房入口）",
+          "check": "manual",
+          "how": "俯视/45° 判断轴线",
+          "thresholdStatus": "uncalibrated",
+          "source": "must-5（主观项，不冒称机械）"
+        },
+        {
+          "id": "f6-crt-dev-budget",
+          "text": "全场实体 ≤ 30,000",
+          "check": "mechanical",
+          "how": "统计实体格",
+          "thresholdStatus": "calibrated",
+          "source": "用户口径'院落先小型'"
+        }
+      ]
+    },
+    "f1-pav-val": {
+      "family": "f1-pav",
+      "split": "val",
+      "reuse": "新写（不抄 dev 参数）",
+      "clauses": [
+        {
+          "id": "f1-pav-val-fold",
+          "text": "3 段折廊、总长 24–32、宽 4–6",
+          "check": "manual",
+          "how": "俯视量测段数与总长",
+          "thresholdStatus": "calibrated",
+          "source": "val must-1"
+        },
+        {
+          "id": "f1-pav-val-rhythm",
+          "text": "每 3–4 格一对檐柱",
+          "check": "manual",
+          "how": "沿廊身数柱距序列",
+          "thresholdStatus": "uncalibrated",
+          "source": "val must-2（节奏阈值未校准）"
+        },
+        {
+          "id": "f1-pav-val-closure",
+          "text": "转折处屋面闭合无露缝",
+          "check": "manual",
+          "how": "顶视看折角屋面连续性",
+          "thresholdStatus": "calibrated",
+          "source": "val must-4"
+        }
+      ]
+    },
+    "f2-res-val": {
+      "family": "f2-res",
+      "split": "val",
+      "reuse": "新写（不抄 dev 参数）",
+      "clauses": [
+        {
+          "id": "f2-res-val-floors",
+          "text": "两层，二层比一层内收≥1",
+          "check": "manual",
+          "how": "正/侧视读两层外轮廓",
+          "thresholdStatus": "calibrated",
+          "source": "val must-1"
+        },
+        {
+          "id": "f2-res-val-stair",
+          "text": "内部楼梯从一层可走到二层",
+          "check": "mechanical",
+          "how": "沿用 stairWalkability 路径存在性",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "val must-2"
+        },
+        {
+          "id": "f2-res-val-balcony",
+          "text": "二层外挑阳台有栏杆/矮墙",
+          "check": "manual",
+          "how": "正视辨认阳台与围护",
+          "thresholdStatus": "calibrated",
+          "source": "val must-3"
+        },
+        {
+          "id": "f2-res-val-slope",
+          "text": "基础随坡地高差自然过渡",
+          "check": "manual",
+          "how": "侧视看基座/挡土与地形",
+          "thresholdStatus": "uncalibrated",
+          "source": "val must-6"
+        }
+      ]
+    },
+    "f3-stu-val": {
+      "family": "f3-stu",
+      "split": "val",
+      "reuse": "新写（不抄 dev 参数）",
+      "clauses": [
+        {
+          "id": "f3-stu-val-span",
+          "text": "净跨 ≥16 的大跨空间",
+          "check": "manual",
+          "how": "室内/俯视量净跨",
+          "thresholdStatus": "calibrated",
+          "source": "val must-1"
+        },
+        {
+          "id": "f3-stu-val-curtain",
+          "text": "街角两面幕墙/水平带分格可读",
+          "check": "manual",
+          "how": "45° 看两面分格节奏",
+          "thresholdStatus": "uncalibrated",
+          "source": "val must-2"
+        },
+        {
+          "id": "f3-stu-val-parapet",
+          "text": "平屋面完整收边压在外墙/柱梁",
+          "check": "manual",
+          "how": "顶视+侧视看收边",
+          "thresholdStatus": "calibrated",
+          "source": "val must-4"
+        }
+      ]
+    },
+    "f4-chu-val": {
+      "family": "f4-chu",
+      "split": "val",
+      "reuse": "新写（不抄 dev 参数）",
+      "clauses": [
+        {
+          "id": "f4-chu-val-aisle",
+          "text": "中殿+双侧廊、侧廊低于中殿且屋面分层",
+          "check": "manual",
+          "how": "正/侧视读体量层次",
+          "thresholdStatus": "calibrated",
+          "source": "val must-1"
+        },
+        {
+          "id": "f4-chu-val-pier",
+          "text": "中殿/侧廊柱列券洞每 4–5 格成节奏",
+          "check": "manual",
+          "how": "侧视数券洞间距",
+          "thresholdStatus": "uncalibrated",
+          "source": "val must-2"
+        },
+        {
+          "id": "f4-chu-val-rose",
+          "text": "主立面玫瑰窗径 5–7 居中 + 尖拱门",
+          "check": "blind",
+          "how": "盲评居中与可读",
+          "thresholdStatus": "calibrated",
+          "source": "val must-3"
+        },
+        {
+          "id": "f4-chu-val-stair",
+          "text": "可攀登楼梯通往屋顶/阁楼",
+          "check": "mechanical",
+          "how": "stairWalkability",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "val must-5"
+        }
+      ]
+    },
+    "f5-tow-val": {
+      "family": "f5-tow",
+      "split": "val",
+      "reuse": "新写（不抄 dev 参数）",
+      "clauses": [
+        {
+          "id": "f5-tow-val-segments",
+          "text": "塔身 9×9–11×11、分 3 段、总高 30–38",
+          "check": "manual",
+          "how": "量测占地/分段/高度",
+          "thresholdStatus": "calibrated",
+          "source": "val must-1/6"
+        },
+        {
+          "id": "f5-tow-val-clock",
+          "text": "至少一面 5×5–7×7 可读钟面",
+          "check": "manual",
+          "how": "正视辨认钟面与指针/刻度意图",
+          "thresholdStatus": "uncalibrated",
+          "source": "val must-2（主观'可读'，不冒称机械）"
+        },
+        {
+          "id": "f5-tow-val-belfry",
+          "text": "上部钟室四面可辨开敞券窗/百叶",
+          "check": "manual",
+          "how": "四面观察",
+          "thresholdStatus": "calibrated",
+          "source": "val must-3"
+        },
+        {
+          "id": "f5-tow-val-stair",
+          "text": "楼梯从地面通到钟室层",
+          "check": "mechanical",
+          "how": "stairWalkability",
+          "implementation": "existing",
+          "thresholdStatus": "calibrated",
+          "source": "val must-4"
+        }
+      ]
+    },
+    "f6-crt-val": {
+      "family": "f6-crt",
+      "split": "val",
+      "reuse": "新写（不抄 dev 参数）",
+      "clauses": [
+        {
+          "id": "f6-crt-val-count",
+          "text": "3 栋主次分明 + 1 连廊",
+          "check": "manual",
+          "how": "计数并判断主次",
+          "thresholdStatus": "calibrated",
+          "source": "val must-1/2"
+        },
+        {
+          "id": "f6-crt-val-corridor",
+          "text": "连廊有柱与顶、转折闭合",
+          "check": "manual",
+          "how": "顶视看连廊连续性",
+          "thresholdStatus": "calibrated",
+          "source": "val must-2"
+        },
+        {
+          "id": "f6-crt-val-gate",
+          "text": "门楼高于普通院墙、为唯一主入口",
+          "check": "manual",
+          "how": "正视比较门楼与墙高",
+          "thresholdStatus": "calibrated",
+          "source": "val must-4"
+        },
+        {
+          "id": "f6-crt-val-budget",
+          "text": "全场实体 ≤ 55,000",
+          "check": "mechanical",
+          "how": "统计实体格",
+          "thresholdStatus": "calibrated",
+          "source": "用户口径"
+        }
+      ]
+    }
+  },
+  "sealedClauses": {
+    "": "新密封题（seal-01..06）条款存于受限文件 sealed/content/v2/seal-clauses.json；对外仅暴露 opaque id/条数/family/hash，不暴露 text/how。",
+    "pointer": "sealed/content/v2/seal-clauses.json (restricted)",
+    "exposed": false
+  }
+}

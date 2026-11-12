@@ -1,0 +1,156 @@
+{
+  "patches": [
+    {
+      "path": "/meta",
+      "value": {
+        "title": "村口茶亭",
+        "concept": "木石深瓦半开敞茶亭：北侧服务带，南向落地大开口对稻田，南侧深瓦大出檐与檐下平台形成室内外过渡。",
+        "scope": "exterior+interior"
+      }
+    },
+    {
+      "path": "/site",
+      "value": {
+        "bounds": {
+          "x": [-3, 11],
+          "z": [-3, 11]
+        },
+        "orientation": "south",
+        "entrance": {
+          "side": "north",
+          "width": 2
+        },
+        "outdoorZones": [
+          {
+            "id": "oz-entry-court",
+            "name": "入口前场",
+            "bounds": {
+              "x": [2, 6],
+              "z": [-2, 0]
+            },
+            "kind": "path",
+            "materialId": "mat-stone-paving"
+          },
+          {
+            "id": "oz-eave-porch",
+            "name": "檐下平台",
+            "bounds": {
+              "x": [1, 7],
+              "z": [6, 8]
+            },
+            "kind": "terrace",
+            "materialId": "mat-stone-paving"
+          },
+          {
+            "id": "oz-rice-view",
+            "name": "稻田观景带",
+            "bounds": {
+              "x": [0, 8],
+              "z": [8, 10]
+            },
+            "kind": "garden",
+            "materialId": "mat-grass"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/program",
+      "value": {
+        "levels": [
+          {
+            "id": "L0",
+            "name": "首层",
+            "height": 3.6
+          }
+        ],
+        "rooms": [
+          {
+            "id": "room-tea-hall",
+            "name": "茶亭主厅",
+            "rect": {
+              "x": [0, 8],
+              "z": [0, 6]
+            },
+            "level": "L0",
+            "kind": "room",
+            "occupancy": 6,
+            "adjacency": [],
+            "daylight": "required"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/materials",
+      "value": [
+        {
+          "id": "mat-stone-base",
+          "name": "石砌台基与勒脚",
+          "block": "minecraft:stone_bricks",
+          "role": "structure"
+        },
+        {
+          "id": "mat-stone-wall",
+          "name": "毛石墙",
+          "block": "minecraft:cobblestone",
+          "role": "wall"
+        },
+        {
+          "id": "mat-wood",
+          "name": "浅色木构与木装修",
+          "block": "minecraft:spruce_planks",
+          "role": "structure"
+        },
+        {
+          "id": "mat-wood-dark",
+          "name": "深色木柜与门扇",
+          "block": "minecraft:dark_oak_planks",
+          "role": "trim"
+        },
+        {
+          "id": "mat-roof-tile",
+          "name": "深色瓦屋面",
+          "block": "minecraft:deepslate_tiles",
+          "role": "roof"
+        },
+        {
+          "id": "mat-glass",
+          "name": "窗玻璃",
+          "block": "minecraft:glass_pane",
+          "role": "glass"
+        },
+        {
+          "id": "mat-light",
+          "name": "吊灯",
+          "block": "minecraft:lantern",
+          "role": "furniture"
+        },
+        {
+          "id": "mat-plant",
+          "name": "桌面绿植",
+          "block": "minecraft:potted_fern",
+          "role": "furniture"
+        },
+        {
+          "id": "mat-wood-floor",
+          "name": "室内木铺地",
+          "block": "minecraft:spruce_planks",
+          "role": "floor"
+        },
+        {
+          "id": "mat-stone-paving",
+          "name": "石铺地",
+          "block": "minecraft:stone_bricks",
+          "role": "landscape"
+        },
+        {
+          "id": "mat-grass",
+          "name": "稻田边草地",
+          "block": "minecraft:grass_block",
+          "role": "landscape"
+        }
+      ]
+    }
+  ]
+}

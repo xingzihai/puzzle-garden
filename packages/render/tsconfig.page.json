@@ -1,0 +1,11 @@
+{
+  // 浏览器端代码单独类型检查：根配置也包含它（ESLint projectService 需要），这里补 DOM 且不含 node 类型，
+  // 从而能抓出页面代码误用 Node 全局。（RENDER-SPEC §3.2）
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2024", "DOM"],
+    "types": []
+  },
+  "include": ["src/page/**/*.ts", "src/mesh.ts", "src/mesh-parts.ts", "src/model-pack.ts"],
+  "exclude": ["src/**/*.test.ts"]
+}

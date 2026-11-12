@@ -1,0 +1,41 @@
+{
+  // v0.3beta 类型检查配置：从第一天起全严格，不留"已知 N 条报错"的基线。
+  // 运行方式：Node 24 原生 type stripping 直接执行 .ts（不需要 tsx / 构建步骤），
+  // 因此只允许可擦除语法（erasableSyntaxOnly）：不用 enum / namespace / 参数属性。
+  "compilerOptions": {
+    "target": "ES2024",
+    // DOM 只为 puppeteer-core 的类型声明（它引用 Element / HTMLIFrameElement 等）；运行时代码不依赖它。
+    "lib": ["ES2024", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useUnknownInCatchVariables": true,
+
+    "allowJs": false,
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true,
+
+    // 只给类型检查用：@huggingface/tokenizers 自带声明在 NodeNext 下解析失败，改用手写的最小声明（见该文件头）。
+    "paths": { "@huggingface/tokenizers": ["./tools/types/huggingface-tokenizers.d.ts"] }
+  },
+  "include": ["packages/*/src/**/*.ts", "packages/*/fixtures/**/*.ts", "packages/*/*.d.ts", "tools/**/*.ts"]
+  // page/*.ts 另由 packages/render/tsconfig.page.json（lib 只含 ES2024 + DOM、types 为空）严格检查；
+  // 根配置也包含它们，是为了让 ESLint 的 projectService 能解析到（否则报 "not found by the project service"）。
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@pg/sandbox",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "模型代码预检（TypeScript 类型检查 + 语法规则）与 bwrap 执行（见 docs/SANDBOX-SPEC.md）。",
+  "exports": {
+    "./precheck": "./src/precheck.ts",
+    "./run": "./src/run.ts",
+    "./modeling": "./src/modeling.ts"
+  },
+  "dependencies": {
+    "@pg/blocks": "*",
+    "@pg/core": "*",
+    "@pg/geometry": "*",
+    "@pg/modeling": "*",
+    "typescript": "5.9.3",
+    "zod": "4.6.7"
+  }
+}

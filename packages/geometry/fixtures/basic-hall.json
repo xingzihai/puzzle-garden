@@ -1,0 +1,19 @@
+{
+  "base": {
+    "footprint": { "minX": -4, "minZ": -4, "maxX": 4, "maxZ": 4 },
+    "height": 2,
+    "project": 1,
+    "material": "stone_bricks"
+  },
+  "wall": {
+    "height": 6,
+    "thickness": 2,
+    "material": "oak_planks"
+  },
+  "door": {
+    "kind": "door",
+    "width": 3,
+    "height": 3,
+    "frame": { "material": "stone" }
+  }
+}

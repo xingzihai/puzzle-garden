@@ -1,0 +1,20 @@
+{
+  "name": "@pg/core",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "纯函数几何核心：坐标、方块状态、体素网格、hash、确定性随机数。零 I/O，Node 与浏览器同构。",
+  "exports": {
+    "./archive": "./src/archive.ts",
+    "./bench": "./src/bench.ts",
+    "./block-state": "./src/block-state.ts",
+    "./coord": "./src/coord.ts",
+    "./grid": "./src/grid.ts",
+    "./hash": "./src/hash.ts",
+    "./rng": "./src/rng.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+# 推送前跑完整离线门禁（docs/STANDARDS.md §12），检查的是工作区。
+# 放在推送前而不是每次提交前：rebase、cherry-pick 解决冲突时的中间提交不用每次都等完整检查。
+# CI 在 check 之后单独跑 check:conformance；本地也跑一遍，避免“check 8/8 但 CI 红”。
+set -e
+npm run --silent check
+npm run --silent check:conformance

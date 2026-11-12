@@ -1,0 +1,14 @@
+{
+  "name": "@pg/config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "运行配置：全仓唯一读取环境变量的包。",
+  "exports": {
+    ".": "./src/config.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}

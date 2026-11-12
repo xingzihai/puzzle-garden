@@ -1,0 +1,19 @@
+{
+  "name": "@pg/store",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "运行记录：事件 schema、规范 JSON、请求体去重存放、内容寻址 blob、run 目录与 trace 派生（MODEL-SPEC）。",
+  "exports": {
+    "./events": "./src/events.ts",
+    "./canonical-json": "./src/canonical-json.ts",
+    "./derive": "./src/derive.ts",
+    "./run-dir": "./src/run-dir.ts",
+    "./request-codec": "./src/request-codec.ts"
+  },
+  "dependencies": {
+    "@pg/llm": "*",
+    "zod": "4.6.7"
+  }
+}

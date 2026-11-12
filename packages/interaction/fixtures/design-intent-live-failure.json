@@ -1,0 +1,1174 @@
+{
+  "meta": {
+    "title": "村口茶亭 — 木石深瓦的南向取景小亭",
+    "concept": "一座 8×6 米的单层小茶亭立在村口，石台基抬高一格，深色木柱廊撑起南北向双坡深瓦屋面，南侧檐口出挑形成观景檐廊。南立面几乎完全通透，只在中间保留一根中柱分两跨，让稻田成为室内唯一的“墙面”；入口退到北侧，经檐下台阶进入，北墙以石材与木柜体围合出柜台与储物背墙。室内一张固定长桌配两侧长凳坐 6 人，沿南向开敞面横向布置，柜台贴北墙，动线与观景视线互相不打扰。",
+    "scope": "exterior+interior",
+    "notes": "结构仅做跨度与出挑的启发式判断，需专业复核；无红石与动态系统，灯具为静态灯笼。"
+  },
+  "site": {
+    "bounds": {
+      "x": [-8, 16],
+      "z": [-6, 18]
+    },
+    "orientation": "south",
+    "entrance": {
+      "side": "north",
+      "notes": "入口朝村路来向，经北侧檐下 2 级台阶上台基；南侧为稻田，不设门。"
+    },
+    "outdoorZones": [
+      {
+        "id": "zone-entry-paving",
+        "name": "北侧入口铺装",
+        "kind": "path",
+        "rect": {
+          "x": [2, 10],
+          "z": [-4, 0]
+        },
+        "materialId": "mat-paving-stone",
+        "notes": "衔接村路的入口集散铺装，与台基北边共边。"
+      },
+      {
+        "id": "zone-south-terrace",
+        "name": "南侧观景檐廊",
+        "kind": "terrace",
+        "rect": {
+          "x": [2, 10],
+          "z": [6, 9]
+        },
+        "materialId": "mat-paving-stone",
+        "notes": "檐口出挑下的平台，可移出坐凳看稻田。"
+      },
+      {
+        "id": "zone-rice-field-view",
+        "name": "南向稻田视域（示意）",
+        "kind": "garden",
+        "rect": {
+          "x": [-6, 14],
+          "z": [9, 17]
+        },
+        "materialId": "mat-paddy",
+        "notes": "仅表达南向景观界面的范围，非施工内容。"
+      }
+    ],
+    "notes": "场地尺寸与退距未实测，暂按四面自由的场地处理。"
+  },
+  "program": {
+    "levels": [
+      {
+        "id": "level-ground",
+        "name": "地面层",
+        "height": 3.6,
+        "elevation": 0,
+        "floorMaterialId": "mat-floor-stone",
+        "notes": "台基顶面为室内地坪，净高 3.6 米以承托双坡屋面并留吊灯空间。"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "room-hall",
+        "name": "茶亭主厅（品茶区）",
+        "level": "level-ground",
+        "kind": "room",
+        "rect": {
+          "x": [2, 9],
+          "z": [1, 6]
+        },
+        "occupancy": 6,
+        "adjacency": ["room-counter", "room-entry"],
+        "daylight": "required",
+        "areaM2": 35,
+        "notes": "南面整跨开敞观稻田，中部一根木中柱分两跨。"
+      },
+      {
+        "id": "room-counter",
+        "name": "柜台服务区",
+        "level": "level-ground",
+        "kind": "service",
+        "rect": {
+          "x": [2, 9],
+          "z": [0, 1]
+        },
+        "occupancy": 2,
+        "adjacency": ["room-hall", "room-storage"],
+        "daylight": "preferred",
+        "areaM2": 7,
+        "notes": "贴北墙的柜台服务带，台面外挑出 1 格台沿。"
+      },
+      {
+        "id": "room-storage",
+        "name": "储物柜区",
+        "level": "level-ground",
+        "kind": "service",
+        "rect": {
+          "x": [7, 9],
+          "z": [1, 3]
+        },
+        "occupancy": 1,
+        "adjacency": ["room-counter", "room-hall"],
+        "daylight": "none",
+        "areaM2": 4,
+        "notes": "北墙角嵌入式储物柜，柜门统一朝西开向主厅。"
+      }
+    ],
+    "notes": "入口过渡空间由北侧室外铺装与檐下台阶承担，不单独占室内面积。"
+  },
+  "envelope": {
+    "wallDefaults": {
+      "exteriorThickness": 1,
+      "interiorThickness": 1,
+      "notes": "外墙承托于石台基上，北墙与东西墙为主，南面以柱廊代替墙体。"
+    },
+    "walls": [
+      {
+        "roomId": "room-hall",
+        "side": "south",
+        "kind": "none",
+        "notes": "南面不做墙，由两跨柱廊 + 可开启洞口构成景观界面。"
+      },
+      {
+        "roomId": "room-hall",
+        "side": "north",
+        "kind": "interior",
+        "materialId": "mat-wood-column"
+      },
+      {
+        "roomId": "room-hall",
+        "side": "east",
+        "kind": "exterior",
+        "materialId": "mat-stone-wall"
+      },
+      {
+        "roomId": "room-hall",
+        "side": "west",
+        "kind": "exterior",
+        "materialId": "mat-stone-wall"
+      },
+      {
+        "roomId": "room-counter",
+        "side": "north",
+        "kind": "exterior",
+        "materialId": "mat-stone-wall"
+      },
+      {
+        "roomId": "room-counter",
+        "side": "east",
+        "kind": "exterior",
+        "materialId": "mat-stone-wall"
+      },
+      {
+        "roomId": "room-counter",
+        "side": "west",
+        "kind": "exterior",
+        "materialId": "mat-stone-wall"
+      },
+      {
+        "roomId": "room-counter",
+        "side": "south",
+        "kind": "interior",
+        "notes": "柜台区与主厅之间开敞，不设隔墙。"
+      },
+      {
+        "roomId": "room-storage",
+        "side": "east",
+        "kind": "exterior",
+        "materialId": "mat-stone-wall"
+      },
+      {
+        "roomId": "room-storage",
+        "side": "north",
+        "kind": "interior",
+        "materialId": "mat-wood-column"
+      },
+      {
+        "roomId": "room-storage",
+        "side": "south",
+        "kind": "interior",
+        "materialId": "mat-wood-column",
+        "notes": "储物区以柜体与木框围合，南侧留通道口。"
+      },
+      {
+        "roomId": "room-storage",
+        "side": "west",
+        "kind": "none",
+        "notes": "储物柜正面朝西开向主厅，不放墙。"
+      }
+    ],
+    "stairs": null
+  },
+  "openings": [
+    {
+      "id": "op-entry-door",
+      "name": "主入口木门",
+      "roomId": "room-counter",
+      "side": "north",
+      "kind": "door",
+      "role": "entrance",
+      "offset": 2,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "双开木门",
+      "frameMaterial": "mat-wood-column",
+      "notes": "北向入口，位于柜台区西段，进门即服务台前通行动线。"
+    },
+    {
+      "id": "op-west-window",
+      "name": "西向侧窗",
+      "roomId": "room-hall",
+      "side": "west",
+      "kind": "window",
+      "role": "interior",
+      "offset": 1,
+      "width": 3,
+      "height": 1,
+      "sill": 1,
+      "fill": "木框玻璃窗",
+      "frameMaterial": "mat-wood-column",
+      "notes": "侧向采光与穿堂风入口。"
+    },
+    {
+      "id": "op-east-window",
+      "name": "东向侧窗",
+      "roomId": "room-hall",
+      "side": "east",
+      "kind": "window",
+      "role": "interior",
+      "offset": 1,
+      "width": 3,
+      "height": 1,
+      "sill": 1,
+      "fill": "木框玻璃窗",
+      "frameMaterial": "mat-wood-column"
+    },
+    {
+      "id": "op-north-high-window",
+      "name": "北墙高窗",
+      "roomId": "room-hall",
+      "side": "north",
+      "kind": "window",
+      "role": "service",
+      "offset": 1,
+      "width": 4,
+      "height": 1,
+      "sill": 2,
+      "fill": "木框玻璃窗",
+      "frameMaterial": "mat-wood-column",
+      "notes": "柜台背墙上方的高窗，与南向开敞面对流。"
+    },
+    {
+      "id": "op-south-opening-west",
+      "name": "南向西跨开敞洞口",
+      "roomId": "room-hall",
+      "side": "south",
+      "kind": "opening",
+      "role": "interior",
+      "offset": 1,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "可开启木格栅门",
+      "frameMaterial": "mat-wood-column",
+      "notes": "南面西跨整体可开敞，下沿齐台基面，形成观景取景框。"
+    },
+    {
+      "id": "op-south-opening-east",
+      "name": "南向东跨开敞洞口",
+      "roomId": "room-hall",
+      "side": "south",
+      "kind": "opening",
+      "role": "interior",
+      "offset": 4,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "可开启木格栅门",
+      "frameMaterial": "mat-wood-column",
+      "notes": "南面东跨整体可开敞，与西跨共同构成连续景观面。"
+    }
+  ],
+  "structure": {
+    "system": "石台基上的木构梁柱体系，南北向双坡屋架，南面两跨柱廊",
+    "materialId": "mat-wood-column",
+    "floorThickness": 1,
+    "slabThickness": 1,
+    "cantilever": 2,
+    "notes": "南面开口跨度与 2 格檐口出挑仅做启发式判断，须专业结构复核。"
+  },
+  "roof": {
+    "form": "gable",
+    "materialId": "mat-roof-tile",
+    "pitchDegrees": 28,
+    "overhang": 2,
+    "ridgeAxis": "x",
+    "drainage": "南北双坡自由落水，南侧檐口加深出挑，檐下做石铺檐廊",
+    "skylights": null,
+    "notes": "单一直跑屋脊，避免转角特殊瓦件以控制造价；深瓦面，木椽外露。"
+  },
+  "facades": [
+    {
+      "side": "south",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-wood-column",
+      "topMaterialId": "mat-roof-tile",
+      "bays": 2,
+      "windowWallRatio": 0.85,
+      "layers": [
+        {
+          "name": "石台基",
+          "role": "base",
+          "materialId": "mat-stone-base",
+          "block": "stone_bricks",
+          "from": 0,
+          "to": 1,
+          "thickness": 1
+        },
+        {
+          "name": "南向通透木柱廊与开敞洞口",
+          "role": "body",
+          "materialId": "mat-wood-column",
+          "block": "stripped_dark_oak_log[axis=y]",
+          "from": 1,
+          "to": 4,
+          "thickness": 1
+        },
+        {
+          "name": "深瓦檐口",
+          "role": "roof",
+          "materialId": "mat-roof-tile",
+          "block": "deepslate_tiles",
+          "from": 4,
+          "to": 5,
+          "thickness": 1
+        }
+      ],
+      "notes": "南立面以取景为先，中部仅一根中柱，竖向遮挡最小。"
+    },
+    {
+      "side": "north",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": "mat-roof-tile",
+      "bays": 3,
+      "windowWallRatio": 0.15,
+      "layers": [
+        {
+          "name": "石台基",
+          "role": "base",
+          "materialId": "mat-stone-base",
+          "block": "stone_bricks",
+          "from": 0,
+          "to": 1,
+          "thickness": 1
+        },
+        {
+          "name": "石砌北墙",
+          "role": "wall",
+          "materialId": "mat-stone-wall",
+          "block": "stone_bricks",
+          "from": 1,
+          "to": 3,
+          "thickness": 1
+        },
+        {
+          "name": "高窗采光带",
+          "role": "other",
+          "materialId": "mat-wood-column",
+          "block": "stripped_dark_oak_log[axis=y]",
+          "from": 3,
+          "to": 4,
+          "thickness": 1
+        },
+        {
+          "name": "深瓦檐口",
+          "role": "roof",
+          "materialId": "mat-roof-tile",
+          "block": "deepslate_tiles",
+          "from": 4,
+          "to": 5,
+          "thickness": 1
+        }
+      ],
+      "notes": "北墙为石砌背墙，上开高窗，入口门居中偏西；门侧设木牌标识。"
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": "mat-roof-tile",
+      "bays": 2,
+      "windowWallRatio": 0.3,
+      "layers": [
+        {
+          "name": "石台基",
+          "role": "base",
+          "materialId": "mat-stone-base",
+          "block": "stone_bricks",
+          "from": 0,
+          "to": 1,
+          "thickness": 1
+        },
+        {
+          "name": "石砌山墙下段",
+          "role": "wall",
+          "materialId": "mat-stone-wall",
+          "block": "stone_bricks",
+          "from": 1,
+          "to": 2,
+          "thickness": 1
+        },
+        {
+          "name": "木框侧窗与木构上段",
+          "role": "body",
+          "materialId": "mat-wood-column",
+          "block": "stripped_dark_oak_log[axis=y]",
+          "from": 2,
+          "to": 4,
+          "thickness": 1
+        },
+        {
+          "name": "深瓦檐口",
+          "role": "roof",
+          "materialId": "mat-roof-tile",
+          "block": "deepslate_tiles",
+          "from": 4,
+          "to": 5,
+          "thickness": 1
+        }
+      ],
+      "notes": "东西山墙为石材基座加木构上段，与南向柱廊形成木石分层。"
+    },
+    {
+      "side": "west",
+      "baseMaterialId": "mat-stone-base",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": "mat-roof-tile",
+      "bays": 2,
+      "windowWallRatio": 0.3,
+      "layers": [
+        {
+          "name": "石台基",
+          "role": "base",
+          "materialId": "mat-stone-base",
+          "block": "stone_bricks",
+          "from": 0,
+          "to": 1,
+          "thickness": 1
+        },
+        {
+          "name": "石砌山墙下段",
+          "role": "wall",
+          "materialId": "mat-stone-wall",
+          "block": "stone_bricks",
+          "from": 1,
+          "to": 2,
+          "thickness": 1
+        },
+        {
+          "name": "木框侧窗与木构上段",
+          "role": "body",
+          "materialId": "mat-wood-column",
+          "block": "stripped_dark_oak_log[axis=y]",
+          "from": 2,
+          "to": 4,
+          "thickness": 1
+        },
+        {
+          "name": "深瓦檐口",
+          "role": "roof",
+          "materialId": "mat-roof-tile",
+          "block": "deepslate_tiles",
+          "from": 4,
+          "to": 5,
+          "thickness": 1
+        }
+      ],
+      "notes": "西山墙同东山墙做法，保持四面对称的石基木身层次。"
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-stone-base",
+      "name": "石台基",
+      "block": "stone_bricks",
+      "role": "structure",
+      "color": "#9a9a94",
+      "notes": "台基沿轮廓外挑 1 格，高 1 格，顶部回填为室内地坪。"
+    },
+    {
+      "id": "mat-stone-wall",
+      "name": "石砌墙",
+      "block": "stone_bricks",
+      "role": "wall",
+      "color": "#8f8f8a",
+      "notes": "北墙与东西山下段，形成稳重基座。"
+    },
+    {
+      "id": "mat-wood-column",
+      "name": "深色木柱梁与木门窗框",
+      "block": "stripped_dark_oak_log[axis=y]",
+      "role": "structure",
+      "color": "#4b3524",
+      "notes": "柱、梁、门窗框与栏板统一取深自然木色。"
+    },
+    {
+      "id": "mat-wood-floor",
+      "name": "室内木地板",
+      "block": "dark_oak_planks",
+      "role": "floor",
+      "color": "#4a3320",
+      "notes": "主厅与柜台区地面，坐区用mat-rug-reed局部铺设。"
+    },
+    {
+      "id": "mat-floor-stone",
+      "name": "石铺室内地坪",
+      "block": "smooth_stone",
+      "role": "floor",
+      "color": "#b3b3ad",
+      "notes": "柜台前通行带与入口内侧的耐磨石铺地。"
+    },
+    {
+      "id": "mat-roof-tile",
+      "name": "深色瓦屋面",
+      "block": "deepslate_tiles",
+      "role": "roof",
+      "color": "#33383c",
+      "notes": "南北向双坡深瓦，含屋脊与檐口收边。"
+    },
+    {
+      "id": "mat-roof-ridge",
+      "name": "屋脊压瓦",
+      "block": "deepslate_tile_slab[type=bottom]",
+      "role": "roof",
+      "color": "#2c3134",
+      "notes": "屋脊用半砖压顶收头，避免特殊脊瓦。"
+    },
+    {
+      "id": "mat-paving-stone",
+      "name": "入口与檐廊铺装",
+      "block": "stone_bricks",
+      "role": "landscape",
+      "color": "#a2a29a",
+      "notes": "北侧入口铺装与南侧檐廊平台同一材质，区分室内外。"
+    },
+    {
+      "id": "mat-paddy",
+      "name": "稻田视域面",
+      "block": "grass_block[snowy=false]",
+      "role": "landscape",
+      "color": "#7a8f3f",
+      "notes": "仅示意南向景观界面范围。"
+    },
+    {
+      "id": "mat-counter-top",
+      "name": "柜台石台面",
+      "block": "smooth_stone_slab[type=bottom]",
+      "role": "trim",
+      "color": "#b8b8b0",
+      "notes": "柜台面外挑 1 格形成台沿，与木柜体区分。"
+    },
+    {
+      "id": "mat-wood-furniture",
+      "name": "木家具",
+      "block": "dark_oak_planks",
+      "role": "furniture",
+      "color": "#463020",
+      "notes": "长桌、长凳、层板与储物柜体统一用深色木。"
+    },
+    {
+      "id": "mat-furniture-light",
+      "name": "浅木桌面",
+      "block": "spruce_planks",
+      "role": "furniture",
+      "color": "#a8814f",
+      "notes": "长桌面比家具木浅一档，形成明暗层次。"
+    },
+    {
+      "id": "mat-rug-reed",
+      "name": "坐区草编地垫",
+      "block": "moss_carpet",
+      "role": "trim",
+      "color": "#6b7a45",
+      "notes": "长桌区薄面分区，不抢主色。"
+    },
+    {
+      "id": "mat-glass",
+      "name": "窗玻璃",
+      "block": "glass",
+      "role": "glass",
+      "color": "#cfe3e8",
+      "notes": "东西侧窗与北向高窗。"
+    },
+    {
+      "id": "mat-lantern",
+      "name": "灯笼与吊链",
+      "block": "lantern[hanging=true]",
+      "role": "trim",
+      "color": "#c8a04e",
+      "notes": "静态灯具，无红石功能。"
+    },
+    {
+      "id": "mat-sign",
+      "name": "木牌标识",
+      "block": "oak_wall_sign[facing=north]",
+      "role": "trim",
+      "color": "#9a7444",
+      "notes": "入口门侧牌体，牌面朝村路来向。"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "fz-long-table",
+      "name": "固定长茶桌",
+      "kind": "table",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 6,
+        "z": 2
+      },
+      "orientation": "north",
+      "height": 1,
+      "materialId": "mat-furniture-light",
+      "notes": "位于主厅中南侧，横向布置，桌面浅木，桌腿深木方料。"
+    },
+    {
+      "id": "fz-bench-south",
+      "name": "南侧长凳",
+      "kind": "bench",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "wall",
+        "side": "south",
+        "offset": 2
+      },
+      "footprint": {
+        "x": 6,
+        "z": 1
+      },
+      "orientation": "north",
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "朝北坐，面向稻田（背对长桌南沿），座面用半砖。"
+    },
+    {
+      "id": "fz-bench-north",
+      "name": "北侧长凳",
+      "kind": "bench",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "wall",
+        "side": "north",
+        "offset": 2
+      },
+      "footprint": {
+        "x": 6,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "朝南坐，正对稻田，形成 6 座主座。"
+    },
+    {
+      "id": "fz-stool-west",
+      "name": "西端短凳",
+      "kind": "bench",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "wall",
+        "side": "west",
+        "offset": 3
+      },
+      "footprint": {
+        "x": 1,
+        "z": 2
+      },
+      "orientation": "east",
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "长桌西端补座，供两人对坐或摆放茶具。"
+    },
+    {
+      "id": "fz-rug-hall",
+      "name": "木地垫",
+      "kind": "rug",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 6,
+        "z": 4
+      },
+      "orientation": "north",
+      "height": 0,
+      "materialId": "mat-rug-reed",
+      "notes": "长桌与南北长凳覆盖的坐区薄面分区。"
+    },
+    {
+      "id": "fz-pendant-a",
+      "name": "长桌吊灯（西）",
+      "kind": "light",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-lantern",
+      "notes": "吊链 2 格，灯下沿距桌面 2 格以上，与桌面中心对齐。"
+    },
+    {
+      "id": "fz-pendant-b",
+      "name": "长桌吊灯（东）",
+      "kind": "light",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-lantern",
+      "notes": "与西侧吊灯间距约 3–4 格，成排布置。"
+    },
+    {
+      "id": "fz-wall-lamp-west",
+      "name": "西墙壁灯",
+      "kind": "light",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "wall",
+        "side": "west",
+        "offset": 2
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": "east",
+      "height": 1,
+      "materialId": "mat-lantern",
+      "notes": "补光侧墙，高度高于桌面 1 格。"
+    },
+    {
+      "id": "fz-counter-body",
+      "name": "柜台柜体",
+      "kind": "counter",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "wall",
+        "side": "north",
+        "offset": 1
+      },
+      "footprint": {
+        "x": 5,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "贴北墙，台面用石半砖外挑形成台沿。"
+    },
+    {
+      "id": "fz-counter-top",
+      "name": "柜台石台面",
+      "kind": "counter",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "wall",
+        "side": "north",
+        "offset": 1
+      },
+      "footprint": {
+        "x": 5,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-counter-top",
+      "notes": "位于柜体顶面，向主厅一侧挑出 1 格台沿。"
+    },
+    {
+      "id": "fz-counter-stool-a",
+      "name": "柜台前坐凳（西）",
+      "kind": "bench",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "wall",
+        "side": "south",
+        "offset": 1
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": "north",
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "快速饮茶位，不阻碍主通道。"
+    },
+    {
+      "id": "fz-counter-stool-b",
+      "name": "柜台前坐凳（东）",
+      "kind": "bench",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "wall",
+        "side": "south",
+        "offset": 5
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": "north",
+      "height": 1,
+      "materialId": "mat-wood-furniture"
+    },
+    {
+      "id": "fz-counter-lamp",
+      "name": "柜台上方吊灯",
+      "kind": "light",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-lantern",
+      "notes": "照亮操作台面。"
+    },
+    {
+      "id": "fz-storage-cabinet",
+      "name": "靠墙储物柜",
+      "kind": "storage",
+      "roomId": "room-storage",
+      "anchor": {
+        "kind": "wall",
+        "side": "east",
+        "offset": 0
+      },
+      "footprint": {
+        "x": 1,
+        "z": 2
+      },
+      "orientation": "west",
+      "height": 3,
+      "materialId": "mat-wood-furniture",
+      "notes": "柜门朝西统一开启，把手为木按钮示意，无红石功能。"
+    },
+    {
+      "id": "fz-storage-shelf",
+      "name": "层板架",
+      "kind": "shelf",
+      "roomId": "room-storage",
+      "anchor": {
+        "kind": "wall",
+        "side": "north",
+        "offset": 0
+      },
+      "footprint": {
+        "x": 2,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 2,
+      "materialId": "mat-wood-furniture",
+      "notes": "两层半砖层板，放茶具与茶叶，下方设一桶。"
+    },
+    {
+      "id": "fz-storage-lamp",
+      "name": "储物区壁灯",
+      "kind": "light",
+      "roomId": "room-storage",
+      "anchor": {
+        "kind": "wall",
+        "side": "east",
+        "offset": 2
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": "west",
+      "height": 1,
+      "materialId": "mat-lantern",
+      "notes": "储物区无窗，靠壁灯照明。"
+    },
+    {
+      "id": "fz-table-plant",
+      "name": "桌面绿植",
+      "kind": "other",
+      "roomId": "room-hall",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": null,
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "长桌一端一盆陶盆绿植，不挡观景视线。"
+    },
+    {
+      "id": "fz-entry-sign",
+      "name": "门侧木牌",
+      "kind": "other",
+      "roomId": "room-counter",
+      "anchor": {
+        "kind": "wall",
+        "side": "north",
+        "offset": 1
+      },
+      "footprint": {
+        "x": 1,
+        "z": 1
+      },
+      "orientation": "north",
+      "height": 1,
+      "materialId": "mat-sign",
+      "notes": "贴在门侧墙面，牌面朝村路来向。"
+    },
+    {
+      "id": "fz-terrace-bench",
+      "name": "檐廊长凳",
+      "kind": "bench",
+      "roomId": "zone-south-terrace",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 3,
+        "z": 1
+      },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-wood-furniture",
+      "notes": "南侧檐下可搬动长凳，坐看稻田。"
+    },
+    {
+      "id": "fz-entry-step",
+      "name": "入口台阶",
+      "kind": "other",
+      "roomId": "zone-entry-paving",
+      "anchor": {
+        "kind": "center"
+      },
+      "footprint": {
+        "x": 2,
+        "z": 1
+      },
+      "orientation": "north",
+      "height": 1,
+      "materialId": "mat-paving-stone",
+      "notes": "两级石台阶上至台基，与入口门对位。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "d1",
+      "topic": "建筑规模",
+      "choice": "单层茶亭，外轮廓 8×6 米，占地约 48 m²。",
+      "rationale": "用户明确给出约 8×6 米与茶亭功能，规模按原话固定。",
+      "source": "user",
+      "requirementIds": ["req-tea-pavilion-size", "con-tea-footprint"],
+      "notes": null
+    },
+    {
+      "id": "d2",
+      "topic": "主朝向与景观面",
+      "choice": "南立面为主景观界面，整跨开敞，中柱分两跨，尽量减少竖向遮挡。",
+      "rationale": "用户要求南向看稻田，强偏好南向通透；两跨柱廊在 8 米面宽内兼顾结构与视野。",
+      "source": "user",
+      "requirementIds": ["req-tea-pavilion-south-view", "pref-tea-south-open"],
+      "notes": null
+    },
+    {
+      "id": "d3",
+      "topic": "材料与屋面调性",
+      "choice": "石台基 + 石砌北墙与山下段 + 深色木柱梁门窗 + 深瓦双坡屋面。",
+      "rationale": "用户原话“木石深瓦”直接指定材料与屋面方向；石材集中在台基与背墙以控制造价。",
+      "source": "user",
+      "requirementIds": [
+        "req-tea-timber-stone-material",
+        "req-tea-dark-tile-roof",
+        "con-tea-material-palette",
+        "pref-tea-stone-base",
+        "pref-tea-timber-tone"
+      ],
+      "notes": null
+    },
+    {
+      "id": "d4",
+      "topic": "座位组织",
+      "choice": "一张固定长桌配南北两排长凳，主座 6 人，桌端加一短凳，柜台前另设 2 个快速座。",
+      "rationale": "取歧义项建议默认值：固定长桌配两侧坐凳在 48 m² 内最易同时满足 6 座与南向观景，且占地小、定制量低。",
+      "source": "agent",
+      "requirementIds": ["req-tea-seat-six", "req-tea-fixed-furniture", "con-tea-access-clearance"],
+      "notes": null
+    },
+    {
+      "id": "d5",
+      "topic": "柜台与储物位置",
+      "choice": "柜台贴北墙，台面外挑 1 格；储物柜在东北角内嵌，柜门朝西开向主厅。",
+      "rationale": "服务功能靠背面，不遮挡南向景观面；储物靠近柜台且避开视线界面。",
+      "source": "user",
+      "requirementIds": ["req-tea-counter", "req-tea-storage"],
+      "notes": null
+    },
+    {
+      "id": "d6",
+      "topic": "柜台服务深度",
+      "choice": "本期柜台仅台面 + 柜体储物，热水由移动设备提供，不做给排水与用电承诺。",
+      "rationale": "取歧义项建议默认值：控制造价与系统复杂度，且红石/动态与设备系统不在能力范围。",
+      "source": "agent",
+      "requirementIds": ["req-tea-counter", "req-tea-budget-restraint", "req-tea-no-redstone-electrical"],
+      "notes": null
+    },
+    {
+      "id": "d7",
+      "topic": "入口位置",
+      "choice": "主入口设在北侧偏西，双开木门 2 格宽，门外 2 级石台阶接北侧铺装。",
+      "rationale": "由南向看稻田推断入口不宜开在南面，使南立面保持连续景观界面；北面迎村路来向，形成门户识别。",
+      "source": "agent",
+      "requirementIds": ["req-tea-entrance-side", "req-tea-village-gate-location", "req-tea-plaza-paving"],
+      "notes": null
+    },
+    {
+      "id": "d8",
+      "topic": "建筑层数与屋面",
+      "choice": "单层，净高 3.6 米；南北向双坡深瓦屋面，屋脊平行于东西向，檐口出挑 2 格。",
+      "rationale": "8×6 米小亭按单层处理；单一屋脊避免转角特殊瓦件，南侧深挑形成观景檐廊。",
+      "source": "agent",
+      "requirementIds": [
+        "req-tea-single-story",
+        "req-tea-dark-tile-roof",
+        "req-tea-pavilion-south-view",
+        "cap-tea-basement"
+      ],
+      "notes": null
+    },
+    {
+      "id": "d9",
+      "topic": "通风",
+      "choice": "南面两跨可开启洞口 + 东西侧窗 + 北墙高窗，形成穿堂风。",
+      "rationale": "无空调的南方稻田气候需要自然通风，高窗避免遮挡柜台背墙。",
+      "source": "agent",
+      "requirementIds": ["req-tea-healthy-cross-ventilation", "req-tea-pavilion-south-view"],
+      "notes": null
+    },
+    {
+      "id": "d10",
+      "topic": "结构体系与造价",
+      "choice": "石台基上木构梁柱体系，南面两跨柱廊，檐口出挑 2 格；石材限于台基与背墙。",
+      "rationale": "用户要求预算克制；简单直跑屋架与有限用材是控制造价的主要路径。",
+      "source": "agent",
+      "requirementIds": [
+        "req-tea-budget-restraint",
+        "con-tea-budget",
+        "req-tea-no-structural-calculation",
+        "cf-tea-budget-vs-material"
+      ],
+      "notes": "跨度与出挑仅做启发式判断，须专业结构复核。"
+    },
+    {
+      "id": "d11",
+      "topic": "系统限制",
+      "choice": "不使用红石、动态机械或可交互装置；灯具为静态灯笼，柜门把手仅作形式表达。",
+      "rationale": "能力卡明确红石/动态系统 unsupported。",
+      "source": "default",
+      "requirementIds": ["req-tea-no-redstone-electrical", "con-tea-no-redstone", "cap-tea-redstone"],
+      "notes": null
+    },
+    {
+      "id": "d12",
+      "topic": "室内交付与验收方式",
+      "choice": "完成主厅、柜台区、储物区的固定家具、灯具与地面材质；室内以平面/剖面 + 家具清单验收。",
+      "rationale": "默认室内范围不做空壳；渲染无人眼与室内视角，需替代验收方式。",
+      "source": "default",
+      "requirementIds": ["req-tea-fixed-furniture", "req-tea-interior-view-limitation", "cap-tea-interior-furniture"],
+      "notes": null
+    },
+    {
+      "id": "d13",
+      "topic": "标识与入口场地",
+      "choice": "入口门侧设木牌标识，北侧铺装衔接村路，南侧檐下设平台与可移长凳。",
+      "rationale": "村口门户建筑需要识别性与入口过渡；铺装用同一石材强化室内外一体。",
+      "source": "agent",
+      "requirementIds": ["req-tea-signage", "req-tea-plaza-paving", "req-tea-village-gate-location"],
+      "notes": null
+    },
+    {
+      "id": "d14",
+      "topic": "卫生间与后场",
+      "choice": "本期不设独立卫生间或后场，仅柜台洗手位示意；如厕使用村内既有设施。",
+      "rationale": "8×6 米内容纳卫生间会挤压座位与柜台；取缺失项建议默认值。",
+      "source": "agent",
+      "requirementIds": ["req-tea-pavilion-size", "req-tea-counter"],
+      "notes": null
+    }
+  ],
+  "open": [
+    {
+      "id": "o1",
+      "question": "座位组织是否确认采用“一张固定长桌 + 南北两排长凳（6 主座）+ 柜台前 2 个快速座”？",
+      "impact": "layout",
+      "owner": "user",
+      "freeForBuilder": false,
+      "defaultAssumption": "按固定长桌配两侧长凳深化；若改为吧台座或小方桌组合，需重排主厅家具与柜台位置。",
+      "notes": null
+    },
+    {
+      "id": "o2",
+      "question": "柜台是否需要嵌入水槽与烧水位（需给排水与用电预留），还是仅台面 + 储物？",
+      "impact": "interior",
+      "owner": "user",
+      "freeForBuilder": false,
+      "defaultAssumption": "仅台面 + 储物，不做给排水与用电承诺。",
+      "notes": null
+    },
+    {
+      "id": "o3",
+      "question": "场地边界、可用退距与村路确切来向尚未实测，是否先按四面自由场地出方案？",
+      "impact": "layout",
+      "owner": "user",
+      "freeForBuilder": false,
+      "defaultAssumption": "按自由场地处理，北侧设入口铺装与台阶，南侧完全开敞朝稻田，退距待实测修正。",
+      "notes": null
+    },
+    {
+      "id": "o4",
+      "question": "南面两跨开敞（中柱分跨）在结构上是否可接受，或希望减跨增大梁断面以获得完整无柱景观面？",
+      "impact": "facade",
+      "owner": "user",
+      "freeForBuilder": false,
+      "defaultAssumption": "保留一根南向中柱分两跨；无柱方案需专业结构复核大梁断面。",
+      "notes": "涉及结构安全，仅做启发式判断。"
+    },
+    {
+      "id": "o5",
+      "question": "是否确认为单层茶亭且本期不设卫生间 / 后场？",
+      "impact": "layout",
+      "owner": "user",
+      "freeForBuilder": false,
+      "defaultAssumption": "单层，不设卫生间，如厕使用村内既有设施。",
+      "notes": null
+    }
+  ]
+}

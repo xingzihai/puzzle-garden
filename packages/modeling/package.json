@@ -1,0 +1,20 @@
+{
+  "name": "@pg/modeling",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "层1纯函数：函数建模公共接口、参数曲线与网格 schema（box / revolve / extrude / bezier）。零 I/O。",
+  "exports": {
+    "./model": "./src/model.ts",
+    "./schema": "./src/schema.ts",
+    "./declaration": "./src/declaration.ts",
+    "./voxelize": "./src/voxelize.ts",
+    "./parametric": "./src/parametric.ts",
+    "./errors": "./src/errors.ts",
+    "./model.d.ts": "./model.d.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}

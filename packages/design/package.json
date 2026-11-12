@@ -1,0 +1,21 @@
+{
+  "name": "@pg/design",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "层3纯函数：方案 schema、净空检查、版本差异与人工地下综合体样例。",
+  "exports": {
+    "./schema": "./src/schema.ts",
+    "./checks": "./src/checks.ts",
+    "./diff": "./src/diff.ts",
+    "./example": "./src/example.ts",
+    "./massing": "./src/massing.ts",
+    "./roof-example": "./src/roof-example.ts",
+    "./routes": "./src/routes.ts",
+    "./example-routes": "./src/example-routes.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}

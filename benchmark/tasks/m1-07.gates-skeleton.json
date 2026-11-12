@@ -1,0 +1,7 @@
+{
+  "symmetry": { "axis": "x", "at": 0, "min": 0.99 },
+  "structureSpans": { "x": [108, 133], "z": [162, 198] },
+  "reachAll": true,
+  "reachInsideWalls": { "minRatio": 0.5 },
+  "floatingAllowApis": ["roof"]
+}

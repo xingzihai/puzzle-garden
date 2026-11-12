@@ -1,0 +1,103 @@
+{
+  "$comment": "由 v0.2 冻结引擎执行夹具后生成，勿手改。human 夹具已移除。",
+  "engine": "v0.2beta/agent/tools/voxel-stub.mjs（tag v0.2beta-final）",
+  "apiVersion": 0,
+  "fixtures": [
+    {
+      "name": "massing-twin-spire",
+      "source": "assets/v02/benchmark-frozen/fixtures/massing-twin-spire.js",
+      "cells": 1347,
+      "carved": 0,
+      "hash": "67214f8b2fa726afe5eb87a69a5f4c24",
+      "sha256": "9dac24a75e75975cdbe1a9cfded97f3afe6804ce245377f0de6e22348d4f5f67"
+    },
+    {
+      "name": "pv-nocol",
+      "source": "assets/v02/benchmark-frozen/fixtures/pv-nocol.js",
+      "cells": 6551,
+      "carved": 744,
+      "hash": "8568b5e393b20f0c520921593b40810b",
+      "sha256": "c492d52ca8bf69fd11d2a1bc8bf4342b6094c5144da00f983bba0db91ee21e66"
+    },
+    {
+      "name": "pv-noroof",
+      "source": "assets/v02/benchmark-frozen/fixtures/pv-noroof.js",
+      "cells": 1390,
+      "carved": 0,
+      "hash": "229080a7a3080ff42491a068ff82e6d1",
+      "sha256": "d8dc769962b7bf2275d67d3a002d608b1ebfd58082fc1da7298e92a05d72b500"
+    },
+    {
+      "name": "pv-wall",
+      "source": "assets/v02/benchmark-frozen/fixtures/pv-wall.js",
+      "cells": 8661,
+      "carved": 744,
+      "hash": "38dd508c04cd8b6fae51520f3a69cd66",
+      "sha256": "f9a388b0bb8a86987af5c01d4cd13cb033b2902a2bdb22410fff9c8393977b03"
+    },
+    {
+      "name": "tower-broken",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-broken.js",
+      "cells": 6275,
+      "carved": 170,
+      "hash": "86384cbed57882cfa3ee32965549ce83",
+      "sha256": "421a527ed346253518f995ed9dd78d1c190cc23768684f896f6a18d2323363fc"
+    },
+    {
+      "name": "tower-mut-noarch",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-mut-noarch.js",
+      "cells": 6392,
+      "carved": 170,
+      "hash": "462e419f2d01f830189e05f17203edd2",
+      "sha256": "3f4a5215f1723c381674a0390cf9a02f967acaee35f670a859629eb85bbaa253"
+    },
+    {
+      "name": "tower-mut-nofloor",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-mut-nofloor.js",
+      "cells": 5685,
+      "carved": 170,
+      "hash": "1478f9adc59933fc62b907fabc7d6c8e",
+      "sha256": "387ccde7d0325ac0fccaae12d1e854a513720fb6c1d64fe1ab6c3ea97c7b81c6"
+    },
+    {
+      "name": "tower-mut-norail",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-mut-norail.js",
+      "cells": 6392,
+      "carved": 170,
+      "hash": "f713cd8475bd0b0da86b9803f6d41e7c",
+      "sha256": "5cb0d212ef68280d9ede2e302742317f2ea095cf228844b4c662c9299ff5b07b"
+    },
+    {
+      "name": "tower-mut-notop",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-mut-notop.js",
+      "cells": 5621,
+      "carved": 170,
+      "hash": "d72f74f3c36978d11dcb64b1334c022b",
+      "sha256": "8a9b58381624f4f89bf980221823bbd6a9814afb72c719f5616ad3ece54d41de"
+    },
+    {
+      "name": "tower-mut-nowin",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-mut-nowin.js",
+      "cells": 6527,
+      "carved": 35,
+      "hash": "3893f36dfb164936b6c173375cbd96e4",
+      "sha256": "c6de7f94627c61472ffb1fdc1449c6406e98bb044afeb539da566f3d9c1b2ab5"
+    },
+    {
+      "name": "tower-mut-wrongmat",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-mut-wrongmat.js",
+      "cells": 6392,
+      "carved": 170,
+      "hash": "770861252f6b85e1fec3dc5004120c3e",
+      "sha256": "030eb5928b17a65a047730e3f7d875548c751eb8ffedf0a8b45651d0683bcced"
+    },
+    {
+      "name": "tower-ok",
+      "source": "assets/v02/benchmark-frozen/fixtures/tower-ok.js",
+      "cells": 6392,
+      "carved": 170,
+      "hash": "462e419f2d01f830189e05f17203edd2",
+      "sha256": "16b77bfae0882cadafe693754ad8717ece6f9d19d6e48304c1cea53e73b8fd29"
+    }
+  ]
+}

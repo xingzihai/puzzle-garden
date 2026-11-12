@@ -1,0 +1,19 @@
+{
+  "name": "@pg/llm",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "模型接口与计费：请求/响应 schema、SSE 拼装、价格表与预留（MODEL-SPEC）。",
+  "exports": {
+    "./schema": "./src/schema.ts",
+    "./cost": "./src/cost.ts",
+    "./pricing": "./src/pricing.ts",
+    "./client": "./src/client.ts",
+    "./mock": "./src/mock.ts"
+  },
+  "dependencies": {
+    "@pg/core": "*",
+    "zod": "4.6.7"
+  }
+}

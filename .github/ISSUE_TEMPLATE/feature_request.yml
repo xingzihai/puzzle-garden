@@ -1,0 +1,68 @@
+name: 功能建议
+description: 提出新能力、改进或方向性建议
+title: '[feature] '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先描述**问题与场景**，而不是直接给实现方案；这样更容易判断是否契合项目方向。
+        大改动建议先在 Discussion / issue 里对齐，再开 PR。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 现在哪里不顺手 / 缺什么能力 / 谁会遇到
+      placeholder: 我在 ... 场景下需要 ...，现在只能 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 可以写多个候选；不必是最终实现
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 替代方案 / 已有 workaround
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 影响区域
+      multiple: true
+      options:
+        - 设计层（DesignIntent / 方案 / 报告）
+        - 构建 agent / 工具 / 提示词
+        - 沙箱 / 安全
+        - 体素 / 几何 / 建模
+        - 分析 / 一致性 / 评审
+        - 渲染 / 网页
+        - 基准 / 证据链
+        - 文档 / 开发体验
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 补充上下文
+      description: 相关文档、issue、截图、预算 / 性能约束
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认
+      options:
+        - label: 我已搜索现有 issue / Discussion，没有重复
+          required: true

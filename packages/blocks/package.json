@@ -1,0 +1,19 @@
+{
+  "name": "@pg/blocks",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "方块注册表：读 assets/ 的方块数据，注入 @pg/core 的方块表，给出中文名、形态、材质族、颜色、发光。",
+  "exports": {
+    "./block-usages": "./src/block-usages.ts",
+    "./capability-catalog": "./src/capability-catalog.ts",
+    "./color": "./src/color.ts",
+    "./load": "./src/load.ts",
+    "./registry": "./src/registry.ts"
+  },
+  "dependencies": {
+    "@pg/core": "*",
+    "zod": "4.6.7"
+  }
+}

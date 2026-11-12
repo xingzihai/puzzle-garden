@@ -1,0 +1,13 @@
+{
+  "name": "llm-failure",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "http-error",
+        "status": 503,
+        "times": 4
+      }
+    }
+  ]
+}

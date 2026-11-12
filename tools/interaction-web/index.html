@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="拼图花园交互设计台：输入需求、回答澄清问题、查看方案草图并确认。" />
+    <title>拼图花园 · 交互设计台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <p class="kicker">Puzzle Garden / Design Desk</p>
+        <h1>拼图花园 · 交互设计台</h1>
+      </div>
+      <div class="top-meta">
+        <span class="pill mode-pill" id="modePill">{{MODE_LABEL}}</span>
+        <span class="meta-item">会话 <code id="sessionId">新会话</code></span>
+        <span class="meta-item">阶段 <span id="stageLabel">等待输入</span></span>
+        <button class="button ghost" id="newSessionButton" type="button">新会话</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel conversation-panel" aria-labelledby="conversationHeading">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Conversation</p>
+            <h2 id="conversationHeading">对话</h2>
+          </div>
+          <span class="status-text" id="statusText">等待输入需求</span>
+        </div>
+
+        <div class="alert" id="errorBanner" role="alert" hidden></div>
+
+        <div class="messages" id="messageList" aria-live="polite" aria-label="对话消息">
+          <div class="empty-conversation" id="emptyConversation">
+            <p class="empty-title">从一句需求开始</p>
+            <p>例如：“在村口做一间能坐十个人的小茶室，南边能看见稻田，木石质感，预算克制。”</p>
+          </div>
+        </div>
+
+        <section class="workbench" id="workbench" aria-labelledby="workbenchHeading" hidden>
+          <div class="workbench-head">
+            <div>
+              <p class="eyebrow">Live progress</p>
+              <h2 id="workbenchHeading">模型工作台</h2>
+            </div>
+            <span class="stream-state" id="streamState" data-state="idle">未连接</span>
+          </div>
+          <div class="workbench-stage">
+            <span class="stage-pulse" id="stagePulse" aria-hidden="true"></span>
+            <div class="stage-copy">
+              <strong id="workbenchStage">等待开始</strong>
+              <p id="workbenchDetail">提交需求后，这里会显示模型正在做的每一步。</p>
+            </div>
+            <span class="stage-clock" id="workbenchClock" hidden></span>
+          </div>
+          <p class="workbench-heartbeat" id="workbenchHeartbeat" role="status" hidden></p>
+          <div class="workbench-streams">
+            <details class="stream-block" id="thinkingPanel" hidden>
+              <summary>
+                <span>思考流</span><span class="stream-meta" id="thinkingSummary">临时，不写入方案</span>
+              </summary>
+              <pre class="stream-text" id="thinkingText" aria-label="模型思考流"></pre>
+            </details>
+            <details class="stream-block" id="contentPanel" hidden>
+              <summary><span>结构化正文</span><span class="stream-meta" id="contentSummary">0 字符</span></summary>
+              <pre class="stream-text" id="contentText" aria-label="模型正文流"></pre>
+            </details>
+          </div>
+          <ol class="progress-log" id="progressLog" aria-live="polite" aria-label="模型进度事件"></ol>
+        </section>
+
+        <div class="composer" id="composer">
+          <form id="briefForm" novalidate>
+            <label class="field-label" for="briefInput">描述你的需求</label>
+            <textarea
+              id="briefInput"
+              name="brief"
+              rows="4"
+              maxlength="20000"
+              placeholder="想建什么、给谁用、场地在哪里、最在意什么？"
+              autocomplete="off"
+            ></textarea>
+            <p class="inline-error" id="composerError" role="alert" hidden></p>
+            <div class="composer-actions">
+              <p class="hint">mock 模式完全离线：不读 .env、不调用模型。</p>
+              <button class="button primary" id="startButton" type="submit">开始设计</button>
+            </div>
+          </form>
+        </div>
+
+        <section class="action-panel" id="questionPanel" aria-labelledby="questionHeading" hidden>
+          <div class="action-head">
+            <div>
+              <p class="eyebrow">Clarify</p>
+              <h2 id="questionHeading">agent 想确认几件事</h2>
+            </div>
+            <span class="badge">最多 3 个高影响问题</span>
+          </div>
+          <p class="action-intro">回答会更新需求图，然后继续生成方案。留空不能提交。</p>
+          <div class="question-fields" id="questionFields"></div>
+          <p class="inline-error" id="answerError" role="alert" hidden></p>
+          <div class="actions">
+            <button class="button primary" id="submitAnswers" type="button">提交回答</button>
+          </div>
+        </section>
+
+        <section class="action-panel" id="decisionPanel" aria-labelledby="decisionHeading" hidden>
+          <div class="action-head">
+            <div>
+              <p class="eyebrow">Review</p>
+              <h2 id="decisionHeading">方案待确认</h2>
+            </div>
+          </div>
+          <p class="action-intro" id="decisionHint"></p>
+          <ul class="issue-list" id="decisionIssues" hidden></ul>
+          <div class="conflict-list" id="conflictChoices" hidden></div>
+          <label class="field-label" for="feedbackInput">修改意见（选择“提出修改”时填写）</label>
+          <textarea
+            id="feedbackInput"
+            rows="3"
+            maxlength="4000"
+            placeholder="例如：屋檐再深一点，入口不要正对柜台。"
+          ></textarea>
+          <p class="inline-error" id="decisionError" role="alert" hidden></p>
+          <div class="actions">
+            <button class="button primary" id="confirmButton" type="button">确认方案</button>
+            <button class="button secondary" id="reviseButton" type="button">提出修改</button>
+            <button class="button ghost" id="exitButton" type="button">退出</button>
+          </div>
+          <p class="hint">确认后会写 artifacts；网页不会自动执行构建。</p>
+        </section>
+      </section>
+
+      <aside class="panel scheme-panel" aria-labelledby="schemeHeading">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Scheme</p>
+            <h2 id="schemeHeading">方案卡</h2>
+          </div>
+          <span class="revision" id="revisionLabel">—</span>
+        </div>
+
+        <div class="scheme-empty" id="schemeEmpty">
+          <div class="empty-figure" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <p class="empty-title">方案还没有出现</p>
+          <p>提交需求后，这里会显示设计摘要、总平面 / 平面 / 轴测 / 剖面 / 材质草图。</p>
+        </div>
+
+        <div class="scheme-body" id="schemeBody" hidden>
+          <p class="scheme-kicker" id="schemeKicker"></p>
+          <h3 class="scheme-title" id="schemeTitle"></h3>
+          <p class="scheme-concept" id="schemeConcept"></p>
+
+          <dl class="facts">
+            <div class="fact">
+              <dt>范围</dt>
+              <dd id="scopeValue">—</dd>
+            </div>
+            <div class="fact">
+              <dt>主要空间</dt>
+              <dd id="roomsValue">—</dd>
+            </div>
+            <div class="fact">
+              <dt>关键取舍</dt>
+              <dd id="decisionsValue">—</dd>
+            </div>
+            <div class="fact">
+              <dt>必须项</dt>
+              <dd><ul class="plain-list" id="mustsList"></ul></dd>
+            </div>
+            <div class="fact">
+              <dt>未决</dt>
+              <dd><ul class="plain-list" id="openList"></ul></dd>
+            </div>
+          </dl>
+
+          <div class="subhead">
+            <h4>草图预览</h4>
+            <span class="subtle" id="previewCount"></span>
+          </div>
+          <div class="gallery" id="previewGallery"></div>
+          <p class="preview-note">点击任意图在新标签页放大；SVG 由服务端直接输出，边缘保持清晰。</p>
+
+          <div class="preview-meta" id="previewMeta" hidden>
+            <div class="meta-row" id="briefStats"></div>
+            <div class="meta-row gates" id="gatesList"></div>
+          </div>
+
+          <section class="artifacts" id="artifactsPanel" hidden>
+            <div class="subhead">
+              <h4>已写出 artifacts</h4>
+              <span class="badge ok">已确认</span>
+            </div>
+            <ul class="path-list" id="artifactPaths"></ul>
+            <p class="next-step">CLI（不会自动执行）：</p>
+            <code class="command" id="buildCommand"></code>
+            <p class="hint">上面命令带 <code>--dry-run</code>，只装配不调用模型。</p>
+
+            <div class="build-start">
+              <p class="next-step">构建层 agent（需你手动启动）：</p>
+              <button class="button primary" id="buildStartButton" type="button">开始构建</button>
+              <p class="hint" id="buildNote"></p>
+            </div>
+          </section>
+
+          <section class="build-panel" id="buildPanel" aria-labelledby="buildHeading" hidden>
+            <div class="subhead">
+              <h4 id="buildHeading">构建进度</h4>
+              <span class="badge" id="buildStatus">idle</span>
+            </div>
+            <dl class="build-facts">
+              <div class="fact">
+                <dt>轮数</dt>
+                <dd id="buildTurns">—</dd>
+              </div>
+              <div class="fact">
+                <dt>当前动作</dt>
+                <dd id="buildAction">—</dd>
+              </div>
+              <div class="fact">
+                <dt>累计花费</dt>
+                <dd id="buildCost">—</dd>
+              </div>
+            </dl>
+            <p class="inline-error" id="buildError" role="alert" hidden></p>
+            <div class="build-log" id="buildLog" aria-live="polite" aria-label="构建事件"></div>
+            <div class="build-delivery" id="buildDelivery" hidden>
+              <p class="build-delivery-text" id="buildDeliveryText"></p>
+              <div class="gallery build-renders" id="buildRenders"></div>
+            </div>
+            <p class="hint">构建由你手动启动；同一会话同时只允许一个构建。真实构建会产生模型费用。</p>
+          </section>
+
+          <section class="review-panel" id="reviewPanel" aria-labelledby="reviewHeading" hidden>
+            <div class="subhead review-head">
+              <h4 id="reviewHeading">构建后评审</h4>
+              <span class="badge" id="reviewStatus">未评审</span>
+            </div>
+            <p class="review-meta" id="reviewMeta"></p>
+            <div class="alert review-alert" id="reviewError" role="alert" hidden></div>
+            <button class="button secondary" id="reviewRetryButton" type="button" hidden>重试评审</button>
+
+            <div id="reviewBody" hidden>
+              <p class="review-next" id="reviewNextAction"></p>
+
+              <section class="review-section" aria-labelledby="reviewMeasurementsHeading">
+                <h5 id="reviewMeasurementsHeading">客观测量</h5>
+                <div class="review-table-wrap">
+                  <table class="review-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">测量</th>
+                        <th scope="col">期望</th>
+                        <th scope="col">实际</th>
+                        <th scope="col">状态</th>
+                      </tr>
+                    </thead>
+                    <tbody id="reviewMeasurements"></tbody>
+                  </table>
+                </div>
+                <ul class="review-objective-notes" id="reviewObjectiveNotes" hidden></ul>
+              </section>
+
+              <section class="review-section" aria-labelledby="reviewMustsHeading">
+                <h5 id="reviewMustsHeading">必须项证据</h5>
+                <p class="review-section-note">
+                  只有 conformance mapping=verified 的证据可以判定
+                  met；启发式链接、缺失证据保持未验证；用户显式豁免单独标注。
+                </p>
+                <ul class="review-musts" id="reviewMusts"></ul>
+              </section>
+
+              <section class="review-section" aria-labelledby="reviewDefectsHeading">
+                <h5 id="reviewDefectsHeading">缺陷</h5>
+                <ul class="review-defects" id="reviewDefects"></ul>
+              </section>
+
+              <section class="review-section" aria-labelledby="reviewVisualHeading">
+                <div class="review-section-head">
+                  <h5 id="reviewVisualHeading">视觉评审</h5>
+                  <span class="badge" id="reviewVisualVerdict">—</span>
+                </div>
+                <p class="review-note" id="reviewVisualNote" hidden></p>
+                <div class="review-visual-lists" id="reviewVisualLists" hidden>
+                  <div class="review-visual-group" id="reviewStrengthsGroup" hidden>
+                    <h6>优点</h6>
+                    <ul id="reviewStrengths"></ul>
+                  </div>
+                  <div class="review-visual-group" id="reviewWeaknessesGroup" hidden>
+                    <h6>问题</h6>
+                    <ul id="reviewWeaknesses"></ul>
+                  </div>
+                  <div class="review-visual-group" id="reviewNotesGroup" hidden>
+                    <h6>备注</h6>
+                    <ul id="reviewNotes"></ul>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="review-actions" id="reviewActions" hidden>
+              <p class="review-stage-hint" id="reviewStageHint"></p>
+              <p class="inline-error" id="reviewInlineError" role="alert" hidden></p>
+              <div class="actions" id="reviewButtons">
+                <button class="button primary" id="reviewAcceptButton" type="button">接受结果</button>
+                <button class="button secondary" id="reviewTargetedButton" type="button">按评审定向修改</button>
+                <button class="button ghost" id="reviewRedesignButton" type="button">重新设计</button>
+              </div>
+              <div class="review-editor" id="reviewEditor" hidden>
+                <label class="field-label" for="reviewInstructions">修改说明（会作为下一轮生成的反馈）</label>
+                <textarea
+                  id="reviewInstructions"
+                  rows="3"
+                  maxlength="4000"
+                  placeholder="例如：保留布局，只把南侧檐口加深并补上无障碍入口。"
+                ></textarea>
+                <div class="actions">
+                  <button class="button primary" id="reviewSubmitButton" type="button">提交定向修改</button>
+                  <button class="button ghost" id="reviewCancelButton" type="button">取消</button>
+                </div>
+              </div>
+            </div>
+
+            <p class="hint review-hint" id="reviewHint">
+              评审只读取构建产物；接受后进入验收，修改会生成新的设计 revision，需要重新确认。
+            </p>
+          </section>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>本地运行 · 只监听 127.0.0.1</span>
+      <span>预览为示意 SVG，不表示真实透视、结构计算或施工构造</span>
+    </footer>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

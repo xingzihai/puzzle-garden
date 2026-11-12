@@ -1,0 +1,57 @@
+{
+  "name": "truncated-args",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.walls({ height: 6 });\n}\n"
+            }
+          }
+        ],
+        "finishReason": "length",
+        "rawArguments": "{\"code\":\"export default function build(w"
+      }
+    },
+    {
+      "expect": {
+        "toolIncludes": ["参数不是合法 JSON（可能被输出上限截断），没有执行"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.walls({ height: 6 });\n}\n"
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "submit",
+            "arguments": {
+              "note": "完成"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

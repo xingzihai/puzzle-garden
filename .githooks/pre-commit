@@ -1,0 +1,41 @@
+#!/bin/sh
+# 提交前的快速检查：只看暂存的文件，几秒内完成。完整门禁在推送前（pre-push）与 CI 里跑。
+# rebase / cherry-pick / merge 进行中时跳过，避免中间状态被拦。
+git_dir=$(git rev-parse --git-dir)
+if [ -d "$git_dir/rebase-merge" ] || [ -d "$git_dir/rebase-apply" ] || [ -f "$git_dir/CHERRY_PICK_HEAD" ] || [ -f "$git_dir/MERGE_HEAD" ]; then
+  exit 0
+fi
+
+# 暂存区里的 .env 一律拒绝。
+# 注意不能写成「有 .env 且 没有 .env.example」：两者同时暂存时后半句为真，整条判断为假，
+# 等于把真正的 .env 放行。这里先排除模板，再看还剩下什么。
+staged_env=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '(^|/)\.env(\..*)?$' | grep -Ev '(^|/)\.env\.example$' || true)
+if [ -n "$staged_env" ]; then
+  echo "拒绝提交：暂存区里有 .env 文件：" >&2
+  echo "$staged_env" | sed 's/^/  /' >&2
+  echo "密钥不要入库；模板放 .env.example。" >&2
+  exit 1
+fi
+
+files=$(git diff --cached --name-only --diff-filter=ACMR | grep -Ev '^assets/' || true)
+[ -z "$files" ] && exit 0
+
+# 没装依赖时 npx --no-install 必然失败，但那不是"格式不对"。
+# 先探一下 prettier 在不在，别把"请先 npm ci"误报成格式错误。
+if ! npx --no-install prettier --version >/dev/null 2>&1; then
+  echo "跳过 pre-commit 检查：没找到本地依赖（先运行 npm ci）。" >&2
+  echo "如果确认代码格式无误，可以 git commit --no-verify 跳过本次检查。" >&2
+  exit 0
+fi
+
+# 格式：只检查暂存的文件
+echo "$files" | xargs npx --no-install prettier --check --ignore-unknown || {
+  echo "格式不对：运行 npm run format 后重新暂存" >&2
+  exit 1
+}
+
+# 规范：只检查暂存的 .ts
+ts_files=$(echo "$files" | grep -E '\.ts$' || true)
+if [ -n "$ts_files" ]; then
+  echo "$ts_files" | xargs npx --no-install eslint --max-warnings=0 || exit 1
+fi

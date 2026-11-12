@@ -1,0 +1,102 @@
+{
+  "name": "window-v0",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "read_design",
+            "arguments": {}
+          },
+          {
+            "name": "plan",
+            "arguments": {
+              "action": "read"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "drop",
+        "afterBytes": 60
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_design",
+            "arguments": {
+              "content": "# 设计\n\n- 一个小亭\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "lastUserIncludes": ["进入提交窗口", "先 write_code 建立初稿"]
+      },
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.walls({ height: 6 });\n}\n"
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 0;",
+                  "replace": "const N = 1;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "submit",
+            "arguments": {
+              "note": "完成"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

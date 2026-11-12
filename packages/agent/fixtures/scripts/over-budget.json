@@ -1,0 +1,217 @@
+{
+  "name": "over-budget",
+  "task": "# 测试小亭\n\n## 一、must\n- 一个小亭\n",
+  "steps": [
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "write_code",
+            "arguments": {
+              "code": "export default function build(w: World): void {\n  const N = 0;\n  w.walls({ height: 6 });\n}\n"
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 1;",
+                  "replace": "const N = 2;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 2;",
+                  "replace": "const N = 3;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 3;",
+                  "replace": "const N = 4;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 4;",
+                  "replace": "const N = 5;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 5;",
+                  "replace": "const N = 6;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 6;",
+                  "replace": "const N = 7;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    },
+    {
+      "reply": {
+        "kind": "message",
+        "content": null,
+        "toolCalls": [
+          {
+            "name": "edit_code",
+            "arguments": {
+              "edits": [
+                {
+                  "find": "const N = 7;",
+                  "replace": "const N = 8;"
+                }
+              ]
+            }
+          },
+          {
+            "name": "check_code",
+            "arguments": {}
+          }
+        ]
+      },
+      "usage": {
+        "completion": 40000,
+        "hitRatio": 0
+      }
+    }
+  ]
+}

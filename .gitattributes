@@ -1,0 +1,9 @@
+# 行尾统一为 LF，避免 Windows autocrlf 把文件改成 CRLF。
+* text=auto eol=lf
+
+# 导入的只读数据：按字节原样检出，sha256 清单（assets/MANIFEST.json）才能跨平台一致。
+assets/** -text -diff linguist-generated
+package-lock.json linguist-generated
+
+*.jpg binary
+*.png binary

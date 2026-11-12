@@ -1,0 +1,76 @@
+{
+  "name": "puzzle-garden",
+  "version": "0.3.0-beta.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "一句自然语言需求 → 可施工的体素建筑：LLM agent、沙箱、几何 / 分析 / 渲染与网页工作台。",
+  "author": "xingzihai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingzihai/puzzle-garden.git"
+  },
+  "homepage": "https://github.com/xingzihai/puzzle-garden#readme",
+  "bugs": {
+    "url": "https://github.com/xingzihai/puzzle-garden/issues"
+  },
+  "keywords": [
+    "voxel",
+    "minecraft",
+    "ai-agent",
+    "llm",
+    "procedural-generation",
+    "typescript"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json && tsc -p packages/render/tsconfig.page.json && tsc -p packages/web/tsconfig.page.json",
+    "massing": "node packages/web/src/cli.ts",
+    "model:build": "node tools/model-build.ts",
+    "model:agent": "node tools/model-agent.ts",
+    "model:agent:live": "node --env-file=.env tools/model-agent.ts --live",
+    "design:example": "node tools/design-agent.ts --example",
+    "design:mock": "node tools/design-agent.ts --mock docs/examples/design-agent-mock.json",
+    "design:build": "node tools/design-build.ts",
+    "design:preview": "node tools/design-preview.ts",
+    "design:web": "node --env-file=.env tools/interaction-server.ts --live",
+    "lint": "eslint --max-warnings=0 .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --import ./tools/test-no-network.ts --test \"packages/*/src/**/!(*.integration).test.ts\" \"tools/**/!(*.integration).test.ts\"",
+    "test:coverage": "node --import ./tools/test-no-network.ts --test --experimental-test-coverage --test-coverage-lines=90 --test-coverage-branches=85 --test-coverage-functions=90 --test-coverage-include=\"packages/*/src/**/*.ts\" --test-coverage-exclude=\"**/*.test.ts\" \"packages/*/src/**/!(*.integration).test.ts\"",
+    "test:integration": "node --import ./tools/test-no-network.ts --test \"packages/*/src/**/*.integration.test.ts\" \"tools/**/*.integration.test.ts\"",
+    "agent": "node packages/agent/src/cli.ts",
+    "agent:massing": "node tools/agent-massing.ts",
+    "agent:massing:live": "node --env-file=.env tools/agent-massing.ts --live",
+    "bench": "node tools/bench.ts",
+    "check:deps": "node tools/check-deps.ts",
+    "check:assets": "node tools/assets-manifest.ts",
+    "check": "node tools/check.ts",
+    "prepare": "node -e \"try{require('child_process').execFileSync('git',['config','core.hooksPath','.githooks'],{stdio:'ignore'})}catch{}\"",
+    "test:tools": "node --test \"tools/**/!(*.integration).test.ts\"",
+    "conformance:matrix": "node tools/conformance-matrix.ts",
+    "check:conformance": "node tools/conformance-matrix.ts --strict && node --import ./tools/test-no-network.ts --test tools/conformance-diff.test.ts tools/conformance-run9.test.ts tools/conformance-run9-v2.test.ts",
+    "check:tests": "node tools/check-tests.ts",
+    "agent:live": "node --env-file=.env packages/agent/src/cli.ts --live",
+    "design:web:live": "PG_LIVE_CONFIRM=1 node --env-file=.env tools/interaction-server.ts --live",
+    "design:web:mock": "node tools/interaction-server.ts --mock"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@huggingface/tokenizers": "0.2.0",
+    "@types/node": "24.13.6",
+    "eslint": "10.11.0",
+    "eslint-config-prettier": "10.1.8",
+    "fast-check": "4.10.2",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.0",
+    "zod": "4.6.7"
+  }
+}

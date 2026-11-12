@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "title": "村口茶室短墙洞口回归",
+    "concept": "由最新真实失败 session 的 8×6 主厅 + 备茶间 + 储物间布局派生：备茶间南墙被储物间切成 2 格短墙，门洞无法留出两端墙厚。",
+    "scope": "exterior+interior"
+  },
+  "site": {
+    "bounds": { "x": [0, 18], "z": [0, 18] },
+    "orientation": "south",
+    "entrance": { "side": "north", "notes": "北侧村道进入。" },
+    "outdoorZones": [],
+    "notes": null
+  },
+  "program": {
+    "levels": [{ "id": "f1", "name": "首层", "height": 3, "floorMaterialId": "mat-floor" }],
+    "rooms": [
+      {
+        "id": "room-main-hall",
+        "name": "茶亭主厅",
+        "level": "f1",
+        "kind": "room",
+        "rect": { "x": [2, 10], "z": [2, 8] },
+        "areaM2": 48,
+        "occupancy": 10,
+        "adjacency": ["room-brew-hall"],
+        "daylight": "required",
+        "notes": "8×6 米矩形主厅，南向看稻田，中部一张长茶桌。"
+      },
+      {
+        "id": "room-brew-hall",
+        "name": "备茶间",
+        "level": "f1",
+        "kind": "service",
+        "rect": { "x": [2, 6], "z": [8, 12] },
+        "areaM2": 16,
+        "occupancy": 2,
+        "adjacency": ["room-main-hall", "room-store"],
+        "daylight": "preferred",
+        "notes": "主厅南侧伸出的小备茶间，南墙一半与储物间共用。"
+      },
+      {
+        "id": "room-store",
+        "name": "储物间",
+        "level": "f1",
+        "kind": "service",
+        "rect": { "x": [2, 4], "z": [12, 14] },
+        "areaM2": 4,
+        "occupancy": 0,
+        "adjacency": ["room-brew-hall"],
+        "daylight": "none",
+        "notes": "贴在备茶间南侧的 2×2 米储物间。"
+      }
+    ]
+  },
+  "envelope": {
+    "wallDefaults": { "exteriorThickness": 1, "interiorThickness": 1 },
+    "walls": [],
+    "stairs": []
+  },
+  "openings": [
+    {
+      "id": "op-main-entry",
+      "name": "北侧主入口",
+      "roomId": "room-main-hall",
+      "side": "north",
+      "kind": "door",
+      "role": "entrance",
+      "offset": 2,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "双开木门",
+      "frameMaterial": "mat-wood"
+    },
+    {
+      "id": "op-main-south-window",
+      "name": "主厅南窗",
+      "roomId": "room-main-hall",
+      "side": "south",
+      "kind": "window",
+      "role": "interior",
+      "offset": 5,
+      "width": 2,
+      "height": 1,
+      "sill": 1,
+      "fill": "透明玻璃",
+      "frameMaterial": "mat-wood"
+    },
+    {
+      "id": "op-brew-hall-door",
+      "name": "备茶间南门",
+      "roomId": "room-brew-hall",
+      "side": "south",
+      "kind": "door",
+      "role": "interior",
+      "offset": 0,
+      "width": 2,
+      "height": 2,
+      "sill": 0,
+      "fill": "单开木门",
+      "frameMaterial": "mat-wood"
+    }
+  ],
+  "structure": {
+    "system": "frame",
+    "materialId": "mat-wood",
+    "floorThickness": 1,
+    "notes": null
+  },
+  "roof": {
+    "form": "gable",
+    "materialId": "mat-roof",
+    "pitchDegrees": 26,
+    "overhang": 1,
+    "ridgeAxis": "x",
+    "drainage": null,
+    "skylights": [],
+    "notes": null
+  },
+  "facades": [
+    {
+      "side": "north",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "south",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "east",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": null,
+      "notes": null
+    },
+    {
+      "side": "west",
+      "baseMaterialId": "mat-stone-wall",
+      "bodyMaterialId": "mat-stone-wall",
+      "topMaterialId": null,
+      "notes": null
+    }
+  ],
+  "materials": [
+    { "id": "mat-floor", "name": "室内石地面", "block": "stone_bricks", "role": "floor", "notes": null },
+    { "id": "mat-wood", "name": "暖木梁柱与门窗框", "block": "oak_planks", "role": "structure", "notes": null },
+    { "id": "mat-stone-wall", "name": "灰石墙", "block": "smooth_sandstone", "role": "wall", "notes": null },
+    { "id": "mat-roof", "name": "深瓦屋面", "block": "deepslate_tiles", "role": "roof", "notes": null }
+  ],
+  "furniture": [
+    {
+      "id": "f-long-table",
+      "name": "六座长茶桌",
+      "kind": "table",
+      "roomId": "room-main-hall",
+      "anchor": { "kind": "center" },
+      "footprint": { "x": 3, "z": 1 },
+      "orientation": "east",
+      "height": 1,
+      "materialId": "mat-wood",
+      "notes": null
+    },
+    {
+      "id": "f-brew-counter",
+      "name": "备茶台",
+      "kind": "counter",
+      "roomId": "room-brew-hall",
+      "anchor": { "kind": "center" },
+      "footprint": { "x": 1, "z": 1 },
+      "orientation": "south",
+      "height": 1,
+      "materialId": "mat-wood",
+      "notes": null
+    }
+  ],
+  "decisions": [],
+  "open": []
+}

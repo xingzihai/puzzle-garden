@@ -1,0 +1,28 @@
+# 离线门禁：与本地 npm run check 完全相同。
+# 不联网调模型、不花钱；集成测试（浏览器 / bwrap）不在这里跑。
+# actions 按提交 sha 固定，注释里是对应的版本号。
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      # 独立一步：多户型 conformance matrix（--strict）+ conformance-diff 回归。
+      # 不塞进 npm run check，避免拖慢本地的统一门禁。
+      - run: npm run check:conformance

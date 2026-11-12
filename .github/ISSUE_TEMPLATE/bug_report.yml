@@ -1,0 +1,85 @@
+name: Bug 报告
+description: 报告可复现的错误、崩溃或行为异常
+title: '[bug] '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请先确认：
+        - 已阅读 `README.md` 与相关 `docs/`；
+        - 已跑过 `npm run check`，并搜索过现有 issue；
+        - 日志里**没有** API key、私有网关地址或个人路径。
+
+        安全问题请走 `SECURITY.md` 的私密渠道，不要在这里公开。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么
+      description: 实际行为与期望行为
+      placeholder: 我运行 ...，期望 ...，实际 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 最小命令 / 输入 / 题面；如果是 live 问题，请说明模型与预算
+      placeholder: |
+        1. npm ci
+        2. npm run ...
+        3. 看到 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志 / 截图
+      description: 请先脱敏；不要粘贴 `.env` 或完整 API key
+      render: text
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本 / commit
+      description: '用 `git rev-parse --short HEAD` 或 tag'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: 运行模式
+      options:
+        - mock / example（离线）
+        - 单元 / 集成测试
+        - live 设计
+        - live 构建
+        - 网页工作台
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 环境
+      description: 操作系统、Node 版本、bwrap / Chrome 版本
+      placeholder: Ubuntu 24.04 · Node 24.19.0 · bwrap 0.9.0 · Chrome 154
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认
+      options:
+        - label: 我已搜索现有 issue，没有重复
+          required: true
+        - label: 日志已脱敏，不含 API key / 私有地址 / 个人路径
+          required: true
