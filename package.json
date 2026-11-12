@@ -64,7 +64,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@huggingface/tokenizers": "0.2.0",
-    "@types/node": "24.13.6",
+    "@types/node": "26.6.6",
     "eslint": "10.11.0",
     "eslint-config-prettier": "10.1.8",
     "fast-check": "4.10.2",
